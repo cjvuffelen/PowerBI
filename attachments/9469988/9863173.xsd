@@ -1,0 +1,56 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified"
+           targetNamespace="http://xmlns.oracle.com/IHC/OPSInventLabelSchema">
+  <xs:element name="POReceipt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Company" type="xs:string"/>
+        <xs:element name="Site" type="xs:string"/>
+        <xs:element name="PoNumber" type="xs:string"/>
+        <xs:element name="PoLineNo" type="xs:string"/>
+        <xs:element name="PoLineReleaseNo" type="xs:string"/>
+        <xs:element name="PoLineDescription" type="xs:string"/>
+        <xs:element name="PartNo" type="xs:string"/>
+        <xs:element name="Supplier" type="xs:string"/>
+        <xs:element name="SuppplierName" type="xs:string"/>
+        <xs:element name="QuantityReceived" type="xs:string"/>
+        <xs:element name="PurchUoM" type="xs:string"/>
+        <xs:element name="OrderRef1" type="xs:string"/>
+        <xs:element name="IHCProjectId" type="xs:string"/>
+        <xs:element name="IHCProjectDescription" type="xs:string"/>
+        <xs:element name="SubProjectId" type="xs:string"/>
+        <xs:element name="SubProjectIdName" type="xs:string"/>
+        <xs:element name="WBSElementId" type="xs:string"/>
+        <xs:element name="WBSElementDescription" type="xs:string"/>
+        <xs:element name="ActivityId" type="xs:string"/>
+        <xs:element name="ActivityDescription" type="xs:string"/>
+        <xs:element name="ActivitySequence" type="xs:string"/>
+        <xs:element name="ActualDeliveryDate" type="xs:string"/>
+        <xs:element name="UserId" type="xs:string"/>
+        <xs:element name="CIhcPrinter" type="xs:string"/>
+        <xs:element name="CreationDate" type="xs:string"/>
+        <xs:element name="ObjectId" type="xs:string"/>
+        <xs:element name="ObjectDescription" type="xs:string"/>
+        <xs:element name="waiv_dev_rej_no" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

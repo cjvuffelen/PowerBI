@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Setup CI/CD in GitHub Team</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tools_4128769.html">Tools</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="MuleSoft_3964983.html">MuleSoft</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="3735681.html">CI/CD</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Setup CI/CD in GitHub Team
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> r.lodder1</span>, last modified on mrt. 15, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="SetupCI/CDinGitHubTeam-GitHubOverallSettings">GitHub Overall Settings</h1><p>The MuleSoft Integration CI/CD is relying on settings defined on ‘Team level’ and ‘Repository level’. The ‘Team level’ settings apply for every repository in that team. The repository setup only applies to the repository. However, for Integration repositories this should always be the same.</p><h2 id="SetupCI/CDinGitHubTeam-Accesstorepositories">Access to repositories</h2><p>When creating a new GitHub repository, it is not automatically implied that a certain team has access to this repository. Only the repositories defined in the repositories overview in the Team are candidates for auto assignment.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/4587528/5013573.jpg" data-image-src="attachments/4587528/5013573.jpg" data-height="409" data-width="1193" data-unresolved-comment-count="0" data-linked-resource-id="5013573" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="team-repos.jpg" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="4587528" data-linked-resource-container-version="10" data-media-id="4f1fc706-67eb-40de-9435-c6c736847fd2" data-media-type="file"></span><p /><h2 id="SetupCI/CDinGitHubTeam-Teamlevelautoassign">Team level auto assign</h2><p>The MuleSoft Integrations are being developed by the team members of ‘Integration’. This group is responsible and knowledgeable to create and maintain these integrations. Therefore, everyone in this group can be assigned in reviewing PRs without getting overloaded with requests.</p><p>To achieve this, the ‘Team settings’ must be changed for ‘Code Review’.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="680" loading="lazy" src="attachments/4587528/4816920.jpg?width=680" data-image-src="attachments/4587528/4816920.jpg" data-height="699" data-width="1642" data-unresolved-comment-count="0" data-linked-resource-id="4816920" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="code-review-team.jpg" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="4587528" data-linked-resource-container-version="10" data-media-id="2b3b8684-acd1-4570-8d51-287933878902" data-media-type="file"></span><p /><p>The following decisions where made for ‘Code Review’ on Team level:</p><ul><li><p><strong>Notification - </strong>Only the persons assigned to perform the PR will be notified</p></li><li><p><strong>Auto Assign -</strong> When a PR is created, a person is automatically assigned to do the review</p></li><li><p><strong>Team members to review -</strong> Only one person needs to perform the review</p></li><li><p><strong>Routing Algorithm -</strong> Load balancing is used, meaning that GitHub takes into consideration how many review jobs are already on someones name before assigning it</p></li></ul>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4587528/4816920.jpg">code-review-team.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4587528/5013573.jpg">team-repos.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

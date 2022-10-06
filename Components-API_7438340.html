@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Components API</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Integrations_3735653.html">Integrations</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Components API
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Chi Chuen Ng</span>, last modified on mrt. 31, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>The components API retrieves data from IFS and returns it to the client synchronously. It is part of the MARS-DMS interface and DMS uses it to get components, rooms and sections. Please click <a class="external-link" href="https://eu1.anypoint.mulesoft.com/exchange/34f3004c-3396-4846-8440-af0956f5e7e0/components-system-api/" rel="nofollow">here </a>for more information about the Components System API spec.</p><p> </p><h2 id="ComponentsAPI-Components">Components</h2><p>The API gets components by calling stored procedure IFSAPP.IHC_PORTAL_UTIL_API.Get_Components(:cv_1,:last_modified_,:ihc_project_id_,:object_id_) where cv_1 is a output cursor and the rest are input variables. The last_modified_ variable expects a datetime format of “yyyyMMddHHmmss“. All variables are optional, however, the Components System API spec requirements are different.</p><p>The API spec expects projectId, lastModifiedDateTime (format: “yyyy-MM-dd’T’HH:mm:ss’Z'“) and objectId queryParameters of which the first two are required. ObjectId is an optional parameter to filter the collection for a specific component.</p><p>The flow itself is simple: a stored procedure call is made and the output is transformed into an JSON response.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7438340/7471167.png" data-image-src="attachments/7438340/7471167.png" data-height="158" data-width="348" data-unresolved-comment-count="0" data-linked-resource-id="7471167" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="components_get_ifs_components.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7438340" data-linked-resource-container-version="2" data-media-id="da04368b-1bd2-4a4f-964e-bd179a2f5a0f" data-media-type="file"></span><p /><h2 id="ComponentsAPI-Rooms">Rooms</h2><p>The API gets rooms by calling stored procedure IFSAPP.IHC_PORTAL_UTIL_API.Get_Rooms(:cv_1,:last_modified_,:ihc_project_id_,:object_id_) where cv_1 is a output cursor and the rest are input variables. The last_modified_ variable expects a datetime format of “yyyyMMddHHmmss“. All variables are optional, however, the Components System API spec requirements are different.</p><p>The API spec expects projectId, lastModifiedDateTime (format: “yyyy-MM-dd’T’HH:mm:ss’Z'“) and objectId queryParameters of which the first two are required. ObjectId is an optional parameter to filter the collection for a specific room.</p><p>The flow itself is simple: a stored procedure call is made and the output is transformed into an JSON response.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7438340/7602199.png" data-image-src="attachments/7438340/7602199.png" data-height="158" data-width="348" data-unresolved-comment-count="0" data-linked-resource-id="7602199" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="rooms_get_ifs_rooms.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7438340" data-linked-resource-container-version="2" data-media-id="b74302aa-1f7a-48dd-b24c-0edb3d1ae257" data-media-type="file"></span><p /><h2 id="ComponentsAPI-Sections">Sections</h2><p>The API gets sections by calling stored procedure IFSAPP.IHC_PORTAL_UTIL_API.Get_Sections(:cv_1,:last_modified_,:ihc_project_id_,:object_id_) where cv_1 is a output cursor and the rest are input variables. The last_modified_ variable expects a datetime format of “yyyyMMddHHmmss“. All variables are optional, however, the Components System API spec requirements are different.</p><p>The API spec expects projectId, lastModifiedDateTime (format: “yyyy-MM-dd’T’HH:mm:ss’Z'“) and objectId queryParameters of which the first two are required. ObjectId is an optional parameter to filter the collection for a specific section.</p><p>The flow itself is simple: a stored procedure call is made and the output is transformed into an JSON response.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="340" loading="lazy" src="attachments/7438340/7536681.png?width=340" data-image-src="attachments/7438340/7536681.png" data-height="158" data-width="348" data-unresolved-comment-count="0" data-linked-resource-id="7536681" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="sections_get_ifs_sections.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7438340" data-linked-resource-container-version="2" data-media-id="9fd4f035-53c4-44d2-b632-f55eadb4be66" data-media-type="file"></span><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7438340/7471167.png">components_get_ifs_components.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7438340/7602199.png">rooms_get_ifs_rooms.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7438340/7536681.png">sections_get_ifs_sections.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

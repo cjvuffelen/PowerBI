@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xsd:element name="Root">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="MsgSeqNo" type="xsd:integer"/>
+        <xsd:element name="Sender" type="xsd:string"/>
+        <xsd:element name="DateTime" type="xsd:dateTime"/>
+        <!--<xsd:element name="ERP_Act_solution" type="xsd:string"/>
+        <xsd:element name="ERP_Plant_ID" type="xsd:string"/>
+        <xsd:element name="ERP_SubProject_ID" type="xsd:string"/>
+        <xsd:element name="ERP_Activity_ID" type="xsd:string"/>-->
+        <xsd:choice>
+          <xsd:element name="PurchaseOrder" type="PurchaseOrder" minOccurs="0" maxOccurs="unbounded"/>
+          <xsd:element name="Project" type="Project" minOccurs="0" maxOccurs="unbounded"/>
+          <xsd:element name="Section" type="Section" minOccurs="0" maxOccurs="unbounded"/>
+          <xsd:element name="Shipment" type="Shipment" minOccurs="0" maxOccurs="unbounded"/>
+          <xsd:element name="Completion" type="Completion" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:choice>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="PurchaseOrder">
+    <xsd:sequence>
+      <xsd:element name="IFS_PONumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SPx_PONumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SupplierNumber" type="xsd:integer" minOccurs="0"/>
+      <xsd:element name="PurchaseOrderLine" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="IFS_POLNumber" type="xsd:integer" minOccurs="0"/>
+            <xsd:element name="SPx_POLNumber" type="xsd:integer" minOccurs="0"/>
+            <xsd:element name="CertificateClass" type="xsd:string"/>
+            <xsd:element name="Certificate" type="xsd:float"/>
+            <xsd:element name="CarbonEquivalent" type="xsd:float"/>
+            <xsd:element name="SurfaceTreatment" type="xsd:string"/>
+            <xsd:element name="CoatingCertificate" type="xsd:string"/>
+            <xsd:element name="MechanicalTest" type="xsd:string"/>
+            <xsd:element name="Plate" type="PlateOrProfile" maxOccurs="unbounded" minOccurs="0"/>
+            <xsd:element name="Profile" type="PlateOrProfile" maxOccurs="unbounded" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PlateOrProfile">
+    <xsd:sequence>
+      <xsd:element name="ProjectNumber" type="xsd:string"/>
+      <xsd:element name="Nestix_Section_ID" type="xsd:integer"/>
+      <xsd:element name="Nestix_Du_ID" type="xsd:integer"/>
+      <xsd:element name="ArticleNumber" type="xsd:integer"/>
+      <xsd:element name="WantedDeliveryDate" type="xsd:date"/>
+      <xsd:element name="PlateNumber" type="xsd:integer"/>
+      <xsd:element name="Quantity" type="xsd:integer"/>
+      <xsd:element name="IFS_Release_Nr" type="xsd:integer" minOccurs="0"/>
+      <xsd:element name="Weight" type="xsd:float" minOccurs="0"/>
+      <xsd:element name="ReceivedWeight" type="xsd:float" minOccurs="0"/>
+      <xsd:element name="ReceivingDate" type="xsd:date" minOccurs="0"/>
+      <xsd:element name="HeatNo" type="xsd:string"/>
+      <xsd:element name="Length" type="xsd:float"/>
+      <xsd:element name="Width" type="xsd:float"/>
+      <xsd:element name="Info" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CertificateType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CertificateNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CarbonEquivalent" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SurfaceTreatment" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CoatingCertificate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MechanicalTest" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Currency" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="KgPrice" type="xsd:float" minOccurs="0"/>
+      <xsd:element name="Section_Name" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Du_Name" type="xsd:string" minOccurs="0"/>      
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Section">
+    <xsd:sequence>
+      <xsd:element name="Project_Name" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Project_ID" type="xsd:integer" minOccurs="0"/>
+      <xsd:element name="ERP_Act_solution" type="xsd:string"/>
+      <xsd:element name="ERP_Plant_ID" type="xsd:string"/>
+      <xsd:element name="ERP_SubProject_ID" type="xsd:string"/>
+      <xsd:element name="ERP_Activity_ID" type="xsd:string"/>
+      <xsd:element name="BOP_ID" type="xsd:integer"/>
+      <xsd:element name="PBS_ID" type="xsd:integer"/>
+      <xsd:element name="Section_Name" type="xsd:integer"/>
+      <xsd:element name="Nestix_Section_ID" type="xsd:integer"/>
+      <xsd:element name="DU" type="DU" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Project">
+    <xsd:sequence>
+      <xsd:element name="Project_Name" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Project_ID" type="xsd:integer" minOccurs="0"/>
+      <xsd:element name="Section" type="Section" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Shipment">
+    <xsd:sequence>
+      <xsd:element name="CharterNo" type="xsd:integer"/>
+      <xsd:element name="ShipmentWeight" type="xsd:float"/>
+      <xsd:element name="FlatTruckID" type="xsd:string"/>
+      <xsd:element name="Departure">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Customer" type="xsd:string"/>
+            <xsd:element name="CustomerNo" type="xsd:integer"/>
+            <xsd:element name="AddressID" type="xsd:integer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Destination">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Customer" type="xsd:string"/>
+            <xsd:element name="CustomerNo" type="xsd:integer"/>
+            <xsd:element name="AddressID" type="xsd:integer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Packages" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="PackageName" type="xsd:integer"/>
+            <xsd:element name="PackageID" type="xsd:integer"/>
+            <xsd:element name="PackageWeight" type="xsd:float"/>
+            <xsd:element name="PackageWidth" type="xsd:float"/>
+            <xsd:element name="PackageLength" type="xsd:float"/>
+            <xsd:element name="PackageHeight" type="xsd:float"/>
+            <xsd:element name="DU" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="BOP_ID" type="xsd:integer"/>
+                  <xsd:element name="DU_ID" type="xsd:integer"/>
+                  <xsd:element name="Du_Name" type="xsd:string"/>
+                  <xsd:element name="Nestix_Du_ID" type="xsd:integer"/>
+                  <xsd:element name="DuWeight" minOccurs="0" type="xsd:float"/>
+                  <xsd:element name="Part" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="Name" type="xsd:string"/>
+                        <xsd:element name="PartID" type="xsd:integer"/>
+                        <xsd:element name="Quantity" type="xsd:integer"/>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Completion">
+    <xsd:sequence>
+      <xsd:element name="WorkPhase" type="xsd:string"/>
+      <xsd:element name="WorkPlace" type="xsd:string"/>
+      <xsd:element name="WorkCenter" type="xsd:string"/>
+      <xsd:element name="Section" type="Section"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Material">
+    <xsd:sequence>
+      <xsd:element name="ArticleNumber" type="xsd:integer"/>
+      <xsd:element name="MaterialGrossUsage" type="xsd:integer"/>
+      <xsd:element name="KgPrice" type="xsd:float"/>
+      <xsd:element name="Currency" type="xsd:string"/>
+      <xsd:element name="MaterialValue" type="xsd:float"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Time">
+    <xsd:sequence>
+      <xsd:element name="WorkTime" type="xsd:float"/>
+      <xsd:element name="HourPrice" type="xsd:float"/>
+      <xsd:element name="Currency" type="xsd:string"/>
+      <xsd:element name="WorkTimeValue" type="xsd:integer"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DU">
+    <xsd:sequence>
+      <xsd:element name="DU_ID" type="xsd:integer"/>
+      <xsd:element name="Du_Name" type="xsd:string"/>
+      <xsd:element name="Nestix_Du_ID" type="xsd:integer"/>
+      <xsd:element name="Progress" type="xsd:integer" minOccurs="0"/>
+      <xsd:element name="Material" type="Material" minOccurs="0"/>
+      <xsd:element name="Time" type="Time" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
+
+

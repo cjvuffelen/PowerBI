@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Deployment tips and tricks</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Deployments_13336596.html">Deployments</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Deployment tips and tricks
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Alex Hoogvliet</span>, last modified by <span class='editor'> ma.vanommering</span> on jul. 01, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p /><p><u>To drop a staged table via Databricks notebook</u><br/>%sql<br/>drop table staged.stg_workday_workers;</p><p>%scala<br/>//delete table from disk<br/>dbutils.fs.rm(&quot;/mnt/staged/datawarehouse/staged/stg_workday_workers&quot;,recurse=true)<br/><br/><u>How to show a file in Databricks</u><br/>%fs<br/>ls mnt/raw/ifs/snapshots/SITE_TAB</p><p /><p><u>To deploy PR in repository Databricks-technical</u><br/>e.g. in Acceptance<br/>Go to Actions - click on deploy-to-acc</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="217" loading="lazy" src="attachments/14712957/22151235.png?width=217" data-image-src="attachments/14712957/22151235.png" data-height="292" data-width="476" data-unresolved-comment-count="0" data-linked-resource-id="22151235" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220629-132843.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14712957" data-linked-resource-container-version="9" data-media-id="3b65010d-fd70-4c64-8760-22d14fe25a7b" data-media-type="file"></span><p>Fill in path as indicated below<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="217" loading="lazy" src="attachments/14712957/22544434.png?width=217" data-image-src="attachments/14712957/22544434.png" data-height="418" data-width="453" data-unresolved-comment-count="0" data-linked-resource-id="22544434" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220629-132749.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14712957" data-linked-resource-container-version="9" data-media-id="cec5e285-a7cf-429d-9566-3fd5d53a2502" data-media-type="file"></span><p /><p><br/><u>Add new folders to ADLS</u><br/>Also refer to Renew Credentials in Deployment Troubleshooting.<br/>Go to IaC Repository<br/>Step 1<br/>Actions<br/>New/Repair Folder in ADLS ACC<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/14712957/16449652.png" data-image-src="attachments/14712957/16449652.png" data-height="95" data-width="314" data-unresolved-comment-count="0" data-linked-resource-id="16449652" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220609-170251.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14712957" data-linked-resource-container-version="9" data-media-id="a49092f1-8e1a-491b-bae4-d075235a462b" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="102" loading="lazy" src="attachments/14712957/16449646.png?width=102" data-image-src="attachments/14712957/16449646.png" data-height="266" data-width="324" data-unresolved-comment-count="0" data-linked-resource-id="16449646" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220609-170218.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14712957" data-linked-resource-container-version="9" data-media-id="ac250f53-0667-49af-a737-4d40cc8a4df1" data-media-type="file"></span><p> Step 2<br/>Workspace - Shared - Configuration - Mounting ADLS</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="340" loading="lazy" src="attachments/14712957/16416917.png?width=340" data-image-src="attachments/14712957/16416917.png" data-height="251" data-width="540" data-unresolved-comment-count="0" data-linked-resource-id="16416917" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220609-170727.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14712957" data-linked-resource-container-version="9" data-media-id="787b66a6-b007-4f6d-959f-63e154bb692c" data-media-type="file"></span><p><br/><u>How to find the actual Defence filter in the log in Airflow</u><br/>In ADF go to Monitor - Pipelines runs - <br/>??Fill in Run ID<br/>Drill down via checking the Input / Output all the way to the real Defence filter.<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="340" loading="lazy" src="attachments/14712957/15827144.png?width=340" data-image-src="attachments/14712957/15827144.png" data-height="198" data-width="460" data-unresolved-comment-count="0" data-linked-resource-id="15827144" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220609-171714.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14712957" data-linked-resource-container-version="9" data-media-id="29ebd7e0-449b-4661-8ccd-6eaaa8138831" data-media-type="file"></span><p /><p>ALL STEPS FROM INGEST TO LOAD<br/>Step 1 <u>Ingest data</u><br/>- Fill IngestionConfig table. Put the Insert statement in the Deployments folder/<br/>- In ADF run CopyIngestion<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/14712957/20774933.png" data-image-src="attachments/14712957/20774933.png" data-height="299" data-width="537" data-unresolved-comment-count="0" data-linked-resource-id="20774933" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220621-074008.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14712957" data-linked-resource-container-version="9" data-media-id="d02cd970-c359-4fef-948c-ac5f3c0ec6ef" data-media-type="file"></span><p>Click on Debug.<br/>Click on Output and Refresh.<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="340" loading="lazy" src="attachments/14712957/20217961.png?width=340" data-image-src="attachments/14712957/20217961.png" data-height="404" data-width="536" data-unresolved-comment-count="0" data-linked-resource-id="20217961" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220621-074058.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14712957" data-linked-resource-container-version="9" data-media-id="afbcf456-564d-4c84-ad7e-0e07a30937e4" data-media-type="file"></span><p>Ingest of the data via ADF<br/>Pipelines - General - IngestTablesToDataLake<br/>Click on Lookup tables in IngestionConfig<br/>Click op Debug<br/>Fill screen:<br/>Source ifs (small letters)<br/>DeleteQuery remains empty<br/>batchDateTime date of today yyyy-mm-dd<br/>TableName b.v. INQUIRY_TAB<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/14712957/20512819.png" data-image-src="attachments/14712957/20512819.png" data-height="425" data-width="1027" data-unresolved-comment-count="0" data-linked-resource-id="20512819" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220621-074313.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14712957" data-linked-resource-container-version="9" data-media-id="463fab7e-fef3-4a11-94cb-3c53db1c061c" data-media-type="file"></span><p>Click on canvas (the white part)<br/>Click on1output<br/>Refresh (a few times)<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/14712957/20840453.png" data-image-src="attachments/14712957/20840453.png" data-height="131" data-width="537" data-unresolved-comment-count="0" data-linked-resource-id="20840453" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220621-074429.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14712957" data-linked-resource-container-version="9" data-media-id="38a9134c-70b1-4ecb-9cc8-204072a3428f" data-media-type="file"></span><p>Check if table is made e.g. via Databricks<br/>%fs<br/>ls mnt/raw/ifs/snapshots/INQUIRY_TAB<br/>You can also view via Azure Storage Explorer.<br/> </p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/14712957/20840461.png" data-image-src="attachments/14712957/20840461.png" data-height="190" data-width="538" data-unresolved-comment-count="0" data-linked-resource-id="20840461" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220621-074607.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14712957" data-linked-resource-container-version="9" data-media-id="ae6b47bb-cf65-4e14-9b91-5a3020749ec7" data-media-type="file"></span><p>With below command you will see the data of the parquet fil<br/>display(spark.read.parquet(&quot;dbfs:/mnt/raw/ifs/snapshots/CUSTOMER_ORDER_CFT/dt=2022-04-14&quot;))<br/><br/><u>Step 1a Fill table with data</u></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/14712957/20774941.png" data-image-src="attachments/14712957/20774941.png" data-height="308" data-width="863" data-unresolved-comment-count="0" data-linked-resource-id="20774941" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220621-074846.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14712957" data-linked-resource-container-version="9" data-media-id="28677e83-03b8-424d-a1e7-e27139a861a3" data-media-type="file"></span><p>Via ADF.<br/>Fill in a date and that dat should be in the dbt_project.yml file.<br/>The partitions will have the date that is filled in. Only for ‘testing purposes’ (in prod different).<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/14712957/20807687.png" data-image-src="attachments/14712957/20807687.png" data-height="161" data-width="353" data-unresolved-comment-count="0" data-linked-resource-id="20807687" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220621-075039.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14712957" data-linked-resource-container-version="9" data-media-id="cfffb1be-a13d-4596-8ab1-30a68f04cfcb" data-media-type="file"></span><p /><p><u>Step 2 Create source (yml) file</u><br/><br/><u>Step 3 Run Main.py</u><br/>Refer to description in Confluence.<br/>? Workaround still needed?<br/><u>WORKAROUND</u><br/>Main.py does not recognize the subfolder of the sources, 1_sources/ifs<br/>Drag the applicable yml file 1 folder up, to 1_sources.<br/>Run without debugging.<br/>Drag the yml file back to the 1_sources/ifs folder.<br/>The staged and silver sqls should be there. </p><p>Run without debugging<br/>This will create the sql and yml file of the staged layer and the sql of the silver layer.<br/>To do: adapt the silver layer sql with respect to $ signs.<br/><br/><u>Step 4 Create raw table</u><br/>dbt run-operation stage_external_sources --vars &quot;ext_full_refresh: true&quot; --args &quot;select: ifs.ext_ifs_customer_order_cft&quot;<br/><br/><u>Step 5 Create staged table, snapshot</u><br/>dbt snapshot --select stg_ifs_customer_order_cft<br/><br/><u>Step 6 Create silver layer view</u><br/>dbt run --select ifs_customer_order_cft<br/><br/></p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/14712957/16449646.png">image-20220609-170218.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/14712957/16449652.png">image-20220609-170251.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/14712957/16416917.png">image-20220609-170727.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/14712957/15827144.png">image-20220609-171714.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/14712957/20774933.png">image-20220621-074008.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/14712957/20217961.png">image-20220621-074058.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/14712957/20512819.png">image-20220621-074313.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/14712957/20840453.png">image-20220621-074429.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/14712957/20840461.png">image-20220621-074607.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/14712957/20774941.png">image-20220621-074846.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/14712957/20807687.png">image-20220621-075039.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/14712957/22544434.png">image-20220629-132749.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/14712957/22151235.png">image-20220629-132843.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

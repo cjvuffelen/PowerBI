@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Development cycle</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Power-BI_8683562.html">Power BI</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Development cycle
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Martjan Pols</span>, last modified on jun. 14, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><span class="status-macro aui-lozenge aui-lozenge-progress">DRAFT</span> </p><p>Content:</p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1657623305031 {padding: 0px;}
+div.rbtoc1657623305031 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1657623305031 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1657623305031'>
+<ul class='toc-indentation'>
+<li><a href='#Developmentcycle-Introduction'>Introduction</a>
+<ul class='toc-indentation'>
+<li><a href='#Developmentcycle-Sourcecontrol'>Source control</a>
+<ul class='toc-indentation'>
+<li><a href='#Developmentcycle-Collaboration'>Collaboration</a></li>
+</ul>
+</li>
+<li><a href='#Developmentcycle-Refreshesondatamodel'>Refreshes on data model</a>
+<ul class='toc-indentation'>
+<li><a href='#Developmentcycle-Manualrefreshusingsqlservermanagementstudio'>Manual refresh using sql server management studio</a></li>
+</ul>
+</li>
+<li><a href='#Developmentcycle-Deployment'>Deployment</a>
+<ul class='toc-indentation'>
+<li><a href='#Developmentcycle-Usingpowerbideploymentpipelines'>Using power bi deployment pipelines</a></li>
+<li><a href='#Developmentcycle-Referencesondeployments'>References on deployments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><h1 id="Developmentcycle-Introduction">Introduction</h1><p>To work with power bi an understanding is needed for source control, deployments and refresh. </p><p> </p><h2 id="Developmentcycle-Sourcecontrol">Source control</h2><p>For Power BI a separate Git is created: <a class="external-link" data-card-appearance="inline" href="https://github.com/Royal-IHC-BV/PowerBI" rel="nofollow">https://github.com/Royal-IHC-BV/PowerBI</a>  to store the different items.</p><p>In order to work with source control for Power BI, you need the following:</p><ul><li><p>Contributor rights on Git</p></li><li><p>Installation of Git desktop</p></li><li><p>Clear communication in the team on which part you’re working on, as the pbit files are binary, and therefore no part development is possible.</p></li></ul><p>The following parts are stored in source control</p><ul><li><p>Custom Visuals<br/>for every custom visual, store an example pbix file and a custom visual file.</p></li><li><p>Programming. <br/>(dax, power-shell, tsml…) Store all relevant scripts which are used to maintain the Power BI solution</p></li><li><p>Templates</p><p>Standard datasets, pbit files for reporting templates etc.</p></li><li><p>Themes</p><p>Themes which are custom created.</p></li><li><p>Work-spaces</p><ol><li><p>For every CDM maintained workspace a folder</p></li><li><p>In every workspace a folder for:</p><ol><li><p>Reports</p></li><li><p>Datasets</p></li><li><p>Excel</p></li></ol></li></ol></li></ul><p>Please keep in mind that files with the pbix extension are binary files and are therefore not to be merged. So files will be overwritten. Therefore development with multiple people on same topic should be done with great care.</p><h3 id="Developmentcycle-Collaboration">Collaboration</h3><p>As said, pbix files are binary, it’s not possible to have a merge conflict of any kind. therefore it’s important to stick to the way of working for CDM power bi development:</p><ol><li><p>Communicate what you start to develop and on which model to make sure no-body is touching that file.</p></li><li><p>Get latest version using git desktop from master</p></li><li><p>Start building in master.</p></li><li><p>Manually deploy to test</p></li><li><p>After testing commit your stuff and deploy to acceptance and prod</p></li><li><p>Communicate the work is done.</p></li></ol><p> </p><h2 id="Developmentcycle-Refreshesondatamodel">Refreshes on data model</h2><p>A power bi model can be refreshed in multiple ways</p><h3 id="Developmentcycle-Manualrefreshusingsqlservermanagementstudio">Manual refresh using sql server management studio</h3><p>Via sql server management studio additional options are available to refresh power bi data sets manually. via this tool it is possible to only refresh a table, a set of tables or only recalculate to update the measures or meta data. this is very handy for fast development on measures and meta data only as you don’t need a full refresh.</p><p>how to:</p><ol><li><p>Install sql server mangement studio</p></li><li><p>Find the name of the server in the power bi service by data set settings:<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/8912957/18022445.png" data-image-src="attachments/8912957/18022445.png" data-height="184" data-width="519" data-unresolved-comment-count="0" data-linked-resource-id="18022445" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220614-094637.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="8912957" data-linked-resource-container-version="2" data-media-id="e530658e-e6d1-48ec-8ff0-6b250456a258" data-media-type="file"></span></li><li><p>Connect to analyses server using your name and password<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="432" loading="lazy" src="attachments/8912957/17793153.png?width=432" data-image-src="attachments/8912957/17793153.png" data-height="309" data-width="474" data-unresolved-comment-count="0" data-linked-resource-id="17793153" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220614-094515.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="8912957" data-linked-resource-container-version="2" data-media-id="fea32322-f323-4132-b8aa-a712dfc970c9" data-media-type="file"></span></li><li><p>Once connected you can see the objects in the object explorer:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/8912957/17957000.png" data-image-src="attachments/8912957/17957000.png" data-height="261" data-width="336" data-unresolved-comment-count="0" data-linked-resource-id="17957000" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220614-094734.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="8912957" data-linked-resource-container-version="2" data-media-id="77e28004-ed23-47ff-9421-34206f04347b" data-media-type="file"></span></li><li><p>Right click on a table or on central model to perform an action</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/8912957/17924233.png" data-image-src="attachments/8912957/17924233.png" data-height="146" data-width="396" data-unresolved-comment-count="0" data-linked-resource-id="17924233" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220614-095141.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="8912957" data-linked-resource-container-version="2" data-media-id="89c41d61-c4ee-4efa-9886-75e59109bf83" data-media-type="file"></span></li><li><p>On process database you will have the option to recalculate only “Process Recalc”</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/8912957/17858678.png" data-image-src="attachments/8912957/17858678.png" data-height="180" data-width="177" data-unresolved-comment-count="0" data-linked-resource-id="17858678" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220614-095212.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="8912957" data-linked-resource-container-version="2" data-media-id="f5a439d6-b78d-425e-8184-fc903ca72c00" data-media-type="file"></span></li><li><p>Click on script action to new query window, this will open a new query window</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/8912957/17793161.png" data-image-src="attachments/8912957/17793161.png" data-height="186" data-width="569" data-unresolved-comment-count="0" data-linked-resource-id="17793161" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220614-095300.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="8912957" data-linked-resource-container-version="2" data-media-id="08427e17-3049-40d4-b04a-82ff0851d8af" data-media-type="file"></span><p /></li><li><p>execute the script</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/8912957/18022455.png" data-image-src="attachments/8912957/18022455.png" data-height="195" data-width="317" data-unresolved-comment-count="0" data-linked-resource-id="18022455" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220614-095347.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="8912957" data-linked-resource-container-version="2" data-media-id="4b52acf3-d855-4fd1-8538-57b84e18444f" data-media-type="file"></span></li></ol><p /><p>For more information on possibilities and in relation to large datasets please read advanced incremental refresh <a class="external-link" href="https://docs.microsoft.com/en-us/power-bi/connect-data/incremental-refresh-xmla" rel="nofollow">here</a>.</p><p /><h2 id="Developmentcycle-Deployment">Deployment</h2><p>For the deployment in power bi three options are available:</p><ol><li><p>Manual deployment</p></li><li><p>Using power bi deployment pipelines</p></li><li><p>Using PowerShell own designed deployment</p></li></ol><p>For central model and integrated project performance reporting the pipeline is created.</p><h3 id="Developmentcycle-Usingpowerbideploymentpipelines">Using power bi deployment pipelines</h3><p>please read content <a class="external-link" href="https://docs.microsoft.com/en-us/power-bi/create-reports/deployment-pipelines-get-started" rel="nofollow">here </a>to understand deployment pipelines in general.  </p><p>Implementation of IHC example of one workspace:</p><ol><li><p>Created three workspaces using naming convention</p><ol><li><p>workspace name test</p></li><li><p>workspace name acc</p></li><li><p>workspace name</p></li></ol></li><li><p>Create a new deployment pipeline</p></li><li><p>Assign created workspaces to stages dev / test / prod <br/>(Please keep in mind that the naming in power bi is different then in data bricks.)</p></li><li><p>Publish from pbi desktop to test workspace</p></li><li><p>Add deployment rules for data sets</p></li><li><p>Use deployment pipeline to deploy to next stage</p></li><li><p>optional: on production update the app via the deployment pipeline</p></li></ol><p>Impact of changes to the model:</p><div class="table-wrap"><table data-layout="default" data-local-id="4555d384-73e0-4edf-a5ff-f9cd75c58395" class="confluenceTable"><colgroup><col style="width: 226.67px;"/><col style="width: 226.67px;"/><col style="width: 226.67px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Change in</strong></p></th><th class="confluenceTh"><p><strong>Effect on target dataset</strong></p></th><th class="confluenceTh"><p><strong>additional action</strong></p></th></tr><tr><td class="confluenceTd"><p>Relations</p></td><td class="confluenceTd"><p>affected table is empty</p></td><td class="confluenceTd"><p>Full tables</p></td></tr><tr><td class="confluenceTd"><p>Measures</p></td><td class="confluenceTd"><p>no effect</p></td><td class="confluenceTd"><p>Re-calculate</p></td></tr><tr><td class="confluenceTd"><p>Column meta (ordering, format)</p></td><td class="confluenceTd"><p>no effect</p></td><td class="confluenceTd"><p>Re-calculate</p></td></tr><tr><td class="confluenceTd"><p>Columns removed</p></td><td class="confluenceTd"><p>affected table is empty</p></td><td class="confluenceTd"><p>Refresh table</p></td></tr><tr><td class="confluenceTd"><p>Columns added</p></td><td class="confluenceTd"><p>no effect</p></td><td class="confluenceTd"><p>NA</p></td></tr><tr><td class="confluenceTd"><p>Columns renamed</p></td><td class="confluenceTd"><p>affected table is empty</p></td><td class="confluenceTd"><p>Refresh table</p></td></tr></tbody></table></div><p /><h3 id="Developmentcycle-Referencesondeployments">References on deployments</h3><p>Pipeline deployment</p><ul><li><p><a class="external-link" data-card-appearance="inline" href="https://docs.microsoft.com/en-us/power-bi/create-reports/deployment-pipelines-process" rel="nofollow">https://docs.microsoft.com/en-us/power-bi/create-reports/deployment-pipelines-process</a> </p></li></ul><p>Power shell deployment</p><ul><li><p><a class="external-link" data-card-appearance="inline" href="https://martinschoombee.com/2020/09/15/automating-power-bi-deployments-a-series/" rel="nofollow">https://martinschoombee.com/2020/09/15/automating-power-bi-deployments-a-series/</a> </p></li><li><p><a class="external-link" data-card-appearance="inline" href="https://github.com/microsoft/powerbi-powershell" rel="nofollow">https://github.com/microsoft/powerbi-powershell</a> </p></li></ul><p /><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/8912957/8912972.png">image-20220405-164000.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/8912957/8912975.png">image-20220405-163855.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/8912957/8912978.png">image-20220405-133643.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/8912957/17793153.png">image-20220614-094515.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/8912957/18022445.png">image-20220614-094637.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/8912957/17957000.png">image-20220614-094734.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/8912957/17989714.png">image-20220614-094844.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/8912957/17924227.png">image-20220614-094925.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/8912957/17924233.png">image-20220614-095141.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/8912957/17858678.png">image-20220614-095212.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/8912957/17793161.png">image-20220614-095300.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/8912957/18022455.png">image-20220614-095347.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

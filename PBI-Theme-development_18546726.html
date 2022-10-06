@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : PBI Theme development</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Power-BI_8683562.html">Power BI</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : PBI Theme development
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Martjan Pols</span>, last modified on jun. 15, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Documentation of theme creation in power bi</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Ready for review</p></div></div><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1657623307888 {padding: 0px;}
+div.rbtoc1657623307888 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1657623307888 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1657623307888'>
+<ul class='toc-indentation'>
+<li><a href='#PBIThemedevelopment-Introductionthemedevelopment'>Introduction theme development</a></li>
+<li><a href='#PBIThemedevelopment-Understandingthethemestructure.'>Understanding the theme structure.</a></li>
+<li><a href='#PBIThemedevelopment-ThemedesignIHC'>Theme design IHC</a></li>
+</ul>
+</div><h2 id="PBIThemedevelopment-Introductionthemedevelopment">Introduction theme development</h2><p>Themes are a powerful way to control the layout or your report. for an introduction to themes in power bi click <a class="external-link" href="https://powerbi.tips/2021/12/power-bi-themes/" rel="nofollow">here</a>. The purpose of a theme is to align the company report layouts in the same way using one pre-defined theme. A theme is used to control almost any part of the visuals used in power bi.</p><p>Important note:</p><p>A theme change will only influence the default settings of the visual on the report. If you add a visual in power bi, and change the default color for that specific visual, the color will stay even on a theme change. Therefore try to use default colors and settings in your power bi report. </p><p>Some sites which may be helpful to develop your own theme:</p><ul><li><p><a class="external-link" data-card-appearance="inline" href="https://powerbi.tips/2021/12/power-bi-themes/" rel="nofollow">https://powerbi.tips/2021/12/power-bi-themes/</a></p></li><li><p>Design per visual: <a class="external-link" href="https://themes.powerbi.tips/properties" rel="nofollow">https://themes.powerbi.tips/properties</a></p></li><li><p>Complete reference to json structure of theme: <a class="external-link" data-card-appearance="inline" href="https://github.com/MattRudy/PowerBI-ThemeTemplates" rel="nofollow">https://github.com/MattRudy/PowerBI-ThemeTemplates</a></p></li><li><p><a class="external-link" data-card-appearance="inline" href="https://www.numerro.io/guides/power-bi-themes" rel="nofollow">https://www.numerro.io/guides/power-bi-themes</a></p></li><li><p><a class="external-link" data-card-appearance="inline" href="https://community.powerbi.com/t5/Themes-Gallery/bd-p/ThemesGallery" rel="nofollow">https://community.powerbi.com/t5/Themes-Gallery/bd-p/ThemesGallery</a></p></li><li><p>Eye dropper on the internet (chrome): <a class="external-link" data-card-appearance="inline" href="https://chrome.google.com/webstore/detail/eye-dropper/hmdcmlfkchdmnmnmheododdhjedfccka/related?hl=en" rel="nofollow">https://chrome.google.com/webstore/detail/eye-dropper/hmdcmlfkchdmnmnmheododdhjedfccka/related?hl=en</a></p></li></ul><p>Some sites for color finding</p><ul><li><p>Conversion of color codes: <a class="external-link" data-card-appearance="inline" href="https://www.rgbtohex.net/" rel="nofollow">https://www.rgbtohex.net/</a></p></li><li><p>Color pallet creation: <a class="external-link" data-card-appearance="inline" href="https://coolors.co/4e7cff-7033ff-f65164-22c0ff-dc7653-252423-717a90-eef1f7-ffffff-f6f8fc" rel="nofollow">https://coolors.co/4e7cff-7033ff-f65164-22c0ff-dc7653-252423-717a90-eef1f7-ffffff-f6f8fc</a></p></li></ul><p /><h2 id="PBIThemedevelopment-Understandingthethemestructure.">Understanding the theme structure.</h2><p>A theme is a json structure which inherit the settings from the highest level all the way down to the lowest level. and looks like:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/18546726/18743305.png" data-image-src="attachments/18546726/18743305.png" data-height="947" data-width="657" data-unresolved-comment-count="0" data-linked-resource-id="18743305" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220615-085412.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="18546726" data-linked-resource-container-version="4" data-media-id="b131cca8-c5f7-48c1-9528-8d0a84b594c3" data-media-type="file"></span><p /><p>Once a visual style is set, all visuals having the same setting for style will inherit the setting. For example the above picture shows a solid border with color f2f2f2, all visuals having a border will have a solid border with that color even if it is not mentioned in the theme json. If you want to differentiate a visual using a specific border color you need to include that visuals json structure overwriting the default border color. Please take a look at json structures <a class="external-link" href="https://github.com/MattRudy/PowerBI-ThemeTemplates" rel="nofollow">here</a>.</p><p>Example on a visual custom setting:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/18546726/18579554.png" data-image-src="attachments/18546726/18579554.png" data-height="171" data-width="605" data-unresolved-comment-count="0" data-linked-resource-id="18579554" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220615-085744.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="18546726" data-linked-resource-container-version="4" data-media-id="0df01483-a364-499b-9668-be126f552409" data-media-type="file"></span><p /><h2 id="PBIThemedevelopment-ThemedesignIHC">Theme design IHC</h2><p>The input used for the theme design for IHC:</p><ul><li><p>The share-point <a class="external-link" href="https://ihcmerwede.sharepoint.com/:b:/r/sites/I-Base/SiteAssets/SitePages/i-base/Brand-manual-RIHC-1210.pdf?csf=1&amp;web=1" rel="nofollow">brand-manual</a>.</p></li><li><p>The standard IHC Power point</p></li><li><p>Website IHC</p></li><li><p>Standards on reporting colors (<a class="external-link" href="https://www.laudame.nl/10-gouden-regels-voor-een-goede-rapportage-in-power-bi/" rel="nofollow">point 7 from Laudame</a>)</p></li></ul><p>Assumptions</p><ul><li><p>The default IHC fonts are installed (ubuntu family)</p></li></ul><p /><p /><p /><p> </p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/18546726/18743305.png">image-20220615-085412.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/18546726/18579554.png">image-20220615-085744.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

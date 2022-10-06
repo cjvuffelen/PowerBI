@@ -1,0 +1,35 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ops="http://xmlns.oracle.com/IHC/OPSInventLabelSchema">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ops:POReceipt>
+		<ops:Company>152</ops:Company>
+		<ops:Site>152A</ops:Site>
+		<ops:PoNumber>2152000468</ops:PoNumber>
+		<ops:PoLineNo>1</ops:PoLineNo>
+		<ops:PoLineReleaseNo>9</ops:PoLineReleaseNo>
+		<ops:PoLineDescription>0017935H14 - Stbd base Interface Manifold C3 to Port A F cylinder C'Bal Manifold C1</ops:PoLineDescription>
+		<ops:PartNo>PART/REV</ops:PartNo>
+		<ops:Supplier>31876592</ops:Supplier>
+		<ops:SuppplierName>Pearson Hose and Hydraulics Ltd (Ferschl)</ops:SuppplierName>
+		<ops:QuantityReceived>1</ops:QuantityReceived>
+		<ops:PurchUoM>pcs</ops:PurchUoM>
+		<ops:OrderRef1>2120012563</ops:OrderRef1>
+		<ops:IHCProjectId/>
+		<ops:IHCProjectDescription/>
+		<ops:SubProjectId>SP0011290</ops:SubProjectId>
+		<ops:SubProjectIdName>152A-AS-Spares-Maersk</ops:SubProjectIdName>
+		<ops:WBSElementId>5000</ops:WBSElementId>
+		<ops:WBSElementDescription>Manufacture</ops:WBSElementDescription>
+		<ops:ActivityId>5000-5010</ops:ActivityId>
+		<ops:ActivityDescription>A Frame Hoses - Lead time supplier</ops:ActivityDescription>
+		<ops:ActivitySequence>105279275</ops:ActivitySequence>
+		<ops:ActualDeliveryDate>2022-04-21</ops:ActualDeliveryDate>
+		<ops:ObjectId/>
+		<ops:ObjectDescription/>
+		<ops:UserId>MBROWN</ops:UserId>
+		<ops:CIhcPrinter>LPPOB01_100x80</ops:CIhcPrinter>
+		<ops:CreationDate>2022-04-21</ops:CreationDate>
+		<ops:waiv_dev_rej_no/>
+      </ops:POReceipt>
+   </soapenv:Body>
+</soapenv:Envelope>

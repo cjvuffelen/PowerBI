@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Planning</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Power-BI-End-user-documentation_8814627.html">Power BI End user documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IHC-central-data-model_15106210.html">IHC central data model</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Planning
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Martjan Pols</span>, last modified on apr. 06, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>The quality of reporting relies on the way planning designs and uses the data (structures) in Primavera. This document explains what the minimal viable requirements are for planning. Based on the requirement a data quality check should be implemented either on Primavera side or on CDM (data warehouse) site.</p><h2 id="Planning-Generaltopics">General topics</h2><ul><li><p>Active projects with baseline<br/>Only project with active flag (project category = live project = Yes) are taken into account in the data model. <br/>Furthermore One and only one baseline project should be connected to this live project. Only the project with those combinations will be taken into account for reporting.<br/>If a copy of the baseline project is created, the flag live project must be set to no for that project.</p></li><li><p>Activity and sub project connection<br/>The main program level in IFS relates to the project level in Primavera. This goes wrong as a program in IFS can have multiple sub projects. Therefore an activity from Primavera must be related to one sub project in IFS. This is done using the Global project code IFS sub project. This code needs to be filled in for all activities.</p></li><li><p>Versions (planning dates.<br/>To reduce complexity a limited set of the dates available in Primavera are taken into account. The following versions of data are applicable in the data warehouse model:</p><ul><li><p>Actual, with the actual start and actual finish dates</p></li><li><p>Baseline (project flagged as baseline project) with baseline start and baseline finish dates</p></li><li><p>Plan data (based on early start / finish dates)</p></li><li><p>Plan data (based on late start / finish dates, not yet implemented) </p></li><li><p>Earned (based on baseline dates)</p></li><li><p>Estimated at completion:<br/>Calculated using the actual for completed activities, remaining early finish + actual for in progress, and the plan (early finish) version for not started.</p></li></ul></li><li><p>Spread of hours.<br/>The spread of hours is calculated in the data warehouse using linear spread in combination with the calendar tables. In Primavera the spread is not calculated for all projects. therefore reporting cannot rely on this. <br/>There can be deviation from spread calculated from Primavera, or a deviation from actual hours with IFS, as an activity has a start and end date and will be spread among those dates. in case the actual hours changes the new amount of hours is spread over the whole range of dates.</p></li><li><p>Status and % complete<br/>The status field from IFS and the percentage complete from Primavera should be related, but are not always. Therefore a separate status fields is introduced: status combined. With a business rule the status is derived. The percentage complete is used to report on completeness</p></li></ul><h2 id="Planning-Activityandactivitycodestructuresusage">Activity and activity code structures usage</h2><p>In Primavera a lot of views are available as hierarchy for activities. Sometimes project specific, sometimes global. this is a very powerful way to order the activities, but is currently not very consistently used.</p><p>Needed for reporting:</p><ul><li><p>Activities description</p><ul><li><p>starting with P and first three positions are numbers then system code is derived from the first three numbers<br/>if activity desc contains lines or systems and first three are  numbers then take words after lines / system to get the process step......<br/>for example 030 ... system pressure test -&gt; pressure test</p></li></ul></li></ul><h3 id="Planning-Activitycodetypesused">Activity code types used</h3><div class="table-wrap"><table data-layout="default" data-local-id="3a809e85-f814-499b-be21-7b6a762f08bd" class="confluenceTable"><colgroup><col style="width: 226.67px;"/><col style="width: 226.67px;"/><col style="width: 226.67px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Scope</strong></p></th><th class="confluenceTh"><p><strong>Activity code</strong></p></th><th class="confluenceTh"><p><strong>Requirement</strong></p></th></tr><tr><td class="confluenceTd"><p>Global</p></td><td class="confluenceTd"><p>Process step</p></td><td class="confluenceTd"><p>Filled for all activities</p></td></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p>IFS sub project</p></td><td class="confluenceTd"><p>must be filled for all activities</p></td></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p>O&amp;C outfit rooms</p></td><td class="confluenceTd"><p>used for splitting process steps on outfit rooms, needs to be filled for all rooms related activities</p></td></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p>Tanks</p></td><td class="confluenceTd"><p>used for the tank code and tank description. needed for all activities on tanks</p></td></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p>O&amp;C outfit tanks</p></td><td class="confluenceTd"><p>used to split activities on outfitting tanks<br/>needed for all activities on tanks</p></td></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p>Pushed for Act. Adherence KPI</p></td><td class="confluenceTd"><p>Used for the adherence reporting</p><p>planning defines when to fill in??!</p><p>what guarantees are build in to have consistency over projects?</p></td></tr><tr><td class="confluenceTd"><p>Project</p></td><td class="confluenceTd"><p>like section</p></td><td class="confluenceTd"><p>Currently the only way to derive the section related to the activity. </p><p>All activities related to a section should have a project specific activity code with a section code and description.</p></td></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p>Total Engineering</p></td><td class="confluenceTd"><p>Must be filled for activities related to engineering, to create the s-curve. (basic and detailed)</p></td></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p>Project milestone</p></td><td class="confluenceTd"><p>Needed to filter activities for project milestones</p></td></tr></tbody></table></div><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

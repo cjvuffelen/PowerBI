@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Adding a source to the Datawarehouse</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Adding a source to the Datawarehouse
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Corjan van Uffelen</span>, last modified on mei 13, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>Current sources</strong></p><ul><li><p>ifs</p></li><li><p>primavera</p></li><li><p>extended</p></li><li><p>teamcenter</p></li><li><p>mars</p></li><li><p>pbi</p></li></ul><p /><p><strong>Instructions</strong></p><ul><li><p>Get the needed credentials from infra</p></li><li><p>Ask infra to create a secret</p></li><li><p>Use the copy activities in the general folder with parameters to extract data</p></li><li><p>If needed: create a linked service in ADF-T</p></li><li><p>If you need global parameters or a linked service, these must be added to the ARM-Template (link naar beheer ARM-Template</p></li><li><p>Add the pipeline to ADF-T, the convention is to have a three letter name that matches the abriviation used in dbt.</p></li><li><p>Add a class to </p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/327681/327694.png" data-image-src="attachments/327681/327694.png" data-height="257" data-width="729" data-unresolved-comment-count="0" data-linked-resource-id="327694" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220202-124645.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="327681" data-linked-resource-container-version="4" data-media-id="4aa89f06-6f09-448e-8fbd-004c932d994d" data-media-type="file"></span></li><li><p>Add a table to the ingestion config table (link to manage ingestion config) and test</p></li><li><p>Create a folder in ADLS in all three environments</p></li><li><p>Set the rights for the folder via this link in all three environments</p><ul><li><p><a class="external-link" href="https://github.com/Royal-IHC-BV/IaC/actions/workflows/add-new-folder-test.yml" rel="nofollow">https://github.com/Royal-IHC-BV/IaC/actions/workflows/add-new-folder-test.yml</a></p></li></ul></li><li><p>Mount the folder in databricks in all three environments with this notebook:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/327681/11632652.png" data-image-src="attachments/327681/11632652.png" data-height="274" data-width="726" data-unresolved-comment-count="0" data-linked-resource-id="11632652" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220513-072407.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="327681" data-linked-resource-container-version="4" data-media-id="2b0aacfc-c4ad-4dc3-aef2-33a74333a419" data-media-type="file"></span></li></ul><p /><p>Weird ADF errors:</p><p>Error: Pipeline will not run without any error. → Possible cause → the parameters in a dataset are empty. When you add them and save the are not added. → restart ADF → open the dataset directly and try again.</p><p>Error: Validation error for stuff that doesnt exist anymore. The problem is that he parameter exists in the github repository. They are out of sync. Click on the validation error, drill down in the activities and validate the lower pipelines. ADF will then see it is no longer correct and the error is solved.</p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327681/458753.png">image-20220202-124613.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327681/327694.png">image-20220202-124645.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/327681/11632652.png">image-20220513-072407.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

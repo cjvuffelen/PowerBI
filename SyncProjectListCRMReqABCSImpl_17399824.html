@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : SyncProjectListCRMReqABCSImpl</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Integrations_3735653.html">Integrations</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Migrations_9633803.html">Migrations</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sell_17367051.html">Sell</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : SyncProjectListCRMReqABCSImpl
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> r.lodder1</span>, last modified on jun. 13, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p class="media-group"><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="attachments/17399824/17530895.wsdl" data-nice-type="null" data-file-src="/wiki/download/attachments/17399824/UpsertCommonMiddlewareReqService.wsdl?version=1&amp;modificationDate=1655120366698&amp;cacheVersion=1&amp;api=v2" data-linked-resource-id="17530895" data-linked-resource-type="attachment" data-linked-resource-container-id="17399824" data-linked-resource-default-alias="UpsertCommonMiddlewareReqService.wsdl" data-mime-type="application/octet-stream" data-has-thumbnail="true" data-linked-resource-version="1" data-media-id="63cdd629-3695-43dc-bf16-3c8f3f322c2c" data-media-type="file"><img src="attachments/thumbnails/17399824/17530895" height="250"/></a></span><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="attachments/17399824/17334319.xsd" data-nice-type="null" data-file-src="/wiki/download/attachments/17399824/UpsertCommonMiddleware.xsd?version=1&amp;modificationDate=1655120355604&amp;cacheVersion=1&amp;api=v2" data-linked-resource-id="17334319" data-linked-resource-type="attachment" data-linked-resource-container-id="17399824" data-linked-resource-default-alias="UpsertCommonMiddleware.xsd" data-mime-type="application/octet-stream" data-has-thumbnail="true" data-linked-resource-version="1" data-media-id="ca1b2059-153b-4150-8c26-2494c717a297" data-media-type="file"><img src="attachments/thumbnails/17399824/17334319" height="250"/></a></span></p><h2 id="SyncProjectListCRMReqABCSImpl-Routing">Routing</h2><p>xp20:upper-case(normalize-space($inputVariable.payload/ns2:Operation))='FINDOPPORTUNITY' -&gt; InvokeSyncOpportunityInterface</p><p>xp20:upper-case(normalize-space($inputVariable.payload/ns2:Operation))='GETSALESPARTY' → InvokeSyncCustomerPartyListInterface</p><p>xp20:upper-case(normalize-space($inputVariable.payload/ns2:Operation))='GETENTITYPRJ' → Invoke_SyncProjectList</p><h2 id="SyncProjectListCRMReqABCSImpl-Example">Example</h2><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence">&lt;ns1:UpsertCommonMiddleware xmlns:ns1=&quot;http://xmlns.oracle.com/IHC/UpsertCommonMiddlewareService/&quot;&gt;
+    &lt;ns1:ID&gt;300000045085488&lt;/ns1:ID&gt;
+    &lt;ns1:WebService&gt;/opptyMgmtExtensibility/SalesCustomObjectService?wsdl&lt;/ns1:WebService&gt;
+    &lt;ns1:Operation&gt;GetEntityPRJ&lt;/ns1:Operation&gt;
+&lt;/ns1:UpsertCommonMiddleware&gt;</pre>
+</div></div><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/17399824/17334319.xsd">UpsertCommonMiddleware.xsd</a> (application/octet-stream)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/17399824/17530895.wsdl">UpsertCommonMiddlewareReqService.wsdl</a> (application/octet-stream)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

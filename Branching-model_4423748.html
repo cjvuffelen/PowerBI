@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Branching model</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tools_4128769.html">Tools</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="MuleSoft_3964983.html">MuleSoft</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="3735681.html">CI/CD</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Branching model
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> r.lodder1</span>, last modified on mrt. 15, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>For MuleSoft Integrations it is decided to make use of the GitHub Flow branching model. This branching model is known for its simple and straight forward branching model which is easy to implement and suits well for the use cases that Royal IHC has for Integrations, mainly because the integrations are all about small deployable assets and don’t have any underlying direct dependencies to other integrations.</p><h2 id="Branchingmodel-Branches">Branches</h2><p>GitHub Flow is a straight forward branching method that only requires two branches, the ‘main’ and a ‘working’ branch for development. The main branch is the stable branch that contains the last known state of deployable code. When a change (whether it’s a bug, feature or something else) needs to be made, a new branch is created from this main branch. Development takes place on this branch, including the pull requests and further discussions.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/4423748/4685837.png" data-image-src="attachments/4423748/4685837.png" data-height="353" data-width="997" data-unresolved-comment-count="0" data-linked-resource-id="4685837" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="screen-shot-2014-03-08-at-23-07-36.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="4423748" data-linked-resource-container-version="5" data-media-id="bba67499-6921-4cb8-93b9-21fe5b7970ce" data-media-type="file"></span><p><em>The top line is the main branch, the bottom line is the branch in which development takes place</em></p><p>As mentioned before, there is a line between the main and the ‘development’ branch. To fully support this, the <a href="Prebuild-Github-Workflows_4456461.html" data-linked-resource-id="4456461" data-linked-resource-version="3" data-linked-resource-type="page">Prebuild Github Workflows</a>, repositories and platform are structured in such a way that for MuleSoft Integrations there is no room for own interpretations.</p><h3 id="Branchingmodel-Mainbranchresponsibilities">Main branch responsibilities</h3><p>Defined below is a summary of the responsibilities. More detailed information can be found in the configuration of the components above.</p><ul><li><p>The main branch always contains code that is deployable (i.e. successful compilation)</p></li><li><p>No commits can be done manually and/or by a GitHub personalized user</p></li><li><p>Main branch code only deploys to QA and Production</p></li></ul><h3 id="Branchingmodel-‘Development’branchresponsibilities">‘Development’ branch responsibilities</h3><ul><li><p>New development can only take place in a ‘development’ branch</p></li><li><p>A merge to the main branch is only possible via <a href="Pull-Requests_4620319.html" data-linked-resource-id="4620319" data-linked-resource-version="8" data-linked-resource-type="page">Pull Requests</a></p></li><li><p>The development branch only deploys to the DevTest environment</p></li></ul><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4423748/4685837.png">screen-shot-2014-03-08-at-23-07-36.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Create a new MuleSoft API foundation</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tools_4128769.html">Tools</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="MuleSoft_3964983.html">MuleSoft</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Playbooks_4882457.html">Playbooks</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Create a new MuleSoft API foundation
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> r.lodder1</span>, last modified on jul. 05, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This how-to article explains how to set up a new MuleSoft API based on Royal IHC Frameworks.</p><h2 id="CreateanewMuleSoftAPIfoundation-Instructions"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4d8" data-emoji-shortname=":blue_book:" data-emoji-fallback="\uD83D\uDCD8" src="images/icons/emoticons/72/1f4d8.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blauwe ster)"/> Instructions</h2><p></p><ol><li><p>Create a new repository from the repository template and change the repository settings (refer to article)</p></li><li><p>Download the template from Exchange and import this template in Mule. Change the naming and pom file accordingly<br/>&lt;&lt;pom file&gt;&gt;</p><ol><li><p>artifactId → mule-&lt;projectName&gt;, e.g: mule-ciam</p></li><li><p>version → Change version to 1.0.0-SNAPSHOT</p></li><li><p>Remove the ‘configuration’ object in the ‘deploy’ execution object.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;configuration&gt;
+	&lt;classifier&gt;mule-application&lt;/classifier&gt;
+&lt;/configuration&gt;</pre>
+</div></div></li><li><p>Change the classifier in the mule-maven-plugin from mule-application-template to mule-application</p></li><li><p>Replace the complete distributionManagement object to the following object below. Replace &lt;&lt;projectname&gt;&gt; with your projectname. For example: https://maven.pkg.github.com/Royal-IHC-BV/mule-ciam</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;distributionManagement&gt;
+	&lt;repository&gt;
+		&lt;id&gt;github&lt;/id&gt;
+		&lt;name&gt;GitHub OWNER Apache Maven Packages&lt;/name&gt;
+		&lt;url&gt;https://maven.pkg.github.com/Royal-IHC-BV/mule-&lt;&lt;projectname&gt;&gt;&lt;/url&gt;
+		&lt;releases&gt;
+			&lt;enabled&gt;true&lt;/enabled&gt;
+		&lt;/releases&gt;
+		&lt;snapshots&gt;
+			&lt;enabled&gt;true&lt;/enabled&gt;
+		&lt;/snapshots&gt;
+	&lt;/repository&gt;
+&lt;/distributionManagement&gt;</pre>
+</div></div></li><li><p>Add repository object</p></li><li><p>Change SCM from scm:git:<a class="external-link" data-card-appearance="inline" href="https://github.com/Royal-IHC-BV/mule-api-temmplate.git" rel="nofollow">https://github.com/Royal-IHC-BV/mule-api-temmplate.git</a>  to your correct Github repository name e.g scm:git:<a class="external-link" data-card-appearance="inline" href="https://github.com/Royal-IHC-BV/mule-ciam.git" rel="nofollow">https://github.com/Royal-IHC-BV/mule-ciam.git</a> </p></li></ol></li><li><p>Checkout the repository, create a new branch and add the just created Mule project to this branch</p></li></ol><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Highlight important information in a panel like this one. To edit this panel's color or style, select one of the options in the menu.</p></div></div><h2 id="CreateanewMuleSoftAPIfoundation-Relatedarticles"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4cb" data-emoji-shortname=":clipboard:" data-emoji-fallback="\uD83D\uDCCB" src="images/icons/emoticons/72/1f4cb.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blauwe ster)"/> Related articles</h2><p></p>
+
+
+
+
+
+
+
+
+
+
+
+<ul class="content-by-label">
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="15237180" data-linked-resource-type="page" data-linked-resource-version="29" href="/wiki/spaces/ID/pages/15237180/Deployment+troubleshooting">Deployment troubleshooting</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="24117249" data-linked-resource-type="page" data-linked-resource-version="2" href="/wiki/spaces/ID/pages/24117249">Add/ remove people from Automated Code Reviewers in Github</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="4915240" data-linked-resource-type="page" data-linked-resource-version="3" href="/wiki/spaces/ID/pages/4915240/Setup+GitHub+repository+for+MuleSoft+API">Setup GitHub repository for MuleSoft API</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="5013520" data-linked-resource-type="page" data-linked-resource-version="2" href="/wiki/spaces/ID/pages/5013520/Create+a+new+MuleSoft+API+foundation">Create a new MuleSoft API foundation</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="15564801" data-linked-resource-type="page" data-linked-resource-version="6" href="/wiki/spaces/ID/pages/15564801/Deployment+instructions">Deployment instructions</a>
+                        
+                        
+                    </div>
+    </li>
+    </ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

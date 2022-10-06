@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Data model patterns in Power BI</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Power-BI-End-user-documentation_8814627.html">Power BI End user documentation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Data model patterns in Power BI
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Martjan Pols</span>, last modified on mei 23, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>In Power BI several standard patterns are used in the data model. for a better understanding these standard patterns are described here.</p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1657623294644 {padding: 0px;}
+div.rbtoc1657623294644 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1657623294644 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1657623294644'>
+<ul class='toc-indentation'>
+<li><a href='#DatamodelpatternsinPowerBI-Dimensions'>Dimensions</a>
+<ul class='toc-indentation'>
+<li><a href='#DatamodelpatternsinPowerBI-Dimensiontype0'>Dimension type 0</a></li>
+<li><a href='#DatamodelpatternsinPowerBI-Dimensiontype1'>Dimension type 1</a></li>
+<li><a href='#DatamodelpatternsinPowerBI-Dimensiontype2'>Dimension type 2</a></li>
+<li><a href='#DatamodelpatternsinPowerBI-Datedimensionusage'>Date dimension usage</a></li>
+</ul>
+</li>
+<li><a href='#DatamodelpatternsinPowerBI-Facts'>Facts</a>
+<ul class='toc-indentation'>
+<li><a href='#DatamodelpatternsinPowerBI-Periodicsnapshot'>Periodic snapshot</a></li>
+<li><a href='#DatamodelpatternsinPowerBI-Accumulatingsnapshot'>Accumulating snapshot</a></li>
+<li><a href='#DatamodelpatternsinPowerBI-Transactional'>Transactional</a></li>
+<li><a href='#DatamodelpatternsinPowerBI-Temporalsnapshots'>Temporal snapshots</a></li>
+</ul>
+</li>
+</ul>
+</div><h1 id="DatamodelpatternsinPowerBI-Dimensions">Dimensions</h1><p>Dimensions are tables that categorizes the facts and enable users to answer business questions (<a class="external-link" href="https://en.wikipedia.org/wiki/Dimension_(data_warehouse)" rel="nofollow">wiki</a>). Common dimensions: date, customer, company, project. a dimension is just a group of attributes in a table which belongs to each other.</p><p>Example:</p><p>Dimension activity (activity)</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="340" loading="lazy" src="attachments/11206661/11108362.png?width=340" data-image-src="attachments/11206661/11108362.png" data-height="215" data-width="273" data-unresolved-comment-count="0" data-linked-resource-id="11108362" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220509-071625.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="11206661" data-linked-resource-container-version="4" data-media-id="f58a760e-6292-4fb0-a689-1b1daf8c085c" data-media-type="file"></span><p>Having different attributes telling something about the activity (status, type, description). A dimension is always to be used on combination with a fact and a corresponding measure in order to retrieve the right result.</p><p>To understand the dimensions it is key to have insight in the<a class="external-link" href="https://en.wikipedia.org/wiki/Dimension_(data_warehouse)" rel="nofollow"> most used types </a>of dimensions:</p><p>type 0</p><p>type 1</p><p>type 2</p><h2 id="DatamodelpatternsinPowerBI-Dimensiontype0">Dimension type 0</h2><p>For this dimension the attributes never change. No history. This is mostly the date dimension in the model.</p><h2 id="DatamodelpatternsinPowerBI-Dimensiontype1">Dimension type 1</h2><p>Old values are overwritten with new values for attribute. No history. </p><p>This is used to report against the latest known version of the dimension. For example the company. in most cases it is enough to report the history against the current version of the company and it’s attributes (name, responsible, description etc.)</p><h2 id="DatamodelpatternsinPowerBI-Dimensiontype2">Dimension type 2</h2><p>The dimension that stores the history in rows. For a new value, a new row is created with either a start date / end date or version.</p><p>A good example of the dimension type 2 is the activity dimension having an attribute with a status. sometimes the question is just to retrieve the latest known status of the activity. sometimes it’s useful to report the number of activities over time having the status open. In the last situation the dimension will store multiple versions of the same activity in the dimension to show the right version for the business questions.</p><h2 id="DatamodelpatternsinPowerBI-Datedimensionusage">Date dimension usage</h2><p>The date dimension is a special dimension in power bi, and used many times via different ways. All facts are related to this one date dimension and sometimes multiple times to the same dimension. The purpose of the date dimension is to enable one single selection of dates to be used in the entire report where all measures and graphs will adapt automatically. For example consider these measures for a weekly graph on a year:</p><ul><li><p>Number of planned / actual mounted pipe spools (using the plan or actual date from pipe spool data and filter on mounted)</p></li><li><p>Number of open risk actions (using the snapshot ! date from the risk data)</p></li></ul><p>In Power BI the relations are as follow:</p><p>Date → Risk </p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/11206661/12255248.png" data-image-src="attachments/11206661/12255248.png" data-height="176" data-width="607" data-unresolved-comment-count="0" data-linked-resource-id="12255248" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220517-101754.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="11206661" data-linked-resource-container-version="4" data-media-id="6e9abb65-9a96-4429-a881-ed2daaa6137c" data-media-type="file"></span><p>Date → pipe spool</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/11206661/12353555.png" data-image-src="attachments/11206661/12353555.png" data-height="322" data-width="686" data-unresolved-comment-count="0" data-linked-resource-id="12353555" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220517-101405.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="11206661" data-linked-resource-container-version="4" data-media-id="ef3df975-8b18-47b0-8473-ca2c43601c79" data-media-type="file"></span><p>With the connections in place it is possible to create measures using this relationship. This allows the end user to use one date in the graph and for example two measures showing the plan and actual mounted pipe spools. One measures uses the relation via the actual date, the other via the planned date.</p><h1 id="DatamodelpatternsinPowerBI-Facts">Facts</h1><p>In data warehousing, a fact table consists of the measurements, metrics or facts of a business process. (<a class="external-link" href="https://en.wikipedia.org/wiki/Fact_table" rel="nofollow">wiki</a>) While the dimensions categorizes the data to answer business questions, the facts are storing the metrics belonging to the question, and the fact connect all the dimensions. The grain of the fact is a term to identify the uniqueness of one record in a fact and therefore defines the level of granularity.</p><p>A sales fact can be created using the grain of the sales order. this means every row represents one sales order. Another solution could be to create a fact using the sales order line as the grain. This will result in one row for every sales order line in the fact. </p><p /><h2 id="DatamodelpatternsinPowerBI-Periodicsnapshot">Periodic snapshot</h2><p>A periodic snapshot fact shows a picture for every period of the data. This is very useful in case status over time is needed. In the example below for every period the hours can be shown for that specific company, project or activity.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/11206661/11075604.png" data-image-src="attachments/11206661/11075604.png" data-height="477" data-width="1030" data-unresolved-comment-count="0" data-linked-resource-id="11075604" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220509-074743.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="11206661" data-linked-resource-container-version="4" data-media-id="a92680a6-50a5-41b5-900d-2e612cfda57d" data-media-type="file"></span><p>The fact is connected to the dimensions using a key or a date. the grain of the periodic snapshot is defined by the business requirements and can differ from the grains of the dimensions. For example if the requirement is to show a weekly snapshot, the date dimension will still have all dates. Also the activities will have multiple records for the same activity in case the status changes from open to close.</p><p>Two things are important for a periodic snapshot fact to understand the limitations and use cases.</p><ol><li><p>The grain<br/>What grain is used for the period (week ,week and month , month)</p></li><li><p>The amount of history of the period<br/>Is the full history loaded or only the last x years?</p></li></ol><h2 id="DatamodelpatternsinPowerBI-Accumulatingsnapshot">Accumulating snapshot</h2><p>This fact accumulate the history in columns and will report only on the latest version of the fact. A good example is to report on a process having a start and end date where just the activities needs to be counted.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/11206661/11141157.png" data-image-src="attachments/11206661/11141157.png" data-height="477" data-width="1030" data-unresolved-comment-count="0" data-linked-resource-id="11141157" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220509-075429.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="11206661" data-linked-resource-container-version="4" data-media-id="4daef694-003f-4260-9b69-10e8dd2e6ae4" data-media-type="file"></span><p>In the example multiple links are created between the fact table and the date table. New measures can be created to count the activities using the start date or the finish date. The number of finished activities will count activities over the finish date. In this case the fact is connected to the latest version of the activity and company. there is no history in different rows, there is history in columns.</p><h2 id="DatamodelpatternsinPowerBI-Transactional">Transactional</h2><p>Currently not implemented in powerbi</p><h2 id="DatamodelpatternsinPowerBI-Temporalsnapshots">Temporal snapshots</h2><p>Currently not implemented in powerbi</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/11206661/11108362.png">image-20220509-071625.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/11206661/11108373.png">image-20220509-073008.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/11206661/11108381.png">image-20220509-073500.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/11206661/11075604.png">image-20220509-074743.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/11206661/11075610.png">image-20220509-075310.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/11206661/11141157.png">image-20220509-075429.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/11206661/12353543.png">image-20220517-100641.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/11206661/12353549.png">image-20220517-101040.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/11206661/12320776.png">image-20220517-101239.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/11206661/12353555.png">image-20220517-101405.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/11206661/12255248.png">image-20220517-101754.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Collaboration</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Collaboration
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> ewoud westerbaan</span>, last modified by <span class='editor'> Corjan van Uffelen</span> on apr. 25, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>We are using 4 repositories for version control of our code related to the data warehouse</p><p><a class="external-link" data-card-appearance="inline" href="https://github.com/Royal-IHC-BV/adf-technical" rel="nofollow">https://github.com/Royal-IHC-BV/adf-technical</a> </p><p><a class="external-link" data-card-appearance="inline" href="https://github.com/Royal-IHC-BV/databricks-technical" rel="nofollow">https://github.com/Royal-IHC-BV/databricks-technical</a> </p><p><a class="external-link" data-card-appearance="inline" href="https://github.com/Royal-IHC-BV/dwh_model" rel="nofollow">https://github.com/Royal-IHC-BV/dwh_model</a> (DBT and airflow)</p><p><a class="external-link" data-card-appearance="inline" href="https://github.com/Royal-IHC-BV/PowerBI" rel="nofollow">https://github.com/Royal-IHC-BV/PowerBI</a> </p><p>For ADF, databricks, DBT and ariflow we us a ‘feature-branch’ strategy. This means that we have one main or master branch that is used by our test, acceptance and production environment. </p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="680" loading="lazy" src="attachments/2097178/2162689.png?width=680" data-image-src="attachments/2097178/2162689.png" data-height="471" data-width="1109" data-unresolved-comment-count="0" data-linked-resource-id="2162689" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="branching.drawio-20220228-105208.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="2097178" data-linked-resource-container-version="12" data-media-id="404565d1-5589-4240-aa05-300e133029a3" data-media-type="file"></span><p>Actual work is done on a feature branch specifically for that single task. When your work is done you will merge your work into the master (see below) after a review. In test, acceptance and production we can choose which version of the master is deployed. When you want an environment to use the updated master containing your feature you ALWAYS have to delibirate with everybody working on the same master. This is needed because the team has to agree that all new features are ready for use.</p><p>A production issue can be resolved in a hotfix branch.</p><p><strong>Planning</strong></p><p>At the end of the scrum you can indicate that you want to push the master branch containting the new features to acceptance or production. We don’t this on a friday or before holidays to prevent as much as possible that we have to fix error during the weekend.</p><p><span style="color: rgb(255,86,48);">Testing</span></p><p><span style="color: rgb(255,86,48);">TODO</span></p><p><strong>Story must fit in a sprint otherwise split up.</strong></p><p><strong>Dod (depends on story?)</strong></p><p style="margin-left: 30.0px;">PO defines what to deliver (for that sprint)</p><p>       Documentation is created</p><p style="margin-left: 30.0px;">Accepted by stakeholder (functional)</p><p style="margin-left: 30.0px;">Accepted by reviewewer (technical)</p><p>       (define environment)</p><h2 id="Collaboration-Thereview">The review</h2><p>All new features and hotfixes have to be reviewed. A review of a new feature or a hotfix in production is always done on the phone or in person. Hotfixes to fix new features can be reviewed by chat or e-mail. For new features you have to:</p><ul><li><p>eplain what you have done</p></li><li><p>prove that you have properly tested the new feature</p></li><li><p>prepapre questions for reviewer if applicable</p></li><li><p>delivered confrom standards and quidelines</p></li><li><p>show the documentation (in confluence) you have created</p></li></ul><p>The reviewer should not be impressed, or be pressured by the person that has requested the review. Everybody makes mistakes, so be critical and ask enough questions to understand what is happening.      </p><h2 id="Collaboration-Versionnumbering">Version numbering</h2><p>We use the sprintnumber, followed by an index from 00 to 99, followed by a hotfix index from 00 to 99.</p><p>&lt;sprintnumber&gt;.&lt;index&gt;.&lt;fix&gt;</p><h1 id="Collaboration-Scenario’s">Scenario’s</h1><p>In this section some scenario’s are written down.</p><h2 id="Collaboration-Startworkingonafeature">Start working on a feature</h2><p>Actual work is being done on a feature branch.</p><p>As naming strategy, use:</p><p>For features: <code>DATA-&lt;issue number&gt;_&lt;description without spaces&gt;</code></p><p>If you want to try something out, not ticket related, use <code>EXP</code> in front of the description.</p><h3 id="Collaboration-CommandsDBT">Commands DBT</h3><p>Use branch your feature branch from the most recent master.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># go to the master
+git checkout master
+# get the latest update
+git pull
+# create your feature branch
+git branch DATA-123_blabla_blabla
+# go to the new branch
+git checkout DATA-123_blabla_blabla</pre>
+</div></div><p>Now you can do the work.</p><p>When you did some changes:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence"># add changes files to the stage
+git add &lt;file or . for all files&gt;
+# commit the stage
+git commit -m &quot;DATA-123 &lt;description (e.g. File added)&gt;&quot;</pre>
+</div></div><p>Pushing you changes to github:</p><p><code>git push</code></p><p>The first time you push a new branch, you receive a message to create the branch remotely. Read it and execute the commands (it is something like <code>git push --set-upstream origin DATA-123_blabla_blabla</code>).</p><h2 id="Collaboration-Finishedworkingonafeature">Finished working on a feature</h2><p>After you did your work, your branch needs to be merged back in the master branch. </p><p>First update your local master branch to the latest version of the master. This is done because maybe someone added a feature which has impact on your feature.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence"># go to the master
+git checkout master
+# get the latest update
+git pull</pre>
+</div></div><p>Then, go to your feature branch, and merge the master into your branch.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence"># go to the new branch
+git checkout DATA-123_blabla_blabla
+# merge the master in your branch
+git merge master</pre>
+</div></div><p><strong>You resolve merge conflicts locally!</strong></p><p>If you have merge errors do the following:</p><p style="margin-left: 30.0px;">Change or move the files to solve the errors and then</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># add the files
+[yourlocation]\dwh_model&gt; git add .
+# commit
+[yourlocation]\dwh_model&gt; git commit -m &#39;merge master&#39;
+[yourlocation]\dwh_model&gt; git push
+#if needed
+[yourlocation]\dwh_model&gt; git push --set-upstream origin Yourbranch</pre>
+</div></div><p>If not succesful, ask Fabian or Ewoud to help</p><p>After you updated your branch you can prepare for merging your feature in the master. This is done with a pull request.</p><p>To create a pull request, go to github: <a class="external-link" href="https://github.com/Royal-IHC-BV/dwh_model/compare" rel="nofollow">https://github.com/Royal-IHC-BV/dwh_model/compare</a></p><p>Select your branch. Make sure the base is master.</p><p>Click on ‘create pull request’.</p><p>Write in the comments what this pull request contains.</p><p>Add people as reviewers to review your work.</p><p>Click again on ‘create pull request’.</p><p /><h1 id="Collaboration-Deployment">Deployment</h1><p><em>Warning: this is work in progress</em></p><p>Airflow runs three environments: test, acceptance and production.</p><p>For every environment there is a deploy dag. You can start this dag with the version number as parameter (<a class="external-link" data-card-appearance="inline" href="https://royalihc.atlassian.net/browse/DATA-1220" rel="nofollow">https://royalihc.atlassian.net/browse/DATA-1220</a> ).</p><p /><p>You can also temporary deploy a feature branch. We have a dag (deploy_environment) which you can run to deploy an environment <a class="external-link" data-card-appearance="inline" href="https://royalihc.atlassian.net/browse/DATA-1221" rel="nofollow">https://royalihc.atlassian.net/browse/DATA-1221</a> .</p><p><strong>Remove this environment when your done!</strong></p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/2097178/2162689.png">branching.drawio-20220228-105208.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

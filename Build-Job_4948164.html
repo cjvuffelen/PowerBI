@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Build Job</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tools_4128769.html">Tools</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="MuleSoft_3964983.html">MuleSoft</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="3735681.html">CI/CD</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Prebuild-Github-Workflows_4456461.html">Prebuild Github Workflows</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="4653114.html">Main CI/CD workflow</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Build Job
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> r.lodder1</span>, last modified on mrt. 17, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="BuildJob-Introduction"> Introduction</h1><p>The Build Job is a lightweight job that forms the basis of the <a href="DeployToDevTest-Job_4915422.html" data-linked-resource-id="4915422" data-linked-resource-version="4" data-linked-resource-type="page">DeployToDevTest Job</a>  and the <a href="DeployToQa-Job_4980880.html" data-linked-resource-id="4980880" data-linked-resource-version="2" data-linked-resource-type="page">DeployToQa Job</a>. It sole purpose is to checkout the callers' repository. This code will then be used for all the upcoming tasks e.g. testing and compiling.</p><h1 id="BuildJob-Trigger,steps,variablesandconfig">Trigger, steps, variables and config</h1><p>The build job is triggered by any event and is a basis for other jobs. The build job consists of one step and no environment variables. This job runs on ubuntu-latest, which is the preferred environment of GitHub.</p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" loading="lazy" src="attachments/4948164/5177374.png" data-image-src="attachments/4948164/5177374.png" data-height="81" data-width="261" data-unresolved-comment-count="0" data-linked-resource-id="5177374" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="build-job-20220317-075545.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="4948164" data-linked-resource-container-version="3" data-media-id="4e7b2bac-539c-4265-8f1b-09d4631cbc99" data-media-type="file"></span><p>The <strong>checkout</strong> step is a GitHub Action that checks out the code from the calling repository. By default, the default branch (as set in the repository) is checked out. Once checked out, the job is complete </p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4948164/5177374.png">build-job-20220317-075545.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : PBI Security and data protection</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Power-BI_8683562.html">Power BI</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="PBI-Installation-and-configuration_17858594.html">PBI Installation and configuration</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : PBI Security and data protection
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Martjan Pols</span>, last modified on jul. 01, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>DRAFT (Martjan)</p></div></div><p>This document is mend for CDM department to setup a consistent security model both on data access as well on power bi objects and services. This page assumes a basic understanding of power bi roles and security. More details can be found in whitepaper enterprise deployments.</p><p>Content:</p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1657623299540 {padding: 0px;}
+div.rbtoc1657623299540 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1657623299540 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1657623299540'>
+<ul class='toc-indentation'>
+<li><a href='#PBISecurityanddataprotection-Generalaccessrights'>General access rights</a>
+<ul class='toc-indentation'>
+<li><a href='#PBISecurityanddataprotection-Licensebasedaccess'>License based access</a>
+<ul class='toc-indentation'>
+<li><a href='#PBISecurityanddataprotection-Viewerlicense'>Viewer license</a></li>
+<li><a href='#PBISecurityanddataprotection-Prolicense'>Pro license</a></li>
+</ul>
+</li>
+<li><a href='#PBISecurityanddataprotection-Rolesandresponsibilities'>Roles and responsibilities</a>
+<ul class='toc-indentation'>
+<li><a href='#PBISecurityanddataprotection-Technicalroles'>Technical roles</a></li>
+<li><a href='#PBISecurityanddataprotection-Functionalroles'>Functional roles</a></li>
+</ul>
+</li>
+<li><a href='#PBISecurityanddataprotection-Premiumcapacityconsiderations'>Premium capacity considerations</a></li>
+</ul>
+</li>
+<li><a href='#PBISecurityanddataprotection-DesignofmanagingaccessrightsinIHC'>Design of managing access rights in IHC</a>
+<ul class='toc-indentation'>
+
+<ul class='toc-indentation'>
+<li><a href='#PBISecurityanddataprotection-Proworkspaces'>Pro workspaces</a></li>
+<li><a href='#PBISecurityanddataprotection-Premiumcapacityworkspaces'>Premium capacity workspaces</a></li>
+</ul>
+<li><a href='#PBISecurityanddataprotection-Dataaccess'>Data access</a>
+<ul class='toc-indentation'>
+<li><a href='#PBISecurityanddataprotection-Objectlevelsecurity'>Object level security</a></li>
+<li><a href='#PBISecurityanddataprotection-Rowlevelsecurity'>Row level security</a></li>
+</ul>
+</li>
+<li><a href='#PBISecurityanddataprotection-DataprivacyprotectioninPowerBI'>Data privacy protection in Power BI</a></li>
+</ul>
+</li>
+<li><a href='#PBISecurityanddataprotection-Offboardingprocess'>Off boarding process</a></li>
+</ul>
+</div><p>Action points</p><div class="table-wrap"><table data-layout="default" data-local-id="2d7c5e58-fdd4-4a55-aa06-faf51aac4d87" class="confluenceTable"><colgroup><col style="width: 300.0px;"/><col style="width: 80.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Action</strong></p></th><th class="confluenceTh"><p><strong>Who</strong></p></th></tr><tr><td class="confluenceTd"><p>Validate Sander and (at least one other person) is owner an ad group connected to pro user accounts</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>Create or review ad group for:<br/>viewers<br/>pro users<br/>workspace admin (revise existing users in group)<br/>tenant admin (revise existing users in group)<br/>capacity admin (revise existing users in group)<br/>service principal (revise existing users in group)</p></td><td class="confluenceTd"><p>Corjan?</p></td></tr><tr><td class="confluenceTd"><p>Change existing admin from pro workspaces to members<br/>add deploy app permission to member</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>Validate / Connect an owner to every pro workspace as member</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>Setup Service Now screen for new / change requirements</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>Setup reporting line to data privacy officer for all person sensitive data for awareness.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td></tr></tbody></table></div><h1 id="PBISecurityanddataprotection-Generalaccessrights">General access rights</h1><p>Access rights to power bi objects and services is very flexible (from very strict, to very open) and depending on organizational needs and choices. By using the premium capacity an additional dimension is introduced with more options and responsibility. Access starts first of all with having a license or not. Secondly technical roles needs to be requested and lastly the function roles needs to be requested. To complete the access right setup it’s important to have owners who approves the access request and ideally log the choices made. And finally a feedback loop is needed to inform the owners on who is able to see what in the service. </p><p>Assumptions and pre conditions in this document</p><ul><li><p>The owner of the workspace is responsible for the access to the workspace</p></li><li><p>Power BI desktop software is available for everybody in Team center</p></li><li><p>Every workspace needs at least one admin who is working at IHC (not a technical user)</p></li><li><p>Every workspace needs at least one member who is the technical owner of the workspace</p></li><li><p>Nested Azure Active Directory groups are allowed</p></li><li><p>IHC wants to grow to a more central managed premium capacity setup</p></li></ul><h2 id="PBISecurityanddataprotection-Licensebasedaccess">License based access</h2><p>IHC has power bi Premium service and with that comes the availability of the viewer license. This results in two type of licenses</p><ol><li><p>Viewer license through premium services</p></li><li><p>Pro license (with additional monthly fee)</p></li></ol><p>In general everybody who wants to do something different then only viewing a report needs a pro license. More details on what can be done with which license can be found <a class="external-link" href="https://docs.microsoft.com/en-us/power-bi/fundamentals/service-features-license-type" rel="nofollow">here</a>. </p><h3 id="PBISecurityanddataprotection-Viewerlicense">Viewer license</h3><p>A viewer have limited access to the data. A viewer is able to export content to power point or excel. Viewer licenses can be added per default to anybody working in IHC.</p><h3 id="PBISecurityanddataprotection-Prolicense">Pro license</h3><p>A pro license enables sharing report etc. through the service via a workspace. There should be a solid process for giving people a pro license because with pro license you may:</p><ol><li><p>Export data</p></li><li><p>Share data</p></li><li><p>Build on top of existing data models</p></li><li><p>Share content / data with other pro users</p></li><li><p>Update apps on pro - workspaces</p></li><li><p>Create pro - workspaces</p></li><li><p>Import data in power bi from different sources</p></li></ol><p>A pro user should therefor have a good understanding of the IHC data security and data privacy rules. Therefore also the approval of pro users should be done by an owner who has understanding of the impact, and budget consequences. </p><p /><h2 id="PBISecurityanddataprotection-Rolesandresponsibilities">Roles and responsibilities</h2><p>Roles can be defined in two ways. </p><ol><li><p>Technical roles explaining what the person can or should (not) do. </p><ol><li><p>Changes to premium settings / configurations</p></li><li><p>Access right to see / change objects (apps, workspaces, data sets, reports and dashboards)<br/><a class="external-link" href="https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-roles-new-workspaces" rel="nofollow">(details on access and roles)</a></p></li></ol></li><li><p>Functional roles which describes to what kind of objects you have access to. (for example the sales data, or the HR data)</p><ol><li><p>Ability to see workspaces and content</p></li><li><p>Ability to see certain data or not using row level security (RLS) or object level security (OLS)</p></li></ol></li></ol><p>All are important and cannot be neglected. The access management to see content and data are by far the biggest effort to maintain and require continuous attention. Most of the items mentioned above can be arranged for groups of people or by person. Combination of license based access and object based access defines what a person can or cannot do. </p><h3 id="PBISecurityanddataprotection-Technicalroles">Technical roles</h3><div class="table-wrap"><table data-layout="full-width" data-local-id="3400079f-3298-4a11-8fcf-982821062743" class="confluenceTable"><colgroup><col style="width: 139.0px;"/><col style="width: 332.0px;"/><col style="width: 234.0px;"/><col style="width: 117.0px;"/><col style="width: 138.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Role</strong></p></th><th class="confluenceTh"><p><strong>Competences</strong></p></th><th class="confluenceTh"><p><strong>Responsible</strong></p></th><th class="confluenceTh"><p><strong>Needed rights</strong></p></th><th class="confluenceTh"><p><strong>Additional comment</strong></p></th></tr><tr><td class="confluenceTd"><p>Azure / O365 admin</p></td><td class="confluenceTd"><p>Technical understanding of applications and O365<br/></p></td><td class="confluenceTd"><p>Buying Power BI<br/>Changing Capacity<br/>Changing auto-scale<br/>Cost management</p></td><td class="confluenceTd"><p>Tenant admin + azure contributor<br/>Pro license?</p></td><td class="confluenceTd"><p>One separate AD group?<br/></p></td></tr><tr><td class="confluenceTd"><p>Tenant admin CDM</p></td><td class="confluenceTd"><p>power bi premium settings and impact on users and security<br/>Security<br/>Usage of Power BI in IHC<br/>IHC AAD groups for Power BI</p></td><td class="confluenceTd"><p>Availability of Power BI according to design<br/>Security design (co-responsible)<br/>Handling Impact on power bi releases<br/>SPOC for Microsoft communication (updates / service outage)</p></td><td class="confluenceTd"><p>Pro license<br/>tenant admin</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>Capacity admin</p></td><td class="confluenceTd"><p>Dax Performance<br/>Power BI Memory consumption<br/>Premium capacity boundaries<br/>Capacity resource reports / visuals</p></td><td class="confluenceTd"><p>Monitoring Capacity / auto-scale<br/>adding workspaces to capacity</p></td><td class="confluenceTd"><p>Pro license<br/>Contributor on Capacity</p></td><td class="confluenceTd"><p>Separate AD group</p><p>Is consulted by IT for every change to capacity</p></td></tr><tr><td class="confluenceTd"><p>Workspace admin / Owner</p></td><td class="confluenceTd"><p>Workspace content knowledge<br/>Data security rules IHC<br/>Basic Azure AAD setup power bi</p></td><td class="confluenceTd"><p>Manage access rights on workspace level<br/>SPOC for tenant admin</p></td><td class="confluenceTd"><p>Pro license<br/>as workspace admin</p></td><td class="confluenceTd"><p>Minimal one per workspace</p></td></tr><tr><td class="confluenceTd"><p>Service principal</p></td><td class="confluenceTd"><p>NA</p></td><td class="confluenceTd"><p>Technical user for API / XLMA end-point connection</p></td><td class="confluenceTd"><p>Pro license<br/>Admin tenant?</p></td><td class="confluenceTd"><p>separate AD group</p></td></tr><tr><td class="confluenceTd"><p>CDM developer</p></td><td class="confluenceTd"><p>Business knowledge<br/>Security knowledge<br/>Data security rules IHC<br/>Power BI knowledge<br/>Deployment pipelines</p></td><td class="confluenceTd"><p>Developing content for business in a secure and sustainable way.<br/>Create consistent data sets and reports in line with the development standards and guidelines</p></td><td class="confluenceTd"><p>Pro license<br/>member of workspace</p></td><td class="confluenceTd"><p>Separate AD group</p></td></tr><tr><td class="confluenceTd"><p>Developer</p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p>Develop content in a workspace</p><p>Update apps</p></td><td class="confluenceTd"><p>Pro license</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>Viewer</p></td><td class="confluenceTd"><p>NA</p></td><td class="confluenceTd"><p>View apps / reports in workspace</p></td><td class="confluenceTd"><p>Viewer license</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>Security officer</p></td><td class="confluenceTd"><p>Azure / O365 cloud knowledge<br/>IHC AAD knowledge</p></td><td class="confluenceTd"><p>Security design (co-responsible)</p></td><td class="confluenceTd"><p>NA</p></td><td class="confluenceTd"><p>Consulted for security design</p></td></tr><tr><td class="confluenceTd"><p>Data privacy officer</p></td><td class="confluenceTd"><p>GDPR regulations</p></td><td class="confluenceTd"><p>Implementation of GDPR in Power BI</p></td><td class="confluenceTd"><p>NA</p></td><td class="confluenceTd"><p>annual audit on implementation of personal sensitive data.<br/>Consulted for data privacy rules</p></td></tr><tr><td class="confluenceTd"><p>Business Process owner</p></td><td class="confluenceTd"><p>NA</p></td><td class="confluenceTd"><p>Approving access to data sets / workspaces</p></td><td class="confluenceTd"><p>???</p></td><td class="confluenceTd"><p>approve groups in AAD</p></td></tr></tbody></table></div><p /><h3 id="PBISecurityanddataprotection-Functionalroles">Functional roles</h3><p>A functional role enables the person to see content for a specific domain like sales or HR. The functional roles can be defined on different levels:</p><ul><li><p>Workspace level.</p></li><li><p>Azure Active Directory groups (AD group) level which may already exist in your organization.</p></li><li><p>Own implemented security rules using RLS or OLS</p></li></ul><h2 id="PBISecurityanddataprotection-Premiumcapacityconsiderations">Premium capacity considerations</h2><p>With the introduction of Premium capacity, another dimension is added to the management of access right. Workspaces in the premium capacity will influence the performance on reports and needs therefore special attention. The limits are also higher in the premium capacity for which additional management is needed. This also influence the design of access to premium capacity.</p><h1 id="PBISecurityanddataprotection-DesignofmanagingaccessrightsinIHC">Design of managing access rights in IHC</h1><p>Access right is organized in IHC using:</p><ol><li><p>Service now for licenses and ad group access</p></li><li><p>Power BI for non CDM managed workspace access via workspace owners</p></li><li><p>Confluence for documentation</p></li></ol><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>under construction</p></div></div><p /><p /><p>In general:<br/>Distinction of it admin who provides pbi and tenant admin who operates</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">distinct user accounts for 
+	tenant admin
+		admin accounts only to be used for admin tasks
+		changing rights to workspaces
+	normal accounts
+		normal accounts should be used for content development to reduce mistakes
+		so CDM developer is contributor on workspace
+
+software general available or separate from license 
+pro licentie koppelen aan central data viewer (automatisch)</pre>
+</div></div><p>End user cases</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">Viewer to workspace x
+    need to be in ad group pbi_role_viewer (autoamtic assign license)
+    either	viewer role in ws x			-&gt; via ws owner
+      or	via an ad group pbi_ws_v_x		-&gt; ws service now
+
+pro user to develop reports in ws x
+	need in ad group pbi_role_pro_users
+	need contributor rights to ws x --&gt; via ws owner
+	
+owner workspace
+	need in ad group pbi_role_pro_users
+	need member role in workspace x (technical owner who assignes contributors and viewers to workspace)
+		(via service change permission request / new workspace request)
+	
+Create reports with data from cdm managed workspace for workspace x
+	need in ad group pbi_role_pro_users
+	need in ad group pbi_ws_v_central_data (via ticket in service now)
+	contributor rights in ws x (via owner of workspace x)
+	
+personal extend central data model with new measures for workspace x
+	need in ad group pbi_role_pro_users
+	need in ad group pbi_ws_v_central_data
+	build permission needs to be added to pbi_ws_v_central_data in the central datasets (incoroprated in dataset permissions for this on data set options via pro user ad group and not via viewer group)
+	contributor rights on ws x (via ws owner)</pre>
+</div></div><p>CDM user cases<br/></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">change admin settings
+  need in ad group pbi_role_tenant_admin
+  need in ad group pbi_role_pro_user
+
+add workspace to premium capacity
+	need in ad group pbi_role_tenant_adminin
+	need in ad group pbi_role_pro_user
+	
+need to contribute to CDM managed workspaces
+	need in ad group pbi_role_tenant_admin
+	need in ad group pbi_role_pro_user
+
+need to deploy using the pipeline
+	need in ad group pbi_role_tenant_admin
+	need in ad group pbi_role_pro_user
+	
+Assign ad group to workspace x
+	need to have role admin of workspace x
+	change permission on ws level and add the ad group</pre>
+</div></div><p>AD group setup</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">Roles
+  PBI_role_it_admin
+  PBI_role_tenant_admin					CDM admin accounts
+  PBI_role_capacity_admin 				tenant admin --&gt; temporary choice for current team setup
+  PBI_role_workspace_admin 				tenant admin --&gt; temporary choice for current team setup
+  PBI_role_CDM_developer					CDM &quot;normal&quot; accounts
+  PBI_role_pro_users
+  PBI_role_viewer
+Workspaces		
+  PBI_WS_V_IHC_central_data
+  PBI_WS_M_IHC_central_data
+  PBI_WS_C_IHC_central_data
+  PBI_WS_A_IHC_central_data
+  PBI_WS_V_IHC_integrated_project_performance
+App (optional)
+  PBI_app_v_integrated_project_performance
+data		
+  PBI_data_v_
+  
+  And: ad group scope is universal, type = security</pre>
+</div></div><p /><p>To have a solid Access right differs for CDM managed The access right setup is differentiated for premium services setup, premium capacity workspaces and pro workspaces (managed by pro users) and finally the data related access.</p><p>For documentation about general roles on workspace level click <a class="external-link" href="https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-roles-new-workspaces" rel="nofollow">here</a>. For rules about when to create a workspace and the naming click <a href="https://ihcconfluence.atlassian.net/wiki/spaces/ID/pages/8912927/Workspace+mangement#Work-spaces-and-access-rights" rel="nofollow">here</a>.</p><h3 id="PBISecurityanddataprotection-Proworkspaces">Pro workspaces</h3><p>A pro workspace is a workspace managed and used by pro users, and is not part of the premium capacity. All workspaces which are not in the premium capacity can be managed individually by the admin of that workspace. This will limit the use of workspaces for only pro-users. Additional management is needed to prevent from un-necessary workspace creation</p><p>Approach:</p><ol><li><p>A pro user request a new workspace via a ticket</p></li><li><p>CDM execute the request and assign at least one person to the workspace with the role of member. Also the workspace admin ad group is added.</p></li><li><p>A list of workspace and their owners (member role) is published on a centrally managed power bi report with workspaces and owners</p></li><li><p>Additional pro users can request access to owner (member) and get contributor or viewer role.</p></li><li><p>Owner manage all additional requests on this workspace.</p></li><li><p>CDM incorporate the workspace in the reporting pipeline about usage.</p></li></ol><p>Please keep in mind that depending what access right the pro user have on data sources, he is able to share that data with other pro users, as he is able to add additional people to the workspace.</p><h3 id="PBISecurityanddataprotection-Premiumcapacityworkspaces">Premium capacity workspaces</h3><p>A premium capacity workspace follows a more strict approach and the technical access should be completely managed by CDM. This implies there are only contributor or viewer roles to be given to the anybody outside CDM. </p><p>Approach for CDM managed workspace</p><div class="table-wrap"><table data-layout="default" data-local-id="3fffa936-4825-40e0-be55-b870362d0809" class="confluenceTable"><colgroup><col style="width: 243.0px;"/><col style="width: 515.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Access right</strong></p></th><th class="confluenceTh"><p><strong>process steps</strong></p></th></tr><tr><td class="confluenceTd"><p>Request workspace</p></td><td class="confluenceTd"><ol><li><p>End user adds ticket in Service Now, providing an ad group connected to that workspace</p></li><li><p>CDM add workspace using name convention</p></li><li><p>CDM adds workspace admin ad group</p></li><li><p>CDM adds ad group from end user as contributor to that workspace.</p></li></ol></td></tr><tr><td class="confluenceTd"><p>Request managed workspace</p></td><td class="confluenceTd"><ol><li><p>End user adds ticket in service now, providing an ad group connected to that workspace for viewer rights</p></li><li><p>CDM add workspace using name convention</p></li><li><p>CDM adds workspace admin ad group</p></li><li><p>CDM adds ad group with viewer role</p></li></ol></td></tr><tr><td class="confluenceTd"><p>Request view access</p></td><td class="confluenceTd"><ol><li><p>End user request view access in service now to be part of AD group x ?</p></li><li><p>IT manage AD group and add user to ad group</p></li></ol></td></tr><tr><td class="confluenceTd"><p>Request contributor access</p></td><td class="confluenceTd"><ol><li><p>End user request contributor access in service now to a certain ad group</p></li><li><p>IT manage ad group and add user to ad group</p></li></ol></td></tr><tr><td class="confluenceTd"><p>Request managed content</p></td><td class="confluenceTd"><ol><li><p>End user creates ticket on Jira board with details</p></li><li><p>CDM is responsible for execution</p></li></ol></td></tr></tbody></table></div><p>Approach for pro workspaces promotion</p><div class="table-wrap"><table data-layout="default" data-local-id="c7f7eaac-4220-47ab-97a5-0e6613c19e8b" class="confluenceTable"><colgroup><col style="width: 241.0px;"/><col style="width: 517.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Access rights</strong></p></th><th class="confluenceTh"><p><strong>Process steps</strong></p></th></tr><tr><td class="confluenceTd"><p>Request workspace promotion</p></td><td class="confluenceTd"><ol><li><p>End user adds ticket in service now, and provide ad group who needs access to workspace.</p></li><li><p>CDM (capacity admin) add workspace to premium capacity</p></li><li><p>CDM removes member rights from existing workspace</p></li><li><p>CDM add group as contributor to workspace</p></li><li><p>CDM provide update app permission to contributors</p></li></ol></td></tr></tbody></table></div><h2 id="PBISecurityanddataprotection-Dataaccess">Data access</h2><p>This topic is limited to the data in the power bi service and does not cover the access to other sources which are connected to the service. The general IHC discussion on data access provides some rules to be used:</p><ol><li><p>Use professional judgement to determine whether the data can be exposed to everyone with DWH access.</p></li><li><p>Discuss recently exposed data objects with Business Process Owners (BPOs) on a regular basis to see if assumption was correct. Sander and Marco will deal with this step.</p></li></ol><p>Access level to data in power bi service can be limited in three ways:</p><ol><li><p>Workspace access<br/>Limit the access to data models stored in workspaces</p></li><li><p><a class="external-link" href="https://powerbi.microsoft.com/en-us/blog/object-level-security-ols-now-available-for-public-preview-in-power-bi-premium/" rel="nofollow">Object level security</a><br/>Limit the access to objects in the model</p></li><li><p><a class="external-link" href="https://docs.microsoft.com/en-us/power-bi/enterprise/service-admin-rls" rel="nofollow">Row level security</a><br/>Limit the rows inside an object and the related dimensions in the model</p></li></ol><p>The workspace access is described in previous part.</p><h3 id="PBISecurityanddataprotection-Objectlevelsecurity">Object level security</h3><p>tbd depending on IHC implementation</p><h3 id="PBISecurityanddataprotection-Rowlevelsecurity">Row level security</h3><p>tbd depending on IHC implementation</p><p /><h2 id="PBISecurityanddataprotection-DataprivacyprotectioninPowerBI">Data privacy protection in Power BI</h2><p>To secure the data protection (GDPR and IHC data compliances) in power bi all data models should include the following rules:</p><ol><li><p>PBI data models follow the source. a record deleted in the source will be deleted in power bi. to achieve this every model uses full refresh, or at least perform a full refresh every year. </p></li><li><p>Personal sensitive data is only stored if it is allowed by GDPR and compliance regulations</p></li><li><p>Personal sensitive data is only exposed to people who really need to see this data to do her or his job.</p></li><li><p>Every year the data privacy officer in IHC gets a full update on all data sources containing personal sensitive data.</p></li></ol><p /><h1 id="PBISecurityanddataprotection-Offboardingprocess">Off boarding process</h1><p>In any case persons with any rights or license who left the company should be removed from ad groups or replaced by other people in case they are owners. </p><p>To be defined…</p><p /><p /><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7241729/7897131.png">image-20220405-133643.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7241729/7733302.png">image-20220405-163855.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7241729/7897149.png">image-20220405-164000.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

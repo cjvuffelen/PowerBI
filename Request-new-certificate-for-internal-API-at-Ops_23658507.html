@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Request new certificate for internal API at Ops</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tools_4128769.html">Tools</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="MuleSoft_3964983.html">MuleSoft</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Playbooks_4882457.html">Playbooks</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Request new certificate for internal API at Ops
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> r.lodder1</span>, last modified on jul. 08, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>When creating an API which is internal facing via HTTPS, a certificate needs to be requested at Operations. Now, all of the Mule Internal API certificates are maintained by Operations and placed in a single pfx file called ‘mulesoft-integrations.ihc.eu.pfx’. A valid certificate signed by IHC is always required for internal traffic. In case of HTTP or an unsigned certificate, a request can not be made to that endpoint.</p><p>Follow the steps below to successfully request and implement the certificate change.</p><ol><li><p>Lookup url for API. When deploying the API to CloudHub, make sure the HTTPS Listener in your Mule app is exposing on port 8092. By this, the API will be deployed in the VPC. Either find the name of the API or head to Runtime Manager and select the API that needs to have a certificate. If for example the deployed (or not yet deployed) is called ‘royalihc-devtest-mule-ihc-integrations' and is deployed in Germany, the internal worker URL is: <a class="external-link" href="http://mule-worker-internal-royalihc-devtest-schemas-sl.de-c1.eu1.cloudhub.io" rel="nofollow">mule-worker-internal-royalihc-devtest-mule-ihc-integrations.de-c1.eu1.cloudhub.io</a></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/23658507/24576030.png" data-image-src="attachments/23658507/24576030.png" data-height="124" data-width="505" data-unresolved-comment-count="0" data-linked-resource-id="24576030" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220708-123851.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="23658507" data-linked-resource-container-version="3" data-media-id="2f609293-1871-4e91-8064-d1d8d93dc08f" data-media-type="file"></span><p /></li><li><p>Once you have this endpoint, a DNS endpoint needs to be defined. In Royal IHC we use the format https://&lt;&lt;environment&gt;&gt;-&lt;&lt;api-name&gt;&gt;.ihc.eu:8092. For The API above, this would be the following for all environments:<br/>- <a class="external-link" href="https://devtest-ihc-integrations.ihc.eu:8092" rel="nofollow">https://devtest-ihc-integrations.ihc.eu:8092</a><br/>- <a class="external-link" href="https://devtest-ihc-integrations.ihc.eu:8092" rel="nofollow">https://qa-ihc-integrations.ihc.eu:8092</a><br/>- <a class="external-link" href="https://devtest-ihc-integrations.ihc.eu:8092" rel="nofollow">https://production-ihc-integrations.ihc.eu:8092</a><br/><br/>These endpoints will redirect to the mule worker internal endpoint as defined in step 1.</p></li><li><p>Request via ServiceNow. Create a new change in ServiceNow in where you define the actual Mule API URLs (step 1) and the desired DNS endpoints (step 2)</p></li><li><p>Update main certificate file. After the request has been fulfilled, Operations will deliver the ‘mulesoft-integrations.ihc.eu.pfx’ file which contains all certificates for MuleSoft. Place this file in the Mule project direcory ‘/src/main/resources’. <br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/23658507/24739865.png" data-image-src="attachments/23658507/24739865.png" data-height="201" data-width="355" data-unresolved-comment-count="0" data-linked-resource-id="24739865" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220708-124948.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="23658507" data-linked-resource-container-version="3" data-media-id="fa1d2c3a-2747-40b4-96a9-ff229f0ad68f" data-media-type="file"></span></li><li><p>In case that it’s a new API, make sure to add the properties like the keystore password to Azure Keyvault.</p></li><li><p>At last, deploy the API and make sure everything works. To test this, open a browser and head to the DNS endpoint like <a class="external-link" href="https://devtest-ihc-integrations.ihc.eu:8092" rel="nofollow">https://devtest-ihc-integrations.ihc.eu:8092</a>. If everything works, you should see a white page with a message '<code>No listener for endpoint: /</code>'. Also, the “lock” symbol should be locked.<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/23658507/24543294.png" data-image-src="attachments/23658507/24543294.png" data-height="110" data-width="384" data-unresolved-comment-count="0" data-linked-resource-id="24543294" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220708-125242.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="23658507" data-linked-resource-container-version="3" data-media-id="3a20bd7f-1b19-4a6e-bb06-adbd7030ff09" data-media-type="file"></span></li></ol><p style="margin-left: 30.0px;">If you don’t see this view, you will probably get ‘Your connection is not private’ (as the image below). If that happens, then there is something wrong with either the certificate, or the certificate is not being used. In the last case, check whether the environment properties in Azure are set correctly.</p><span class="confluence-embedded-file-wrapper image-left-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-left" width="340" loading="lazy" src="attachments/23658507/24576044.png?width=340" data-image-src="attachments/23658507/24576044.png" data-height="732" data-width="1328" data-unresolved-comment-count="0" data-linked-resource-id="24576044" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="MicrosoftTeams-image-20220708-125426.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="23658507" data-linked-resource-container-version="3" data-media-id="64f16b7c-160e-4a88-b9d3-f127b816d9b4" data-media-type="file"></span>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/23658507/24576030.png">image-20220708-123851.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/23658507/24739865.png">image-20220708-124948.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/23658507/24543294.png">image-20220708-125242.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/23658507/24576044.png">MicrosoftTeams-image-20220708-125426.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

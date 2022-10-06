@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Development environment based on WSL2</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Development environment based on WSL2
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> ewoud westerbaan</span>, last modified by <span class='editor'> Corjan van Uffelen</span> on mei 30, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h3 id="DevelopmentenvironmentbasedonWSL2-Installation">Installation</h3><p>Powershell:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: powershell; gutter: false; theme: Confluence" data-theme="Confluence">wsl --set-default-version 2
+wsl --install -d Ubuntu</pre>
+</div></div><p>Reboot your stystem. The installation will continue. It will promopt a Linux terminal. Eventually the system requires you to choose a username and password. You will end up in the Linux terminal.</p><p>In the linux terminal you will need your password for <code>sudo</code> commands.</p><h4 id="DevelopmentenvironmentbasedonWSL2-Updatethesystem">Update the system</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence"># get new package information
+sudo apt update
+# install new packages
+sudo apt -y upgrade
+# Removes not used packages
+sudo apt autoremove</pre>
+</div></div><h4 id="DevelopmentenvironmentbasedonWSL2-InstallationofPyenv">Installation of Pyenv</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence"># Install required packages for Pyenv
+sudo apt-get update; sudo apt-get -y install make build-essential libssl-dev zlib1g-dev \
+libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
+libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+# Get pyenv
+git clone https://github.com/pyenv/pyenv.git  ~/.pyenv
+cd ~/.pyenv &amp;&amp; src/configure &amp;&amp; make -C src
+
+# the sed invocation inserts the lines at the start of the file
+# after any initial comment lines
+# Copy and paste the following block at once
+sed -Ei -e &#39;/^([^#]|$)/ {a \
+export PYENV_ROOT=&quot;$HOME/.pyenv&quot;
+a \
+export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;
+a \
+&#39; -e &#39;:a&#39; -e &#39;$!{n;ba};}&#39; ~/.profile
+# --- until here
+
+echo &#39;eval &quot;$(pyenv init --path)&quot;&#39; &gt;&gt;~/.profile
+
+echo &#39;eval &quot;$(pyenv init -)&quot;&#39; &gt;&gt; ~/.bashrc
+
+source ~/.profile # reloads profile</pre>
+</div></div><h4 id="DevelopmentenvironmentbasedonWSL2-Createssh-key">Create ssh-key</h4><p>You will need a ssh key to pull and push to github. You can create one the following commands:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence"># REPLACE INITIALS AND LASTNAME!
+ssh-keygen -t rsa -b 4096 -C &quot;initials.lastname@royalihc.com&quot;
+# leave the file as-is and no passphrase (just 3x &lt;enter&gt;)
+cat ~/.ssh/id_rsa.pub</pre>
+</div></div><p>Go to <a class="external-link" href="https://github.com/settings/ssh/new" rel="nofollow">https://github.com/settings/ssh/new</a></p><p>Paste the output of the cat command in the 'Key' field. Give the hey a name (e.g. wsl).</p><h4 id="DevelopmentenvironmentbasedonWSL2-Getdevelopmentcode">Get development code</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">mkdir ~/source
+git clone git@github.com:Royal-IHC-BV/dwh_model.git ~/source/dwh_model</pre>
+</div></div><p>The system probably prompts you to verify a fingerprint. This is because you connect to Github the first time.</p><p>In VS Code, install Remote Development <a class="external-link" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack" rel="nofollow">https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack</a></p><h4 id="DevelopmentenvironmentbasedonWSL2-InstallZScalercertificate">Install ZScaler certificate</h4><p>See <a href="ZScaler-certificate-in-pipenv-environment_1474561.html" data-linked-resource-id="1474561" data-linked-resource-version="4" data-linked-resource-type="page">ZScaler certificate in pipenv environment</a> how to export the ZScaler certificate.</p><p>Copy the certificate to <code>\wsl$\Ubuntu\home&lt; username &gt;</code></p><p>Assume the certificate is called zscaler.cer:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">sudo mv ~/zscaler.cer /usr/local/share/ca-certificates/zscaler.crt
+sudo update-ca-certificates</pre>
+</div></div><p>If the command are succesfull, you will notice ‘1 added’.</p><h4 id="DevelopmentenvironmentbasedonWSL2-Installcorrectpythonversion">Install correct python version</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">pyenv install 3.8.10</pre>
+</div></div><h4 id="DevelopmentenvironmentbasedonWSL2-InstalldriverstoconnecttoDatabricks">Install drivers to connect to Databricks</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">sudo apt-get install python3-dev unixodbc-dev unzip
+wget https://databricks-bi-artifacts.s3.us-east-2.amazonaws.com/simbaspark-drivers/odbc/2.6.22/SimbaSparkODBC-2.6.22.1037-Debian-64bit.zip
+unzip SimbaSparkODBC-2.6.22.1037-Debian-64bit.zip
+sudo apt install ./simbaspark_2.6.22.1037-2_amd64.deb</pre>
+</div></div><h4 id="DevelopmentenvironmentbasedonWSL2-Virtueleenvironmentinstellen">Virtuele environment instellen</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">cd ~/source/dwh_model
+python -m venv .venv
+$HOME/source/dwh_model/.venv/bin/python -m pip install --upgrade pip</pre>
+</div></div><p> (keep this <code>.venv</code>, it’s in the .gitignore)</p><h4 id="DevelopmentenvironmentbasedonWSL2-Dockerinstalleren">Docker installeren</h4><p>To run test dags locally, you can run Airflow on Docker</p><p /><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">#Install docker
+sudo apt-get update
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+	
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+echo \
+  &quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable&quot; | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+
+sudo apt-get update
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-compose
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker 
+
+# This may be necessary if the docker daemon is not running
+sudo apt-get update &amp;&amp; sudo apt-get install -yqq daemonize dbus-user-session fontconfi
+sudo daemonize /usr/bin/unshare --fork --pid --mount-proc /lib/systemd/systemd --system-unit=basic.target
+exec sudo nsenter -t $(pidof systemd) -a su - $LOGNAME</pre>
+</div></div><p>Maybe docker is not running, try this:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">sudo service docker start</pre>
+</div></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : ZScaler certificate in pipenv environment</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : ZScaler certificate in pipenv environment
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> ewoud westerbaan</span>, last modified on apr. 06, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Infastructure of IHC uses ZScaler for secure networking. For dbt, we use a python environment. However, python does not use the default certificate store of windows. Therefore we need to manually add the ZScaler root certificat to the python environment.</p><ol><li><p>Go to ‘Manage computer certificates’</p></li><li><p>Go to 'Action → Find Certificates'</p></li><li><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="374" loading="lazy" src="attachments/1474561/1474568.png?width=374" data-image-src="attachments/1474561/1474568.png" data-height="391" data-width="980" data-unresolved-comment-count="0" data-linked-resource-id="1474568" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220221-081451.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1474561" data-linked-resource-container-version="4" data-media-id="b9307b26-3eb4-4a74-8e16-1f4415ec995c" data-media-type="file"></span><p>Search for ‘ZScaler’</p><span class="confluence-embedded-file-wrapper image-left-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-left" width="374" loading="lazy" src="attachments/1474561/1343714.png?width=374" data-image-src="attachments/1474561/1343714.png" data-height="667" data-width="667" data-unresolved-comment-count="0" data-linked-resource-id="1343714" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220221-081512.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1474561" data-linked-resource-container-version="4" data-media-id="cb7394d6-d554-4c55-b872-583ccd1be1d2" data-media-type="file"></span></li><li><p>Double click certificate</p></li><li><p>Go to ‘Details → Copy to file’</p></li><li><p>Click Next</p></li><li><p>Choose Base-64 encoded X.509 (.CER).</p></li><li><p>Click Next.</p></li><li><p>Choose a location.</p></li><li><p>Open the saved file in Notepad.</p></li><li><p>In your pipenv, go to <code>Lib\site-packages\certifi</code>. You can find the location by clicking in the python version in the left bottom of VSCode (or in your environment, type: <code>pipenv --venv</code>).</p></li><li><p>Open cacert.pem</p></li><li><p>Copy the content of the saved certificate to the bottom of the cacert.pem file.</p></li></ol><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1474561/1474568.png">image-20220221-081451.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1474561/1343714.png">image-20220221-081512.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : DeployToDevTest Job</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tools_4128769.html">Tools</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="MuleSoft_3964983.html">MuleSoft</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="3735681.html">CI/CD</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Prebuild-Github-Workflows_4456461.html">Prebuild Github Workflows</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="4653114.html">Main CI/CD workflow</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : DeployToDevTest Job
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> r.lodder1</span>, last modified on mrt. 17, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="DeployToDevTestJob-Introduction">Introduction</h1><p>Relying on the <a href="Build-Job_4948164.html" data-linked-resource-id="4948164" data-linked-resource-version="3" data-linked-resource-type="page">Build Job</a>, the DeployToDevTest job is an extensive job consisting of multiple steps. With the CI/CD lifecycle in mind, this jobs is at the end responsible to deploy to the Anypoint Platform DevTest environment. To get there however, the tasks <strong>build (code and retrieval of properties), test (Munit) and deploy</strong> of the CI/CD lifecycle must be executed successfully. These steps are already some security measurement to ensure that technically the code works as it should be. </p><h1 id="DeployToDevTestJob-Trigger,stepsandvariables">Trigger, steps and variables</h1><span class="confluence-embedded-file-wrapper image-left-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-left" width="340" loading="lazy" src="attachments/4915422/5373965.png?width=340" data-image-src="attachments/4915422/5373965.png" data-height="62" data-width="982" data-unresolved-comment-count="0" data-linked-resource-id="5373965" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="deployToDevTest-job-20220317-140059.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="4915422" data-linked-resource-container-version="4" data-media-id="4ad0df14-9345-4f88-a9b4-50d6da609acb" data-media-type="file"></span><h2 id="DeployToDevTestJob-Trigger">Trigger</h2><p>This job is triggered in case of a <a href="Pull-Requests_4620319.html" data-linked-resource-id="4620319" data-linked-resource-version="8" data-linked-resource-type="page">Pull Requests</a> from a ‘development branch’ to the ‘main branch’. The reason is that modified or added code must first be tested on the DevTest environment, then be approved in the PR before is can eventually be rolled out and tested on the QA environment.</p><p>The job is fully relying on the build job. This means that the <a data-card-appearance="inline" href="https://ihcconfluence.atlassian.net/wiki/pages/resumedraft.action?draftId=4948164" rel="nofollow">https://ihcconfluence.atlassian.net/wiki/pages/resumedraft.action?draftId=4948164</a> always runs first and after that each job will look what kind of event it is (in this situation, its a PR).</p><h2 id="DeployToDevTestJob-Variables">Variables</h2><div class="table-wrap"><table data-layout="default" data-local-id="c3a7d166-5162-46df-bf08-d94846e15480" class="confluenceTable"><colgroup><col style="width: 340.0px;"/><col style="width: 340.0px;"/></colgroup><tbody><tr><td class="confluenceTd"><p>APP_ID</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>APP_SECRET</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>GITHUB_USER</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>GITHUB_TOKEN</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>CLOUDHUB_ENVIRONMENT</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>ANYPOINT_PLATFORM_CLIENT_ID</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>ANYPOINT_PLATFORM_CLIENT_SECRET</p></td><td class="confluenceTd"><p /></td></tr></tbody></table></div><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4915422/5373965.png">deployToDevTest-job-20220317-140059.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

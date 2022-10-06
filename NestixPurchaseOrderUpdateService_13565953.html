@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : NestixPurchaseOrderUpdateService</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Integrations_3735653.html">Integrations</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Migrations_9633803.html">Migrations</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Nestix_9404543.html">Nestix</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : NestixPurchaseOrderUpdateService
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> r.lodder1</span> on mei 24, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p class="media-group"><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="attachments/13565953/13631491.xsd" data-nice-type="null" data-file-src="/wiki/download/attachments/13565953/IFSPurchaseOrderDbAdapter_table.xsd?version=1&amp;modificationDate=1653385394978&amp;cacheVersion=1&amp;api=v2" data-linked-resource-id="13631491" data-linked-resource-type="attachment" data-linked-resource-container-id="13565953" data-linked-resource-default-alias="IFSPurchaseOrderDbAdapter_table.xsd" data-mime-type="application/octet-stream" data-has-thumbnail="true" data-linked-resource-version="1" data-media-id="90c5f284-3500-4907-a866-c28f8cf3748f" data-media-type="file"><img src="attachments/thumbnails/13565953/13631491" height="250"/></a></span><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="attachments/13565953/13434890.xsd" data-nice-type="null" data-file-src="/wiki/download/attachments/13565953/POUpdate.xsd?version=1&amp;modificationDate=1653385369140&amp;cacheVersion=1&amp;api=v2" data-linked-resource-id="13434890" data-linked-resource-type="attachment" data-linked-resource-container-id="13565953" data-linked-resource-default-alias="POUpdate.xsd" data-mime-type="application/octet-stream" data-has-thumbnail="true" data-linked-resource-version="1" data-media-id="3e388535-060f-40d4-b65d-a1d5cfac5dff" data-media-type="file"><img src="attachments/thumbnails/13565953/13434890" height="250"/></a></span></p><p /><p class="media-group"><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="attachments/13565953/13336590.xml" data-nice-type="XML File" data-file-src="/wiki/download/attachments/13565953/output-nestix.xml?version=1&amp;modificationDate=1653385624862&amp;cacheVersion=1&amp;api=v2" data-linked-resource-id="13336590" data-linked-resource-type="attachment" data-linked-resource-container-id="13565953" data-linked-resource-default-alias="output-nestix.xml" data-mime-type="text/xml" data-has-thumbnail="true" data-linked-resource-version="1" data-media-id="1634ab21-3b82-472f-8dd7-14f992896806" data-media-type="file"><img src="attachments/thumbnails/13565953/13336590" height="250"/></a></span><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="attachments/13565953/13598732.xml" data-nice-type="XML File" data-file-src="/wiki/download/attachments/13565953/input-nestix.xml?version=1&amp;modificationDate=1653385595864&amp;cacheVersion=1&amp;api=v2" data-linked-resource-id="13598732" data-linked-resource-type="attachment" data-linked-resource-container-id="13565953" data-linked-resource-default-alias="input-nestix.xml" data-mime-type="text/xml" data-has-thumbnail="true" data-linked-resource-version="1" data-media-id="b9d536c7-f694-4a85-b4c2-13385cff3faa" data-media-type="file"><img src="attachments/thumbnails/13565953/13598732" height="250"/></a></span><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="attachments/13565953/13598726.xsl" data-nice-type="XML File" data-file-src="/wiki/download/attachments/13565953/Xform_POUpdate.xsl?version=2&amp;modificationDate=1653385562088&amp;cacheVersion=1&amp;api=v2" data-linked-resource-id="13598726" data-linked-resource-type="attachment" data-linked-resource-container-id="13565953" data-linked-resource-default-alias="Xform_POUpdate.xsl" data-mime-type="text/xml" data-has-thumbnail="true" data-linked-resource-version="2" data-media-id="e90d71d7-dd0b-45e1-9bcc-4b15df1136a6" data-media-type="file"><img src="attachments/thumbnails/13565953/13598726" height="250"/></a></span><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="attachments/13565953/13434897.xml" data-nice-type="XML File" data-file-src="/wiki/download/attachments/13565953/output-database.xml?version=1&amp;modificationDate=1653385506732&amp;cacheVersion=1&amp;api=v2" data-linked-resource-id="13434897" data-linked-resource-type="attachment" data-linked-resource-container-id="13565953" data-linked-resource-default-alias="output-database.xml" data-mime-type="text/xml" data-has-thumbnail="true" data-linked-resource-version="1" data-media-id="18229b6e-b8b1-4d29-a3d1-8a2f947281d8" data-media-type="file"><img src="attachments/thumbnails/13565953/13434897" height="250"/></a></span><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="attachments/13565953/13369358.xml" data-nice-type="XML File" data-file-src="/wiki/download/attachments/13565953/input.xml?version=1&amp;modificationDate=1653385416837&amp;cacheVersion=1&amp;api=v2" data-linked-resource-id="13369358" data-linked-resource-type="attachment" data-linked-resource-container-id="13565953" data-linked-resource-default-alias="input.xml" data-mime-type="text/xml" data-has-thumbnail="true" data-linked-resource-version="1" data-media-id="bd7db8ad-7c57-4df6-96a6-e6acac9e9209" data-media-type="file"><img src="attachments/thumbnails/13565953/13369358" height="250"/></a></span></p><p /><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">Query: SELECT * FROM IFSINFO.C_PURCHASE_INFO WHERE ORDER_NO = #orderNo AND STATUS = &#39;Confirmed&#39; AND LINE_NO = #lineNo AND RELEASE_NO = #releaseNo ORDER BY LINE_NO ASC
+Database: DORA06.ihc.eu
+Username: INTERFACE_METALIX
+password: ***
+port: 1521
+Servicename: DERP9</pre>
+</div></div><p /><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">REST Call to Nestix:
+
+basePath: /NxSSC_Metalix_API/soap
+host: http://tnes01.ihc.eu
+method: POST
+Operation: Send
+
+-&gt; http://tnes01.ihc.eu/NxSSC_Metalix_API/soap/Send</pre>
+</div></div><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/13565953/13434890.xsd">POUpdate.xsd</a> (application/octet-stream)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/13565953/13631491.xsd">IFSPurchaseOrderDbAdapter_table.xsd</a> (application/octet-stream)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/13565953/13369358.xml">input.xml</a> (text/xml)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/13565953/13434897.xml">output-database.xml</a> (text/xml)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/13565953/13631501.xsl">Xform_POUpdate.xsl</a> (text/xml)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/13565953/13598726.xsl">Xform_POUpdate.xsl</a> (text/xml)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/13565953/13598732.xml">input-nestix.xml</a> (text/xml)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/13565953/13336590.xml">output-nestix.xml</a> (text/xml)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

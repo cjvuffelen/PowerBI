@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Deployments</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Deployments
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Alex Hoogvliet</span>, last modified by <span class='editor'> ma.vanommering</span> on jun. 13, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Refer to Excel Deployments overview in CDM Teams folder.</p><p /><div class="table-wrap"><table data-layout="wide" data-local-id="33acfba3-8a78-4f45-897b-57f7e6528d5c" class="confluenceTable"><colgroup><col style="width: 48.0px;"/><col style="width: 48.0px;"/><col style="width: 48.0px;"/><col style="width: 82.0px;"/><col style="width: 48.0px;"/><col style="width: 48.0px;"/><col style="width: 60.0px;"/><col style="width: 50.0px;"/><col style="width: 48.0px;"/><col style="width: 48.0px;"/><col style="width: 48.0px;"/><col style="width: 48.0px;"/><col style="width: 48.0px;"/><col style="width: 48.0px;"/><col style="width: 48.0px;"/><col style="width: 48.0px;"/><col style="width: 48.0px;"/><col style="width: 48.0px;"/><col style="width: 48.0px;"/></colgroup><tbody><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td></tr></tbody></table></div><p>Notes:</p><p>TO TEST: If you pause a scheduled dag, you cannot run it manually because it will be made active again automatically and start a missed scheduled run. So then it could be that it runs twice.</p><p>How to manually run a scheduled run. Just pausing and unpausing</p><div class="table-wrap"><table data-layout="default" data-local-id="a35bd5ce-3dca-4c8c-932b-182afda4f10a" class="confluenceTable"><colgroup><col style="width: 49.0px;"/><col style="width: 48.0px;"/><col style="width: 53.0px;"/><col style="width: 107.0px;"/><col style="width: 48.0px;"/><col style="width: 48.0px;"/><col style="width: 48.0px;"/><col style="width: 48.0px;"/><col style="width: 311.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p /></th><th class="confluenceTh"><p /></th><th class="confluenceTh"><p /></th><th class="confluenceTh"><p><strong>Stappen per deployment</strong></p></th><th class="confluenceTh"><p /></th><th class="confluenceTh"><p /></th><th class="confluenceTh"><p /></th><th class="confluenceTh"><p /></th><th class="confluenceTh"><p /></th></tr><tr><td class="confluenceTd"><p>dag 1</p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p><span style="color: rgb(255,86,48);">TEAM</span></p></td><td class="confluenceTd"><p>Create PR</p></td><td class="confluenceTd"><p>Thu</p></td><td class="confluenceTd"><p>Fri</p></td><td class="confluenceTd"><p>Mon</p></td><td class="confluenceTd"><p>Tue</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>dag 1</p></td><td class="confluenceTd"><p>4 uur</p></td><td class="confluenceTd"><p><span style="color: rgb(255,86,48);">TEAM</span></p></td><td class="confluenceTd"><p>Approve PR</p></td><td class="confluenceTd"><p>Thu</p></td><td class="confluenceTd"><p>Fri</p></td><td class="confluenceTd"><p>Mon</p></td><td class="confluenceTd"><p>Tue</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>dag 1</p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p>AH, MvO</p></td><td class="confluenceTd"><p>Merge to Master</p></td><td class="confluenceTd"><p>Thu</p></td><td class="confluenceTd"><p>Fri</p></td><td class="confluenceTd"><p>Mon</p></td><td class="confluenceTd"><p>Tue</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>dag 1</p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p>AH, MvO</p></td><td class="confluenceTd"><p>Pull to Test</p></td><td class="confluenceTd"><p>Thu</p></td><td class="confluenceTd"><p>Fri</p></td><td class="confluenceTd"><p>Mon</p></td><td class="confluenceTd"><p>Tue</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>dag 2</p></td><td class="confluenceTd"><p>4 uur</p></td><td class="confluenceTd"><p>AH, MvO</p></td><td class="confluenceTd"><p>Test load</p></td><td class="confluenceTd"><p>Fri</p></td><td class="confluenceTd"><p>Mon</p></td><td class="confluenceTd"><p>Tue</p></td><td class="confluenceTd"><p>Wed</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>dag 2</p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p><span style="color: rgb(255,86,48);">TEAM</span></p></td><td class="confluenceTd"><p>Review test</p></td><td class="confluenceTd"><p>Fri</p></td><td class="confluenceTd"><p>Mon</p></td><td class="confluenceTd"><p>Tue</p></td><td class="confluenceTd"><p>Wed</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>dag 2</p></td><td class="confluenceTd"><p>16.30h</p></td><td class="confluenceTd"><p>AH, MvO</p></td><td class="confluenceTd"><p>Pull to Acc</p></td><td class="confluenceTd"><p>Fri</p></td><td class="confluenceTd"><p>Mon</p></td><td class="confluenceTd"><p>Tue</p></td><td class="confluenceTd"><p>Wed</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>dag 2</p></td><td class="confluenceTd"><p>17h</p></td><td class="confluenceTd"><p>AH, MvO</p></td><td class="confluenceTd"><p>Acc load</p></td><td class="confluenceTd"><p>Fri or Sun</p></td><td class="confluenceTd"><p>Mon</p></td><td class="confluenceTd"><p>Tue</p></td><td class="confluenceTd"><p>Wed</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>dag 3</p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p><span style="color: rgb(255,86,48);">TEAM</span></p></td><td class="confluenceTd"><p>Review Acc</p></td><td class="confluenceTd"><p>Mon</p></td><td class="confluenceTd"><p>Tue</p></td><td class="confluenceTd"><p>Wed</p></td><td class="confluenceTd"><p>Thu</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>dag 3 </p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p>AH, MvO</p></td><td class="confluenceTd"><p>Pull to Prod</p></td><td class="confluenceTd"><p>Mon</p></td><td class="confluenceTd"><p>Tue</p></td><td class="confluenceTd"><p>Wed</p></td><td class="confluenceTd"><p>Thu</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>dag 4</p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p>AH, MvO</p></td><td class="confluenceTd"><p>Prod load en errors check</p></td><td class="confluenceTd"><p>Tue</p></td><td class="confluenceTd"><p>Wed</p></td><td class="confluenceTd"><p>Thu</p></td><td class="confluenceTd"><p>Fri</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>dag 5</p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p>AH, MvO</p></td><td class="confluenceTd"><p>Prod load zonder fouten</p></td><td class="confluenceTd"><p>Wed</p></td><td class="confluenceTd"><p>Thu</p></td><td class="confluenceTd"><p>Fri</p></td><td class="confluenceTd"><p>Mon</p></td><td class="confluenceTd"><p /></td></tr></tbody></table></div><p /><p>Als dag 4 is uiterlijk ma nacht, di nacht, wo nacht</p><p>Dag 3 ma, di, wo</p><p>dag 2 vr, ma, di</p><p>dag 1 do, vr, ma</p><h2 id="Deployments-"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4d8" data-emoji-shortname=":blue_book:" data-emoji-fallback="\uD83D\uDCD8" src="images/icons/emoticons/72/1f4d8.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blauwe ster)"/></h2><p /><h2 id="Deployments-Relatedarticles"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4cb" data-emoji-shortname=":clipboard:" data-emoji-fallback="\uD83D\uDCCB" src="images/icons/emoticons/72/1f4cb.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blauwe ster)"/> Related articles</h2><p></p>
+
+
+
+
+
+
+
+
+
+
+
+<ul class="content-by-label">
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="5046320" data-linked-resource-type="page" data-linked-resource-version="8" href="/wiki/spaces/CDM/pages/5046320/Add+an+entry+to+the+ingestion+config+file">Add an entry to the ingestion config file</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7438386" data-linked-resource-type="page" data-linked-resource-version="2" href="/wiki/spaces/CDM/pages/7438386/Create+staged+and+silver+files+in+dbt">Create staged and silver files in dbt</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="3309569" data-linked-resource-type="page" data-linked-resource-version="5" href="/wiki/spaces/CDM/pages/3309569/Creating+model+for+Fact+table+in+DBT">Creating model for Fact table in DBT</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="2949140" data-linked-resource-type="page" data-linked-resource-version="4" href="/wiki/spaces/CDM/pages/2949140/Add+an+entry+to+a+source+file+%28yml%29+in+DBT">Add an entry to a source file (yml) in DBT</a>
+                        
+                        
+                    </div>
+    </li>
+    </ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

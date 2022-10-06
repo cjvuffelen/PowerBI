@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : DBT-POC Virtual Machine</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : DBT-POC Virtual Machine
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> ewoud westerbaan</span>, last modified by <span class='editor'> Corjan van Uffelen</span> on jun. 24, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>IP-address: 10.200.66.6 (static)</p><p>DNS name: cdm.ihc.eu</p><p>The server contains 2 necessary services: Airflow and nginx.</p><p>General, test files can be openened with nano e.g. <code>nano test.txt</code> (or, <code>sudo nano test.txt</code> if elevated privileges are needed).</p><h1 id="DBT-POCVirtualMachine-Loggingin">Logging in</h1><p>To log in you need  a pem certificate (RAS key). You can use a shell (e.g. git bash). Pem file can be found in the remote desktop manager.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">ssh -i location_to_pem_file azureuser@10.200.66.6</pre>
+</div></div><p>Please take note if a system reboot is necessary when you log in.</p><h1 id="DBT-POCVirtualMachine-Servermaintenance">Server maintenance</h1><p>To keep the server up-to-date, you need to execute the following commands:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence"># Update the package registries
+sudo apt-get update
+# Update the software
+sudo apt-get upgrade
+
+# For rebooting:
+sudo reboot now</pre>
+</div></div><h1 id="DBT-POCVirtualMachine-Workzeug">Workzeug</h1><p>If workzeug is part of the upgrade airflow may not start after reboot and you will encounter the following error in the logs (how to view the log you can read below) :</p><p>ImportError: cannot import name 'BaseResponse' from 'werkzeug.wrappers'</p><p>To fix this pachage “workzeug==2.0.3” must be installed. To do this follow the intructions under <a href="https://ihcconfluence.atlassian.net/wiki/spaces/ID/pages/1572869/DBT-POC+Virtual+Machine#%5BinlineExtension%5DInstall-add-ons" rel="nofollow">install addons</a></p><h1 id="DBT-POCVirtualMachine-Airflow">Airflow</h1><p>Airflow is <em>cron on steroids</em>; a workflow tool for data pipelines. Airflow is separated in two services: a scheduler and a webservice.</p><h2 id="DBT-POCVirtualMachine-Locations">Locations</h2><ul><li><p><strong>~/airflow</strong>: Location of configuration, logs.</p></li><li><p><strong>~/airflow_app</strong>: virtual environment of the airflow services.</p></li><li><p><strong>~/repos</strong>: The root for the Airflow dags. In this directory there is for every environment a subdirectory, e.g.  ~/repos/test for test environment. Within this environment subdirectory, repositories (with head on the specific branch) are located.</p></li></ul><h2 id="DBT-POCVirtualMachine-Services">Services</h2><p>Two services are needed for airflow:</p><ul><li><p>airflow-scheduler.service</p></li><li><p>airflow-webserver.service</p></li></ul><p>Services are managed with systemctl.</p><p>In following examples we use the airflow-scheduler.service.</p><p>To stop a service:  </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">sudo systemctl stop airflow-scheduler</pre>
+</div></div><p>Restart:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">sudo systemctl restart airflow-scheduler</pre>
+</div></div><p>Start:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">sudo systemctl start airflow-scheduler</pre>
+</div></div><p>Both sevices are started at server start or reboot. The definitions of these services are located in <code>/etc/systemd/system/</code>.</p><h3 id="DBT-POCVirtualMachine-PgBouncer">PgBouncer</h3><p>To improve the connections to Postgres, PgBouncer is running on the VM.</p><p>You can start this service with:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">sudo service pgbouncer start</pre>
+</div></div><p>Configuration file is located at: <code>/etc/pgbouncer/pgBouncer.ini</code></p><p>Logging can be found at: <code>/var/log/postgresql/pgbouncer.log</code></p><h2 id="DBT-POCVirtualMachine-Troubleshooting">Troubleshooting</h2><p>Reading the logs gives a lot of information on why a process may fail. To see the logging for a service the following command may come in handy:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># Showing the logs since the 1st of January, 8:00 UTC
+journalctl -u airflow-webserver.service --since &quot;2022-01-01 08:00&quot;
+
+# If you want to show in real time what is happing, replace --since ... with -f. e.g.:
+journalctl -u airflow-webserver.service -f</pre>
+</div></div><p>If Airflow is not able to connect to the database, this may be because PgBouncer is not running. See PgBouncer (above) for logging and to start the service.</p><h2 id="DBT-POCVirtualMachine-Install-add-onsInstalladd-ons"><span class="confluence-anchor-link" id="DBT-POCVirtualMachine-Install-add-ons"><span class="confluence-anchor-link" id="Install-add-ons"></span></span>Install add-ons</h2><p>Airflow can be extended with additional packages. To do this, activate the current virtual environment and install packages in this environment.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence"># Go to install directory of airflow
+cd ~/airflow_app
+# Activate virtual environment (shell prompt will change to (.venv) azure... )
+source .venv/bin/activate
+pip install &lt;- whatever package you want to install -&gt;</pre>
+</div></div><p><strong>Warning:</strong> Not all packages are depended with each other (known as the all-time favorite dependency hell).</p><p /><h1 id="DBT-POCVirtualMachine-Nginx">Nginx</h1><p>Nginx is a webserver which can serve static sites. This is used to serve the dbt documentation pages and as a reverse proxy for the airflow webserver. This service can also be started, stopped en restarted with systemctl. This services is also started at server start.</p><p>The configuration is located at <code>/etc/nginx/sites-enabled/default</code>.</p><p>Currently the setup is as follows:</p><ul><li><p><strong>/airflow</strong> redirects to the airflow webservice</p></li><li><p><strong>/dbt </strong>redirects to the dbt documentation for production</p></li><li><p><strong>/dbt/test</strong> redirects to the dbt documentation for test</p></li><li><p><strong>/dbt/acceptance </strong>redirects to the dbt documentation for acceptance</p></li></ul><h2 id="DBT-POCVirtualMachine-SSL">SSL</h2><p>Airflow webserver and the dbt pages are running over SSL. For this to work, certificates are needed.</p><p>In case a certificate expires (currently on 15-03-2024) the certificate needs to be regenerated.</p><p>Contactperson for help: Martijn Boogaarts.</p><p>The location of the certificate on the server: <code>/etc/ssl/cdm.ihc.eu/</code></p><p>On this location a private key (<code>cdm.ihc.eu.key</code>) and a public key needs to be placed (<code>cdm.ihc.eu.crt</code>). Maybe you need to restart the airflow webserver and nginx (see Services).</p><div id="expander-2142352520" class="expand-container"><div id="expander-control-2142352520" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">Current configuration</span></div><div id="expander-content-2142352520" class="expand-content"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">server {
+        listen 443 ssl default_server;
+        server_name cdm.ihc.eu;
+        ssl_certificate /etc/ssl/cdm.ihc.eu/cdm.ihc.eu.crt;
+        ssl_certificate_key /etc/ssl/cdm.ihc.eu/cdm.ihc.eu.key;
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+        
+        location /dbt {
+            alias   /home/azureuser/repos/prod/dwh_model/dbt_dwh/target/;
+            index index.html;
+            # First attempt to serve request as file, then
+            # as directory, then fall back to displaying a 404.
+            try_files $uri $uri/ =404;
+       }
+       location /dbt/test {
+            alias   /home/azureuser/repos/test/dwh_model/dbt_dwh/target/;
+            index index.html;
+            # First attempt to serve request as file, then
+            # as directory, then fall back to displaying a 404.
+            try_files $uri $uri/ =404;
+      }
+      location /dbt/acc {
+            alias   /home/azureuser/repos/acc/dwh_model/dbt_dwh/target/;
+            index index.html;
+            # First attempt to serve request as file, then
+            # as directory, then fall back to displaying a 404.
+            try_files $uri $uri/ =404;
+      }
+      location /airflow/ {
+            proxy_pass https://localhost:8081;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_redirect off;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection &quot;upgrade&quot;;
+      }
+}</pre>
+</div></div></div></div><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

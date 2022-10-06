@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Contacts API</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Integrations_3735653.html">Integrations</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Contacts API
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Chi Chuen Ng</span>, last modified on mrt. 31, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>The contacts API retrieves data from IFS and returns it to the client. It is part of the MARS-DMS interface and DMS uses it to get contacts and contact addresses. Please click <a class="external-link" href="https://eu1.anypoint.mulesoft.com/exchange/34f3004c-3396-4846-8440-af0956f5e7e0/contacts-system-api/minor/1.0/pages/home/" rel="nofollow">here </a>for more information about the Contacts System API spec.</p><p /><h2 id="ContactsAPI-Contacts">Contacts</h2><p>The API gets contacts by calling stored procedure IFSAPP.IHC_PORTAL_UTIL_API.get_contacts(:cv_1,:cont_id_,:last_modified_,:ihc_project_id_) where cv_1 is a output cursor and the rest are input variables. The last_modified_ variable expects a datetime format of “yyyyMMddHHmmss“. All variables are optional, however, the Contacts System API spec requirements are different. </p><p>The API spec expects projectId, lastModifiedDateTime (format: “yyyy-MM-dd’T’HH:mm:ss’Z'“) and contactId queryParameters of which the first two are required. ContactId is an optional parameter.</p><p>The flow itself is simple: a stored procedure call is made and the output is transformed into an JSON response.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7405576/7536665.png" data-image-src="attachments/7405576/7536665.png" data-height="158" data-width="348" data-unresolved-comment-count="0" data-linked-resource-id="7536665" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="contacts_get_ifs_contacts.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7405576" data-linked-resource-container-version="3" data-media-id="fa8d2bfa-393a-4cc7-98f5-149e21f41635" data-media-type="file"></span><p /><h2 id="ContactsAPI-Addresses">Addresses</h2><p>The API gets contacts by calling stored procedure IFSAPP.IHC_PORTAL_UTIL_API..Get_Contact_Address(:cv_1,:cont_id_,:last_modified_,:ihc_project_id_) where cv_1 is a output cursor and the rest are input variables. The last_modified_ variable expects a datetime format of “yyyyMMddHHmmss“. All variables are optional, however, the Contacts System API spec requirements are different. </p><p>The API spec expects projectId, lastModifiedDateTime (format: “yyyy-MM-dd’T’HH:mm:ss’Z'“) and contactId queryParameters of which the first two are required. ContactId is an optional parameter.</p><p>The flow itself is simple: a stored procedure call is made and the output is transformed into an JSON response.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7405576/7471140.png" data-image-src="attachments/7405576/7471140.png" data-height="173" data-width="357" data-unresolved-comment-count="0" data-linked-resource-id="7471140" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="addresses_get_ifs_addresses.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7405576" data-linked-resource-container-version="3" data-media-id="af62962f-46aa-4e65-9b6d-3e811d2f0577" data-media-type="file"></span><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7405576/7536665.png">contacts_get_ifs_contacts.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7405576/7471140.png">addresses_get_ifs_addresses.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

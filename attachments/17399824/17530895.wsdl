@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions name="UpsertCommonMiddlewareReqService" targetNamespace="http://xmlns.oracle.com/IHC/UpsertCommonMiddlewareReqService/UpsertCommonMiddlewareReqService" xmlns:ns2="http://schemas.oracle.com/bpel/extension" xmlns:ns1="http://xmlns.oracle.com/IHC/UpsertCommonMiddlewareService/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:client="http://xmlns.oracle.com/IHC/UpsertCommonMiddlewareReqService/UpsertCommonMiddlewareReqService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+   <plnk:partnerLinkType name="UpsertCommonMiddlewareReqService">
+      <plnk:role name="UpsertCommonMiddlewareReqServiceProvider" portType="client:UpsertCommonMiddlewareReqService"/>
+   </plnk:partnerLinkType>
+   <wsdl:import namespace="http://schemas.oracle.com/bpel/extension" location="oramds:/apps/Middleware/Common/WSDL/RuntimeFault.wsdl"/>
+   <wsdl:types>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema">
+         <import namespace="http://xmlns.oracle.com/IHC/UpsertCommonMiddlewareService/" schemaLocation="../Schema/UpsertCommonMiddleware.xsd"/>
+      </schema>
+   </wsdl:types>
+   <wsdl:message name="UpsertCommonMiddlewareReqServiceRequestMessage">
+      <wsdl:part name="payload" element="ns1:UpsertCommonMiddleware"/>
+   </wsdl:message>
+   <wsdl:portType name="UpsertCommonMiddlewareReqService">
+      <wsdl:operation name="upsert">
+         <wsdl:input message="client:UpsertCommonMiddlewareReqServiceRequestMessage"/>
+      </wsdl:operation>
+   </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Custom Visual documentation</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Power-BI_8683562.html">Power BI</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Custom Visual documentation
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Martjan Pols</span>, last modified on jun. 14, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Content:</p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1657623301086 {padding: 0px;}
+div.rbtoc1657623301086 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1657623301086 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1657623301086'>
+<ul class='toc-indentation'>
+<li><a href='#CustomVisualdocumentation-Generalcustomvisuals'>General custom visuals</a>
+<ul class='toc-indentation'>
+<li><a href='#CustomVisualdocumentation-Securityconsiderations'>Security considerations</a></li>
+<li><a href='#CustomVisualdocumentation-Customvisualvalidationprocess'>Custom visual validation process</a>
+<ul class='toc-indentation'>
+<li><a href='#CustomVisualdocumentation-Certified:'>Certified:</a></li>
+<li><a href='#CustomVisualdocumentation-Un-certified'>Un-certified</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href='#CustomVisualdocumentation-IHCCustomvisuals'>IHC Custom visuals</a>
+<ul class='toc-indentation'>
+<li><a href='#CustomVisualdocumentation-SynopticpanelbyOkviz'>Synoptic panel by Okviz</a>
+<ul class='toc-indentation'>
+<li><a href='#CustomVisualdocumentation-Usageandfindings'>Usage and findings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><h1 id="CustomVisualdocumentation-Generalcustomvisuals">General custom visuals</h1><p>Understanding custom visuals and the way they can be utilized or restricted is important. This can be achieved by reading the whitepaper:  <a class="external-link" data-card-appearance="inline" href="https://docs.microsoft.com/en-us/power-bi/guidance/whitepaper-powerbi-enterprise-deployment" rel="nofollow">https://docs.microsoft.com/en-us/power-bi/guidance/whitepaper-powerbi-enterprise-deployment</a>  which also refers to this page: <a class="external-link" data-card-appearance="inline" href="https://powerbi.microsoft.com/en-us/blog/how-to-govern-power-bi-visuals-inside-your-organization/" rel="nofollow">https://powerbi.microsoft.com/en-us/blog/how-to-govern-power-bi-visuals-inside-your-organization/</a> .</p><ul><li><p>Custom visual end user docuemtation: <a href="Using-Custom-Visuals_8912897.html" data-linked-resource-id="8912897" data-linked-resource-version="2" data-linked-resource-type="page">Using Custom Visuals</a> </p></li><li><p>Custom visuals premium service settings: <a data-card-appearance="inline" href="https://ihcconfluence.atlassian.net/wiki/spaces/ID/pages/8945665/Tenant+settings#Power-BI-visual-settings" rel="nofollow">https://ihcconfluence.atlassian.net/wiki/spaces/ID/pages/8945665/Tenant+settings#Power-BI-visual-settings</a> </p></li></ul><h2 id="CustomVisualdocumentation-Securityconsiderations">Security considerations</h2><p>As there is a security risk, IHC have decided (in close collaboration with Security officer) to only allow certified visuals. (see premium settings). Third parties may send data out of the service. Power BI doesn’t prevent that. Certified visuals are tested by Microsoft.</p><h2 id="CustomVisualdocumentation-Customvisualvalidationprocess">Custom visual validation process</h2><p>If the business request custom visual to be added to the service the following process needs to be followed:</p><h3 id="CustomVisualdocumentation-Certified:">Certified:</h3><ol><li><p>Download from the <a class="external-link" href="https://appsource.microsoft.com/en-us/marketplace/apps?product=power-bi-visuals" rel="nofollow">market place</a>. </p></li><li><p>Download example pbix file (if applicable).</p></li><li><p>Add to <a class="external-link" href="https://github.com/Royal-IHC-BV/PowerBI/tree/master/CustomVisuals" rel="nofollow">Github</a></p></li><li><p>Add to <a class="external-link" href="https://app.powerbi.com/admin-portal/organizationVisuals" rel="nofollow">organisational visuals</a> from AppSource<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7143425/8585288.png" data-image-src="attachments/7143425/8585288.png" data-height="144" data-width="184" data-unresolved-comment-count="0" data-linked-resource-id="8585288" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220411-150532.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7143425" data-linked-resource-container-version="10" data-media-id="505f015b-6ef5-43cc-bec9-c78c6fc39422" data-media-type="file"></span></li><li><p>Enable on visualization pane<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7143425/8880183.png" data-image-src="attachments/7143425/8880183.png" data-height="153" data-width="172" data-unresolved-comment-count="0" data-linked-resource-id="8880183" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220411-150628.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7143425" data-linked-resource-container-version="10" data-media-id="78e636ab-b765-405c-a899-0774e7d9d357" data-media-type="file"></span></li></ol><h3 id="CustomVisualdocumentation-Un-certified">Un-certified</h3><ol><li><p>Challenge the requester:</p><ol><li><p>Is there an alternative (certified)</p></li><li><p>Is there business value</p></li><li><p>Is it really needed</p></li></ol></li><li><p>If yes, prepare email to security officer with the request and details</p></li><li><p>After confirmation download visual and example file</p></li><li><p>add to <a class="external-link" href="https://github.com/Royal-IHC-BV/PowerBI/tree/master/CustomVisuals" rel="nofollow">Github</a></p></li><li><p>add the visual to organisational pane by <strong>adding from file</strong>! not from app source as this will open automatic updates on this visual:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7143425/8847375.png" data-image-src="attachments/7143425/8847375.png" data-height="130" data-width="180" data-unresolved-comment-count="0" data-linked-resource-id="8847375" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220411-150806.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7143425" data-linked-resource-container-version="10" data-media-id="181e43fc-4a28-4a12-97b5-fad36a532815" data-media-type="file"></span></li><li><p>Do not enable the visual on the visualisation pane</p></li></ol><h1 id="CustomVisualdocumentation-IHCCustomvisuals">IHC Custom visuals</h1><h2 id="CustomVisualdocumentation-SynopticpanelbyOkviz">Synoptic panel by Okviz</h2><ul><li><p>Basic explanation:<br/><a class="external-link" data-card-appearance="inline" href="https://okviz.com/blog/introducing-synoptic-panel-v1-4/" rel="nofollow">https://okviz.com/blog/introducing-synoptic-panel-v1-4/</a> </p></li><li><p>Hosting on Git:<br/><a class="external-link" data-card-appearance="inline" href="https://okviz.com/blog/hosting-synoptic-panel-maps-on-github/" rel="nofollow">https://okviz.com/blog/hosting-synoptic-panel-maps-on-github/</a> </p></li><li><p>Convert picture to SVG:<br/><a class="external-link" data-card-appearance="inline" href="https://synoptic.design/" rel="nofollow">https://synoptic.design/</a> </p></li></ul><h3 id="CustomVisualdocumentation-Usageandfindings">Usage and findings</h3><p>The visual is tested using version 1.5.0.0 on march 2022 by Martjan and Patricia. </p><p>The custom visual is able to create a visualization in any shape we want with a status overview. this is very powerful in case we want to visualize for example the progress on sections in a boat. So, by selecting the project you should be able to see the corresponding boat as visual appearing with the status on the sections.</p><p>To have this dynamically changing on project selection, the visual needs to be connected to the right project in the data. There are three ways to achieve this.</p><ol><li><p>Import / embed multiple visuals</p><ol><li><p>In power bi desktop click on change in the visual and load multiple svg files at once.</p></li><li><p>After changing the project in for example a slicer, the end user needs to manually also change the drawing in the custom visual </p></li></ol></li><li><p>Embed multiple visuals in the data</p><ol><li><p>store the files locally with a max of<strong><u> 32kb (zipped)</u></strong> file (locally in Git)</p></li><li><p>Add the content of the file as described in here: <a class="external-link" data-card-appearance="inline" href="https://okviz.com/blog/introducing-synoptic-panel-v1-4/" rel="nofollow">https://okviz.com/blog/introducing-synoptic-panel-v1-4/</a> </p></li><li><p>Link that data to the project dimension</p></li><li><p>Connect the added attribute to the visual (map)</p></li><li><p>Now after the change of the project the selected drawing is also changed</p></li></ol></li><li><p>link data to online drawing</p><ol><li><p>Put the svg files on a public Git repo</p></li><li><p>Add a link to the repository as attribute in the data structure next to the projects</p></li><li><p>Link that attribute  to the visual (map)</p></li><li><p>After changing the project the drawing will change too.</p></li></ol></li></ol><p /><p>Pro’s in general on the usage of the visual:</p><ul><li><p>Enough documentation to use in production see links above</p></li><li><p>works very intuitive</p></li><li><p>many options to saturate or color objects</p></li></ul><p>Cons on visual usage</p><ul><li><p>larger files (more than 32kb) cannot be embedded locally (option 2 is not possible)</p></li><li><p>Only storage of files is only possible in public Github, so no use case for sensitive drawings (option 3 is not possible for sensitive drawings)</p></li></ul><p>Final conclusion: </p><p>For sensitive drawings like a boat, which are greater then 32kb zipped each, only option 1 is working.</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7143425/8650767.png">image-20220411-124604.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7143425/8585259.png">image-20220411-124831.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7143425/8814606.png">image-20220411-124930.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7143425/8585288.png">image-20220411-150532.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7143425/8880183.png">image-20220411-150628.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7143425/8847375.png">image-20220411-150806.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

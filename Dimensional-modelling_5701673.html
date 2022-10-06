@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Dimensional modelling</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development-Standards-and-Guidelines_5603362.html">Development Standards and Guidelines</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Dimensional modelling
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Martjan Pols</span>, last modified on mrt. 18, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Explanation and high level overview of dimensional modelling at IHC.</p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1657623288440 {padding: 0px;}
+div.rbtoc1657623288440 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1657623288440 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1657623288440'>
+<ul class='toc-indentation'>
+<li><a href='#Dimensionalmodelling-DimensionalmodellingGuidelines'>Dimensional modelling Guidelines</a>
+<ul class='toc-indentation'>
+<li><a href='#Dimensionalmodelling-Whydimensionalmodellingguidelines'>Why dimensional modelling guidelines</a></li>
+<li><a href='#Dimensionalmodelling-Concepts'>Concepts</a></li>
+<li><a href='#Dimensionalmodelling-Dimensiontypes'>Dimension types</a>
+<ul class='toc-indentation'>
+<li><a href='#Dimensionalmodelling-Type0'>Type 0</a></li>
+<li><a href='#Dimensionalmodelling-Type1'>Type 1</a></li>
+<li><a href='#Dimensionalmodelling-Type2'>Type 2</a></li>
+<li><a href='#Dimensionalmodelling-Mixed'>Mixed</a></li>
+<li><a href='#Dimensionalmodelling-Mini'>Mini</a></li>
+<li><a href='#Dimensionalmodelling-Junk'>Junk</a></li>
+</ul>
+</li>
+<li><a href='#Dimensionalmodelling-Facts'>Facts</a>
+<ul class='toc-indentation'>
+<li><a href='#Dimensionalmodelling-Transactional'>Transactional</a></li>
+<li><a href='#Dimensionalmodelling-Snapshot'>Snapshot</a></li>
+<li><a href='#Dimensionalmodelling-Accumulatedsnapshotview'>Accumulated snapshot view</a></li>
+<li><a href='#Dimensionalmodelling-Movingsnapshotview'>Moving snapshot view</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><h1 id="Dimensionalmodelling-DimensionalmodellingGuidelines">Dimensional modelling Guidelines</h1><h2 id="Dimensionalmodelling-Whydimensionalmodellingguidelines">Why dimensional modelling guidelines</h2><p>Dimensional modelling is a way to organise data for business with the purpose to simplify the way analyses can be done on data. For details about dimensional modelling click <a class="external-link" href="https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/" rel="nofollow">here</a>.</p><p>In the past the main reason was to increase the performance on queries, nowadays that is not the most important reason to start dimensional modelling. The main reasons:</p><ol><li><p>Simplify complex structures readability</p></li><li><p>Standardise the way for analyses</p></li><li><p>Create a companywide standardised model and language</p></li><li><p>External tools request it for storage (powerbi)</p></li><li><p>In order to do so, the guidelines will help during development to stick to the standards. So the golden rule is:</p></li></ol><p><strong>Apply or Explain (and in the latter case -&gt; document!)</strong></p><h2 id="Dimensionalmodelling-Concepts">Concepts</h2><p>Let’s explain the general concepts before diving into details</p><p><strong>Fact</strong></p><p>The fact is the heart of the star scheme. It represents a business process at the most detailed available grain. The purpose of a fact table is to enable measurements on the process like counting, summation, percentages etc. Furthermore, the fact table have relations to the dimensions using key columns.</p><p>Simple fact example:</p><div class="table-wrap"><table data-layout="default" data-local-id="e8660a8c-096c-4f3f-b662-398e6f0b5645" class="confluenceTable"><colgroup><col style="width: 340.0px;"/><col style="width: 340.0px;"/></colgroup><tbody><tr><td class="confluenceTd"><p><u>Fact Sales</u></p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>Sales id</p></td><td class="confluenceTd"><p>Unique key of the table</p></td></tr><tr><td class="confluenceTd"><p>Shop id</p></td><td class="confluenceTd"><p>Link to the shop dimension</p></td></tr><tr><td class="confluenceTd"><p>Customer id</p></td><td class="confluenceTd"><p>Link to the customer dimension</p></td></tr><tr><td class="confluenceTd"><p>Sales date</p></td><td class="confluenceTd"><p>Date</p></td></tr><tr><td class="confluenceTd"><p>Quantity</p></td><td class="confluenceTd"><p>Measures</p></td></tr><tr><td class="confluenceTd"><p>price</p></td><td class="confluenceTd"><p>Measure</p></td></tr></tbody></table></div><p> </p><p><strong>Dimension</strong></p><p>A dimension is a table giving context to the facts. The dimensions are used to answer questions like:</p><p>·         Who</p><p>·         What</p><p>·         Where</p><p>Example of dimensions: Customer, department, company, project, Car, product.</p><p>Furthermore, the dimension contains additional attributes which enables multiple analyses on the same object. Examples: product colour, product weight, company name, company country.</p><p><strong>Conformed dimensions</strong></p><p>A conformed dimension is a dimension re-used by multiple facts. This will make the model easier to read and maintain. It could be that some dimensions are used in every fact, as they are important for a company to analyse on.</p><p><strong>Star schema / data mart</strong></p><p>The combination of a fact and the dimensions connected to the fact are called a data mart, or star scheme.</p><p><strong>Dimensional model</strong></p><p>A dimensional model consists of multiple facts where every fact is connected to some dimensions. Together it’s called the dimensional model</p><p> </p><h2 id="Dimensionalmodelling-Dimensiontypes">Dimension types</h2><p>Dimensions are used to answer the why, when, what, who questions of a certain measure (fact). The types are related to the way a dimension deals with history.</p><h3 id="Dimensionalmodelling-Type0">Type 0</h3><p>A table which is build once and not reloaded. (dates, reference tables, geographical tables)</p><h3 id="Dimensionalmodelling-Type1">Type 1</h3><p>A table which is updated (overwritten) every time a new version of the record is available. It’s a choice of the developer to decide between type 1 or 2. (customers, reference tables). If no history is needed this option is the best to choose.</p><p>Example:</p><p>Customer 100 is created on 15-1-2022 with a zip code 3000AB.<br/>On 31-1-2022 he informed the company that his zip code has changed to 2910VH. <br/>After applying the change to the dimension there is still one record for customer 100, but now with zip code 2910VH.</p><p> </p><h3 id="Dimensionalmodelling-Type2">Type 2</h3><p>This dimension type keeps every version of the history. So in case a change is detected in the source system, a new record will be added. Two dates are added to select the right version of the dimension records. Valid from and valid to. These two dates indicate when the record was valid. Type two dimensions are introducing additional complexity for both the dimension as the fact.</p><p>Example:</p><p>Customer 100 is created on 15-1-2022 with a zip code 3000AB.<br/>On 31-1-2022 he informed the company that his zip code has changed to 2910VH. <br/>After applying the change to the dimension there are two records:</p><div class="table-wrap"><table data-layout="default" data-local-id="477bdd3d-0f1b-4cdc-b7de-694a104d2905" class="confluenceTable"><colgroup><col style="width: 170.0px;"/><col style="width: 170.0px;"/><col style="width: 170.0px;"/><col style="width: 170.0px;"/></colgroup><tbody><tr><td class="confluenceTd"><p>Customer</p></td><td class="confluenceTd"><p>Valid from</p></td><td class="confluenceTd"><p>Valid to</p></td><td class="confluenceTd"><p>zipcode</p></td></tr><tr><td class="confluenceTd"><p>100</p></td><td class="confluenceTd"><p>15-1-2022</p></td><td class="confluenceTd"><p>30-1-2022</p></td><td class="confluenceTd"><p>33000AB</p></td></tr><tr><td class="confluenceTd"><p>100</p></td><td class="confluenceTd"><p>31-1-2022</p></td><td class="confluenceTd"><p>31-12-9999</p></td><td class="confluenceTd"><p>2910VH</p></td></tr></tbody></table></div><p> </p><h3 id="Dimensionalmodelling-Mixed">Mixed</h3><p>The mixed dimension is a combination of type one and two, where some of attributes change will lead to an update statement only, while changes on other attributes will lead to an additional row.</p><h3 id="Dimensionalmodelling-Mini">Mini</h3><p>Sometimes in a dimension only some attributes are changing very often. In that case every time those attribute changes a full row is added to the dimension. This can be handled in a different dimension too. In that case a mini dimension with only the rapid changing attributes will help keeping the main dimension smaller. A mini dimension always has it’s key connected to the fact.</p><h3 id="Dimensionalmodelling-Junk">Junk</h3><p>A junk dimension is used to put all kind of hardly changing attribute values in one dimension. For example: gender has a well-known pre-defined set of values, which is unlikely to change. Grouping such attributes together will create a dimension which will hardly change in number of rows.</p><p>For example: if all kind of customer attributes like marital status, gender are put in one dimension. The dimension itself will hardly grow as the unique combination of the different attributes will be inserted once, and the fact will all the time link to one of the rows.</p><p> </p><h2 id="Dimensionalmodelling-Facts">Facts</h2><h3 id="Dimensionalmodelling-Transactional">Transactional</h3><p>A transactional fact can be seen as a fact with all kind of events (bookings, sales, flights). A transactional fact is never updated. The transaction is done, case closed. When the next one will come you don’t know.</p><p>Every row contain one event at a specific transaction date time.</p><h3 id="Dimensionalmodelling-Snapshot">Snapshot</h3><p>A snapshot fact gives a snapshot at a certain point in time. For example: the monthly bank account of customers. In this case every month a full snapshot of all customers and their bank account is created. Typically, a snapshot fact has a snapshot date.</p><p>Every row is one snapshot of the situation at that specific moment in time.</p><h3 id="Dimensionalmodelling-Accumulatedsnapshotview">Accumulated snapshot view</h3><p>This fact type is measuring a process over time into one row. Every new process step is added into columns. This can be applicable for orders. Instead of creating a different row for every step in the process (creation, packing, shipment, delivery) the one row is updated with the additional steps (packing date, shipment date, delivery date).</p><h3 id="Dimensionalmodelling-Movingsnapshotview">Moving snapshot view</h3><p>IF the fact itself is moving over time the history needs to be captured. This could be done in a daily snapshot, but as only some of the facts are changing, it’s better to create a moving snapshot view where the fact has its own valid from and valid to date. If we look to an example like an order fact, we could choose to create a new record for every change in the order. To answer the question how much open orders do we have compared to last year, we can easily select both versions of time.</p><p>As this fact type is not an official type according to the Kimballs website, it is a well-known and common used pattern to avoid huge snapshot tables.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

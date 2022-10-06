@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Connection to Data bricks in central model</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Power-BI_8683562.html">Power BI</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Connection to Data bricks in central model
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Martjan Pols</span> on jul. 04, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>From the central model a connection is made to data bricks using the sql endpoint. This page explains how to setup and use the connections and easily switch between the environments if needed.</p><p>Parameters</p><p>With the parameters the developer is able to switch between environments.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/23166977/23199748.png" data-image-src="attachments/23166977/23199748.png" data-height="374" data-width="599" data-unresolved-comment-count="0" data-linked-resource-id="23199748" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220704-075655.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="23166977" data-linked-resource-container-version="1" data-media-id="e9157e65-addf-4429-8a10-ff67df47b3cf" data-media-type="file"></span><p /><p>Sources.</p><p>Source  data bricks is defined using the parameters as shown above:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/23166977/23363585.png" data-image-src="attachments/23166977/23363585.png" data-height="59" data-width="323" data-unresolved-comment-count="0" data-linked-resource-id="23363585" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220704-075804.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="23166977" data-linked-resource-container-version="1" data-media-id="8a58ecdc-5022-47e0-ad4f-dc34328ce75b" data-media-type="file"></span><p /><p>This source provides the details of the connection up to the schema / database.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/23166977/23199757.png" data-image-src="attachments/23166977/23199757.png" data-height="179" data-width="592" data-unresolved-comment-count="0" data-linked-resource-id="23199757" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220704-075933.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="23166977" data-linked-resource-container-version="1" data-media-id="91687764-d48b-4995-8c7d-19ebb8c2d507" data-media-type="file"></span><p /><p>Table</p><p>Now in the table we can reference the source.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/23166977/23330821.png" data-image-src="attachments/23166977/23330821.png" data-height="320" data-width="656" data-unresolved-comment-count="0" data-linked-resource-id="23330821" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220704-080018.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="23166977" data-linked-resource-container-version="1" data-media-id="667748b9-efb1-4689-8bd9-5fd81e441ec8" data-media-type="file"></span><p>The output here is sourcing from the existing source_databricks table containing all tables from data bricks. further the filter logic is applied to only filter a limited set of rows in case the parameters is different then 0.</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/23166977/23199748.png">image-20220704-075655.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/23166977/23363585.png">image-20220704-075804.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/23166977/23199757.png">image-20220704-075933.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/23166977/23330821.png">image-20220704-080018.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

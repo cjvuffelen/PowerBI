@@ -1,0 +1,140 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/IFSPurchaseOrderDbAdapter" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/top/IFSPurchaseOrderDbAdapter" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="CPurchaseInfoCollection" type="CPurchaseInfoCollection"/>
+   <xs:complexType name="CPurchaseInfoCollection">
+      <xs:sequence>
+         <xs:element name="CPurchaseInfo" type="CPurchaseInfo" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="CPurchaseInfo">
+      <xs:sequence>
+         <xs:element name="company" type="string4000" minOccurs="0" nillable="true"/>
+         <xs:element name="site" type="string5" minOccurs="0"/>
+         <xs:element name="orderNo" type="string12"/>
+         <xs:element name="lineNo" type="string4"/>
+         <xs:element name="releaseNo" type="string4"/>
+         <xs:element name="partNo" type="string25" minOccurs="0" nillable="true"/>
+         <xs:element name="partRevision" type="string10" minOccurs="0" nillable="true"/>
+         <xs:element name="buyQtyDue" type="xs:decimal" minOccurs="0" nillable="true"/>
+         <xs:element name="revisedQty" type="xs:decimal" minOccurs="0" nillable="true"/>
+         <xs:element name="originalQty" type="xs:decimal" minOccurs="0" nillable="true"/>
+         <xs:element name="buyUnitPrice" type="xs:decimal" minOccurs="0" nillable="true"/>
+         <xs:element name="buyUnitPriceInclTax" type="xs:decimal" minOccurs="0" nillable="true"/>
+         <xs:element name="additionalCostAmount" type="xs:decimal" minOccurs="0"/>
+         <xs:element name="additionalCostInclTax" type="xs:decimal" minOccurs="0"/>
+         <xs:element name="taxAmount" type="xs:decimal" minOccurs="0" nillable="true"/>
+         <xs:element name="taxAmountBase" type="xs:decimal" minOccurs="0" nillable="true"/>
+         <xs:element name="currencyRate" type="xs:decimal" minOccurs="0"/>
+         <xs:element name="currencyCode" type="string3" minOccurs="0" nillable="true"/>
+         <xs:element name="currencyType" type="string10" minOccurs="0"/>
+         <xs:element name="description" type="string2000" minOccurs="0" nillable="true"/>
+         <xs:element name="discount" type="xs:decimal" minOccurs="0" nillable="true"/>
+         <xs:element name="plannedDeliveryDate" type="xs:dateTime" minOccurs="0"/>
+         <xs:element name="plannedArrivalDate" type="xs:dateTime" minOccurs="0"/>
+         <xs:element name="promisedDeliveryDate" type="xs:dateTime" minOccurs="0"/>
+         <xs:element name="wantedDeliveryDate" type="xs:dateTime" minOccurs="0"/>
+         <xs:element name="plannedReceiptDate" type="xs:dateTime" minOccurs="0"/>
+         <xs:element name="projectId" type="string10" minOccurs="0" nillable="true"/>
+         <xs:element name="activitySeq" type="xs:decimal" minOccurs="0" nillable="true"/>
+         <xs:element name="requisitionNo" type="string12" minOccurs="0" nillable="true"/>
+         <xs:element name="reqLine" type="string4" minOccurs="0" nillable="true"/>
+         <xs:element name="reqRelease" type="string4" minOccurs="0" nillable="true"/>
+         <xs:element name="shipViaCode" type="string3" minOccurs="0" nillable="true"/>
+         <xs:element name="deliveryTerms" type="string5" minOccurs="0" nillable="true"/>
+         <xs:element name="addressId" type="string50" minOccurs="0" nillable="true"/>
+         <xs:element name="manufacturerId" type="string20" minOccurs="0" nillable="true"/>
+         <xs:element name="manufacturerPartNo" type="string80" minOccurs="0" nillable="true"/>
+         <xs:element name="codeA" type="string10" minOccurs="0" nillable="true"/>
+         <xs:element name="codeB" type="string10" minOccurs="0" nillable="true"/>
+         <xs:element name="codeC" type="string10" minOccurs="0" nillable="true"/>
+         <xs:element name="codeD" type="string10" minOccurs="0" nillable="true"/>
+         <xs:element name="codeE" type="string10" minOccurs="0" nillable="true"/>
+         <xs:element name="codeF" type="string10" minOccurs="0" nillable="true"/>
+         <xs:element name="codeG" type="string10" minOccurs="0" nillable="true"/>
+         <xs:element name="codeH" type="string10" minOccurs="0" nillable="true"/>
+         <xs:element name="codeI" type="string10" minOccurs="0" nillable="true"/>
+         <xs:element name="codeJ" type="string10" minOccurs="0" nillable="true"/>
+         <xs:element name="cExternalPoNo" type="string200" minOccurs="0" nillable="true"/>
+         <xs:element name="cExternalPoLineNo" type="string200" minOccurs="0" nillable="true"/>
+         <xs:element name="cPlateNumbers" type="string200" minOccurs="0" nillable="true"/>
+         <xs:element name="cExternalPoSource" type="string200" minOccurs="0" nillable="true"/>
+         <xs:element name="cLength" type="xs:decimal" minOccurs="0" nillable="true"/>
+         <xs:element name="cWidth" type="xs:decimal" minOccurs="0" nillable="true"/>
+         <xs:element name="cTotalWeight" type="xs:decimal" minOccurs="0" nillable="true"/>
+         <xs:element name="status" type="string20" minOccurs="0"/>
+         <xs:element name="plant" type="string50" minOccurs="0" nillable="true"/>
+         <xs:element name="vendorName" type="string4000" minOccurs="0" nillable="true"/>
+         <xs:element name="cNestixSectionId" type="string50" minOccurs="0" nillable="true"/>
+         <xs:element name="cNestixDuId" type="string50" minOccurs="0" nillable="true"/>
+         <xs:element name="cInterfacedQty" type="xs:decimal" minOccurs="0" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="IFSPurchaseOrderDbAdapterSelect_orderNo_lineNo_releaseNoInputParameters" type="IFSPurchaseOrderDbAdapterSelect_orderNo_lineNo_releaseNo"/>
+   <xs:complexType name="IFSPurchaseOrderDbAdapterSelect_orderNo_lineNo_releaseNo">
+      <xs:sequence>
+         <xs:element name="orderNo" type="xs:string" minOccurs="1" maxOccurs="1"/>
+         <xs:element name="lineNo" type="xs:string" minOccurs="1" maxOccurs="1"/>
+         <xs:element name="releaseNo" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:simpleType name="string4000">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="4000"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="string5">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="5"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="string12">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="12"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="string4">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="4"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="string25">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="25"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="string10">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="10"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="string3">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="3"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="string2000">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="2000"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="string50">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="50"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="string20">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="20"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="string80">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="80"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="string200">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="200"/>
+      </xs:restriction>
+   </xs:simpleType>
+</xs:schema>

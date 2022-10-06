@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Power BI data models</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Power-BI_8683562.html">Power BI</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Power BI data models
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Martjan Pols</span>, last modified on mrt. 29, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Explanation of the of the power bi data models. End user documentation.<br/>content:</p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1657623302852 {padding: 0px;}
+div.rbtoc1657623302852 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1657623302852 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1657623302852'>
+<ul class='toc-indentation'>
+<li><a href='#PowerBIdatamodels-Introduction'>Introduction</a></li>
+<li><a href='#PowerBIdatamodels-Structureofthepowerbidatamodel'>Structure of the power bi data model</a></li>
+<li><a href='#PowerBIdatamodels-Centralmodel'>Central model</a>
+<ul class='toc-indentation'>
+<li><a href='#PowerBIdatamodels-General'>General</a></li>
+<li><a href='#PowerBIdatamodels-Namingconventions'>Naming conventions</a></li>
+</ul>
+</li>
+</ul>
+</div><h1 id="PowerBIdatamodels-Introduction">Introduction</h1><p>On top of the data warehouse a specific view is created for power bi. In this view some last transformations are added for performance reasons or for reporting visualizations. This layer is called the pbi_datamodel and forms the basis for the power bi data model which you see and use via power bi desktop. </p><p>The model has:</p><ul><li><p>fact tables for measures</p></li><li><p>Dimension tables to answer questions about the measures. like when, where, who etc.</p></li><li><p>The model uses meaningful names </p></li></ul><p /><h1 id="PowerBIdatamodels-Structureofthepowerbidatamodel">Structure of the power bi data model</h1><p>A power bi data model is a combination of measures and dimensions and hierarchies.</p><p>The measures tells about the what: number of activities. while the dimensions tells more about when, where, who etc. The hierarchy let you drill down in visualizations. </p><p>In Power BI the measures are saved in a separate measure table:</p><span class="confluence-embedded-file-wrapper image-left-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-left" width="170" loading="lazy" src="attachments/5505031/5963806.png?width=170" data-image-src="attachments/5505031/5963806.png" data-height="178" data-width="270" data-unresolved-comment-count="0" data-linked-resource-id="5963806" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220321-085643.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="5505031" data-linked-resource-container-version="7" data-media-id="50db9502-6a75-41b5-a06b-80952f54756a" data-media-type="file"></span><p>The dimensions are saved as tables:</p><span class="confluence-embedded-file-wrapper image-left-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-left" width="204" loading="lazy" src="attachments/5505031/5832743.png?width=204" data-image-src="attachments/5505031/5832743.png" data-height="75" data-width="180" data-unresolved-comment-count="0" data-linked-resource-id="5832743" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220321-085747.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="5505031" data-linked-resource-container-version="7" data-media-id="5549e44a-c6ca-4131-b064-393ef88494ca" data-media-type="file"></span><p>A third part used in power bi is the hierarchy:</p><span class="confluence-embedded-file-wrapper image-left-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-left" width="170" loading="lazy" src="attachments/5505031/5963818.png?width=170" data-image-src="attachments/5505031/5963818.png" data-height="171" data-width="220" data-unresolved-comment-count="0" data-linked-resource-id="5963818" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220321-085903.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="5505031" data-linked-resource-container-version="7" data-media-id="f01c54d4-e197-4df0-aed2-b5309c7cc98a" data-media-type="file"></span><p /><h1 id="PowerBIdatamodels-Centralmodel">Central model</h1><p>The central model is designed to have multiple data domains in one data model.</p><h2 id="PowerBIdatamodels-General">General</h2><ul><li><p>Daily full load, the data is overwritten everyday</p></li><li><p>Data from yesterday </p></li><li><p>No history of history</p></li></ul><p /><h2 id="PowerBIdatamodels-Namingconventions">Naming conventions</h2><div class="table-wrap"><table data-layout="wide" data-local-id="8a61dddb-df47-42e0-a39e-54c29adf94c7" class="confluenceTable"><colgroup><col style="width: 119.0px;"/><col style="width: 172.0px;"/><col style="width: 282.0px;"/><col style="width: 173.0px;"/><col style="width: 209.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p /></th><th class="confluenceTh"><p /></th><th class="confluenceTh"><p /></th><th class="confluenceTh"><p /></th><th class="confluenceTh"><p><strong>example</strong></p></th></tr><tr><td class="confluenceTd"><p>measures</p></td><td class="confluenceTd"><p>project to date</p></td><td class="confluenceTd"><p>Calculating the cumulative total for the project on the specific measure</p></td><td class="confluenceTd"><p>suffixed ptd</p></td><td class="confluenceTd"><p>activity actual hours ptd</p></td></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p>number count</p></td><td class="confluenceTd"><p>counting the numbers</p></td><td class="confluenceTd"><p>prefixed with #</p></td><td class="confluenceTd"><p>#  finished activities actual</p></td></tr><tr><td class="confluenceTd"><p>attributes</p></td><td class="confluenceTd"><p>names</p></td><td class="confluenceTd"><p>the name of the object</p></td><td class="confluenceTd"><p>suffixed with name</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p>codes</p></td><td class="confluenceTd"><p>the code of the related object</p></td><td class="confluenceTd"><p>suffixed with code</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p>description</p></td><td class="confluenceTd"><p>the description of the related object</p></td><td class="confluenceTd"><p>suffixed with desc</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td></tr></tbody></table></div><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/5505031/5963806.png">image-20220321-085643.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/5505031/5832743.png">image-20220321-085747.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/5505031/5963818.png">image-20220321-085903.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

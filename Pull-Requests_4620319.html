@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Pull Requests</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tools_4128769.html">Tools</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="MuleSoft_3964983.html">MuleSoft</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="3735681.html">CI/CD</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Pull Requests
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> r.lodder1</span>, last modified on mrt. 15, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>A Pull Request (PR) is an event where (a) developer(s) are asking for approval fore merging the changes to a different branch. In the case of Integrations, it is always a permission for a merge to the main branch. A Pull Request is more than just a permission for a merge, it is an event that triggers multiple steps in the background which all contribute to a more stable experience.</p><ul class="inline-task-list" data-inline-tasks-content-id="4620319"><li data-inline-task-id="1"><span class="placeholder-inline-tasks"><a class="confluence-userlink user-mention" data-username="5cc6adfe96f23e0e7717885a" data-account-id="5cc6adfe96f23e0e7717885a" href="https://ihcconfluence.atlassian.net/wiki/people/5cc6adfe96f23e0e7717885a?ref=confluence" target="_blank" data-linked-resource-id="557070" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://ihcconfluence.atlassian.net/wiki">r.lodder1</a>  Add flow chart for clarification</span></li></ul><h2 id="PullRequests-Approvals/Codeowners">Approvals/ Codeowners</h2><p>For MuleSoft Integrations, it is required that <strong>at least one</strong> person (other than the one who initiated it) gives an approval on the code. Instead of “hoping” that someone picks it up or “randomly assign it”, it is decided to do an auto-assignment based on review load.</p><p>Per repository it must be defined which group(s) is/are responsible for this repository. Based on this information, the setup of the group is used to define who the members are of this group. Then, the amount of person(s) are assigned to look into this Pull Request.</p><p>This step is relying on CODEOWNERS and GitHub setup as defined in <a href="4587528.html" data-linked-resource-id="4587528" data-linked-resource-version="10" data-linked-resource-type="page">Setup CI/CD in GitHub Team</a> </p><h2 id="PullRequests-PullRequestChecks">Pull Request Checks</h2><p>When creating a Pull Request, GitHub will look at PR Checks on <strong>Repository Setting</strong> and on <strong>Workflow</strong> level. Repository level checks are defined in the repository settings and contains checks like the amount of approvals needed to approve a PR and when a specific merge can actually be done (e.g. an x amount of Workflows need to be successful before merging). </p><p>The other checks made are defined in the ‘workflow’ directory, containing GitHub Workflows. These workflows are in place to execute the actual CI/CD part like compiling, testing and deploying and will execute after a PR, commit on a specific branch etc. The most important Workflow is the <a href="4653114.html" data-linked-resource-id="4653114" data-linked-resource-version="11" data-linked-resource-type="page">Main CI/CD workflow</a> and covers all of these topics.</p><p>Because a Mule template <strong>must</strong> be created from the template, all checks are the same. The list can be found in <a href="4587528.html" data-linked-resource-id="4587528" data-linked-resource-version="10" data-linked-resource-type="page">Setup CI/CD in GitHub Team</a> </p><h2 id="PullRequests-Mergerequirements">Merge requirements</h2><p>To guarantee that code can be compiled and is deployable, all the required GitHub Workflows need to be successful before a merge can be executed. If one of the required GitHub Workflows is failed, the merge cannot be executed and the developer who initiated the PR needs to fix this problem. An up-to-date list of checks can be found in the <a href="4587528.html" data-linked-resource-id="4587528" data-linked-resource-version="10" data-linked-resource-type="page">Setup CI/CD in GitHub Team</a> </p><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

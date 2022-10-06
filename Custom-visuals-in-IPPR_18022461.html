@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Custom visuals in IPPR</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Power-BI-End-user-documentation_8814627.html">Power BI End user documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IHC-integrated-project-performance_17039377.html">IHC integrated project performance</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Custom visuals in IPPR
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Martjan Pols</span>, last modified on jul. 01, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Documentation of the custom visuals used in the Integrated project performance workspace.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>For Review</p></div></div><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1657623293427 {padding: 0px;}
+div.rbtoc1657623293427 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1657623293427 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1657623293427'>
+<ul class='toc-indentation'>
+<li><a href='#CustomvisualsinIPPR-Synopticpanelonsectionprogress'>Synoptic panel on section progress</a>
+<ul class='toc-indentation'>
+<li><a href='#CustomvisualsinIPPR-Requirement'>Requirement</a></li>
+<li><a href='#CustomvisualsinIPPR-Processworkflow'>Process workflow</a></li>
+<li><a href='#CustomvisualsinIPPR-Createsvgfile'>Create svg file</a></li>
+</ul>
+</li>
+<li><a href='#CustomvisualsinIPPR-Synopticpanelonriskmatrix'>Synoptic panel on risk matrix</a>
+<ul class='toc-indentation'>
+<li><a href='#CustomvisualsinIPPR-Requirement.1'>Requirement</a></li>
+<li><a href='#CustomvisualsinIPPR-Processflow'>Process flow</a></li>
+<li><a href='#CustomvisualsinIPPR-Creatematrix'>Create matrix</a></li>
+</ul>
+</li>
+</ul>
+</div><h1 id="CustomvisualsinIPPR-Synopticpanelonsectionprogress">Synoptic panel on section progress</h1><p>Explanation of the Section progress visual with the synoptic panel.</p><h2 id="CustomvisualsinIPPR-Requirement">Requirement</h2><p>The requirement was to visualize the progress on sections using colors which identify how far the progress was. Using power BI as reporting tool, the only realistic option is to use custom visual <a class="external-link" href="https://okviz.com/blog/introducing-synoptic-panel-v1-4/" rel="nofollow">Synoptic Panel.</a></p><h2 id="CustomvisualsinIPPR-Processworkflow">Process workflow</h2><p>The following process is based on conclusion of analyzing the possibilities of the synoptic panel (and other custom visuals) as documented <a href="https://ihcconfluence.atlassian.net/wiki/spaces/ID/pages/7143425/Custom+Visual+documentation#Synoptic-panel-by-Okviz" rel="nofollow">here</a>. </p><p>Before building the visual, the following should be available in the data:</p><ul><li><p>Project (code, description) for a slicer</p></li><li><p>Section code, description for the tooltip</p></li><li><p>Technical combination of project code and section code stored as [project code]_[section code]. like E000579_1101, used for the connection with the visual. The combination will ensure only that section on that drawing otherwise the 1101 section will also get a color for other projects.</p></li><li><p>A measure who counts the finished activities in total over the phases.</p></li></ul><p>Steps:</p><div class="table-wrap"><table data-layout="default" data-local-id="6278ecf6-05e1-4d48-b0cf-23856a0d7de1" class="confluenceTable"><colgroup><col style="width: 273.0px;"/><col style="width: 214.0px;"/><col style="width: 273.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Workflow</strong></p></th><th class="confluenceTh"><p><strong>Who</strong></p></th><th class="confluenceTh"><p><strong>Requirements</strong></p></th></tr><tr><td class="confluenceTd"><p>New project is started</p></td><td class="confluenceTd"><p>project management</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>Activities are added per section</p></td><td class="confluenceTd"><p>Planning</p></td><td class="confluenceTd"><p>every applicable activity has a section code connected. The data from primavera is used for this.</p></td></tr><tr><td class="confluenceTd"><p>Create picture of boat after start new project</p></td><td class="confluenceTd"><p>Engineering (Pieter van der Weijden, Thomas van der Mooren)</p></td><td class="confluenceTd"><p>Deliver a jpg file as small as possible with the max of 1MB, but ideally 200 kb</p></td></tr><tr><td class="confluenceTd"><p>Create svg file</p></td><td class="confluenceTd"><p>Engineering </p></td><td class="confluenceTd"><p>sections and projects are connected</p></td></tr><tr><td class="confluenceTd"><p>Save file</p></td><td class="confluenceTd"><p>Engineering</p></td><td class="confluenceTd"><p>save as main program code.svg<br/>example: E000579.svg</p></td></tr><tr><td class="confluenceTd"><p>add svg file to report</p></td><td class="confluenceTd"><p>CDM</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>deploy new report</p></td><td class="confluenceTd"><p>CDM</p></td><td class="confluenceTd"><p /></td></tr></tbody></table></div><p /><h2 id="CustomvisualsinIPPR-Createsvgfile">Create svg file</h2><p>After the JPG file is received it needs conversion to add data points. This can be done using the <a class="external-link" href="https://synoptic.design/" rel="nofollow">synoptic designer</a>. </p><ol><li><p>Open the JPG file in designer</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/18022461/18022500.png" data-image-src="attachments/18022461/18022500.png" data-height="224" data-width="397" data-unresolved-comment-count="0" data-linked-resource-id="18022500" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220614-130657.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="18022461" data-linked-resource-container-version="5" data-media-id="218c9e7d-514e-4b4b-9629-45db0cdf3c50" data-media-type="file"></span><p /></li><li><p>Follow the steps as documented <a class="external-link" href="https://okviz.com/blog/introducing-synoptic-panel-v1-4/" rel="nofollow">online</a>.</p></li><li><p>Add the section name using the naming convention as described</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/18022461/17957019.png" data-image-src="attachments/18022461/17957019.png" data-height="161" data-width="217" data-unresolved-comment-count="0" data-linked-resource-id="17957019" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220614-141804.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="18022461" data-linked-resource-container-version="5" data-media-id="706ac032-83c4-4041-a60e-39ae17c9e792" data-media-type="file"></span></li><li><p>Do this for all sections and follow the steps to create the svg file.</p></li><li><p>Store this file here: ….\Github\PowerBI\Workspaces\IHC integrated project performance\Custom Visuals\Section progress\ using the name of the boat. The name of the file will be visible to end users and must therefore be meaningful to them</p></li><li><p>Import all the drawings from the location using the toolbar in the custom visual</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/18022461/18579457.png" data-image-src="attachments/18022461/18579457.png" data-height="57" data-width="333" data-unresolved-comment-count="0" data-linked-resource-id="18579457" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220615-053109.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="18022461" data-linked-resource-container-version="5" data-media-id="bbf6e18a-eba3-462c-be7a-01300a81f0fe" data-media-type="file"></span></li><li><p>Select all the svg files in the folder and import.</p></li><li><p>Publish and deploy.</p></li></ol><h1 id="CustomvisualsinIPPR-Synopticpanelonriskmatrix">Synoptic panel on risk matrix</h1><p>Documentation of the risk impact probability matrix</p><h2 id="CustomvisualsinIPPR-Requirement.1">Requirement</h2><p>Deliver an impact probability matrix based on IFS data. Matrix should be selectable using the default colors for a risk matrix (red / yellow / green) and consist of 5x5 cells.</p><h2 id="CustomvisualsinIPPR-Processflow">Process flow</h2><p>After searching for a solution on the internet, the custom visual Synoptic panel is selected. The process is designed based on this video <a class="external-link" href="https://www.youtube.com/watch?v=MvgFXpG-ivU" rel="nofollow">here</a>. </p><p>Before building the visual the following information should be available in the data:</p><ul><li><p>Risks connected to a project including impact and probability</p></li><li><p>Dimension risk contains impact probability code column using numbering from 1 to 25 </p></li><li><p>Colors used for red green and yellow:<br/>green: 299617</p><p>red: e1001a</p><p>yellow: ffdf46</p></li></ul><h2 id="CustomvisualsinIPPR-Creatematrix">Create matrix</h2><p>All information related to the visual is stored in git: …\Github\PowerBI\Workspaces\IHC integrated project performance\Custom Visuals\Risk matrix\</p><ol><li><p>Open prepared excel file risk_matrix</p></li><li><p>Make sure the naming of the impact column and probability column matches the names in IFS</p></li><li><p>Validate the case when statement generated using excel, and adapt if needed in the risk dimension</p></li><li><p>Create a picture of the matrix and store it in the location</p></li><li><p>Make svg file in <a class="external-link" href="https://synoptic.design/" rel="nofollow">synoptic designer</a> following the documentation <a class="external-link" href="https://okviz.com/blog/introducing-synoptic-panel-v1-4/" rel="nofollow">online</a></p></li><li><p>Connect the custom visual using the created impact probability code in the risk dimension</p></li><li><p>Follow the video instructions to smooth the layout.</p></li></ol><p /><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/18022461/18022500.png">image-20220614-130657.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/18022461/17957019.png">image-20220614-141804.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/18022461/18579457.png">image-20220615-053109.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

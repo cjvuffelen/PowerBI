@@ -1,0 +1,63 @@
+<CPurchaseInfoCollection>
+<CPurchaseInfo>
+    <company>156</company>
+    <site>156A</site>
+    <orderNo>3156000575</orderNo>
+    <lineNo>1</lineNo>
+    <releaseNo>1</releaseNo>
+    <partNo>100426298</partNo>
+    <partRevision>A</partRevision>
+    <buyQtyDue>2304</buyQtyDue>
+    <revisedQty>2304</revisedQty>
+    <originalQty>2304</originalQty>
+    <buyUnitPrice>0.92</buyUnitPrice>
+    <buyUnitPriceInclTax>1.1132</buyUnitPriceInclTax>
+    <additionalCostAmount>0</additionalCostAmount>
+    <additionalCostInclTax>0</additionalCostInclTax>
+    <taxAmount>445.13</taxAmount>
+    <taxAmountBase>445.13</taxAmountBase>
+    <currencyRate>1</currencyRate>
+    <currencyCode>EUR</currencyCode>
+    <currencyType>2</currencyType>
+    <description>Hot rolled steel plate - EN 10029 - 12 mm - Grade DH36</description>
+    <discount>0</discount>
+    <plannedDeliveryDate>2022-05-30T00:00:00.000+02:00</plannedDeliveryDate>
+    <plannedArrivalDate>2022-05-30T00:00:00.000+02:00</plannedArrivalDate>
+    <promisedDeliveryDate>2022-05-30T00:00:00.000+02:00</promisedDeliveryDate>
+    <wantedDeliveryDate>2022-05-30T00:00:00.000+02:00</wantedDeliveryDate>
+    <plannedReceiptDate>2022-05-30T00:00:00.000+02:00</plannedReceiptDate>
+    <projectId xsi:nil="true"/>
+    <activitySeq xsi:nil="true"/>
+    <requisitionNo>769266</requisitionNo>
+    <reqLine>1</reqLine>
+    <reqRelease>1</reqRelease>
+    <shipViaCode>ROA</shipViaCode>
+    <deliveryTerms>DAP20</deliveryTerms>
+    <addressId>02</addressId>
+    <manufacturerId xsi:nil="true"/>
+    <manufacturerPartNo xsi:nil="true"/>
+    <codeA xsi:nil="true"/>
+    <codeB xsi:nil="true"/>
+    <codeC xsi:nil="true"/>
+    <codeD xsi:nil="true"/>
+    <codeE xsi:nil="true"/>
+    <codeF xsi:nil="true"/>
+    <codeG xsi:nil="true"/>
+    <codeH xsi:nil="true"/>
+    <codeI xsi:nil="true"/>
+    <codeJ xsi:nil="true"/>
+    <cExternalPoNo>P50584</cExternalPoNo>
+    <cExternalPoLineNo>1</cExternalPoLineNo>
+    <cPlateNumbers>332874</cPlateNumbers>
+    <cExternalPoSource>NESTIX</cExternalPoSource>
+    <cLength>8000</cLength>
+    <cWidth>3000</cWidth>
+    <cTotalWeight>2304</cTotalWeight>
+    <status>Confirmed</status>
+    <plant>00711</plant>
+    <vendorName>Stigterstaal BV</vendorName>
+    <cNestixSectionId>1537109</cNestixSectionId>
+    <cNestixDuId>1544492</cNestixDuId>
+    <cInterfacedQty>1</cInterfacedQty>
+    </CPurchaseInfo>
+    </CPurchaseInfoCollection>

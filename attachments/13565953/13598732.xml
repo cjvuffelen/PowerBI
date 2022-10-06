@@ -1,0 +1,31 @@
+<Root xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:ns1="http://xmlns.oracle.com/IHC/IFSPurchaseOrderUpdateService/NestixPOUpdateService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/IHC/IFSPurchaseOrderUpdateService/IFSPurchaseOrderDbAdapter" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/">
+    <MsgSeqNo>3730313031</MsgSeqNo>
+    <Sender>IFS</Sender>
+    <DateTime>2022-05-24T10:05:30.857+02:00</DateTime>
+    <PurchaseOrder>
+    <IFS_PONumber>3156000575</IFS_PONumber>
+    <SPx_PONumber>P50584</SPx_PONumber>
+    <PurchaseOrderLine>
+    <IFS_POLNumber>1</IFS_POLNumber>
+    <SPx_POLNumber>1</SPx_POLNumber>
+    <IFS_Status>Confirmed</IFS_Status>
+    <Plate>
+    <ProjectNumber>00711</ProjectNumber>
+    <Nestix_Section_ID>1537109</Nestix_Section_ID>
+    <Nestix_Du_ID>1544492</Nestix_Du_ID>
+    <ArticleNumber>100426298</ArticleNumber>
+    <WantedDeliveryDate>2022-05-30</WantedDeliveryDate>
+    <PlateNumber>332874</PlateNumber>
+    <Quantity>1</Quantity>
+    <Weight>2304</Weight>
+    <Length>8000</Length>
+    <Width>3000</Width>
+    <IFS_Release_Nr>1</IFS_Release_Nr>
+    <Price>0.92</Price>
+    <Currency_Code>EUR</Currency_Code>
+    <Supplier>Stigterstaal BV</Supplier>
+    <ExpectedDeliveryDate>2022-05-30</ExpectedDeliveryDate>
+    </Plate>
+    </PurchaseOrderLine>
+    </PurchaseOrder>
+    </Root>e

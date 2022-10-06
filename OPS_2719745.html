@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : OPS</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : OPS
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Corjan van Uffelen</span>, last modified on mrt. 14, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>The pipelines in test, acc and production are monitored by:</p><p>Fabian on monday</p><p>Corjan on tuesday</p><p>Ewoud on wednessday</p><p>Chenxi on Thursday</p><p>Alex on Friday</p><p>If you have added new features the you have to monitor and fix error due to your changes yourself. </p><p><span style="color: rgb(255,86,48);">TODO: what to do on the last day of the month.</span></p><p>When you fix an error, you put the fix on this page where the solutions for the most common errors are provided:</p><p /><p>ADF:</p><p><strong>FACT notebook:</strong></p><p><span class="inline-comment-marker" data-ref="4b5072bf-1bda-4909-8741-eaa76dafdcec">&quot;runError&quot;: &quot;java.lang.UnsupportedOperationException: Cannot perform Merge as multiple source rows matched and attempted to modify the same&quot;</span></p><p>If this happens again there is an error in the databricks code, must be solved by Chenxi or Corjan.</p><p /><p><strong>dwh_check_and_add_column notebook:</strong></p><p>&quot;runError&quot;: &quot;java.lang.Exception: renamed or deleted column detected&quot;</p><p>At this moment we can’t handle deleted columns. For now goto azure data lake explorer and delete the fact and rerun.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/2719745/2818051.png" data-image-src="attachments/2719745/2818051.png" data-height="548" data-width="1065" data-unresolved-comment-count="0" data-linked-resource-id="2818051" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220302-185507.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="2719745" data-linked-resource-container-version="6" data-media-id="bf382db6-c11f-4ea1-9df5-b40f925f032b" data-media-type="file"></span><p><strong>Adding or deploying new source</strong></p><p>When adding or deploying an new source to a new invironment the copy activity fails:</p><p>'AuthorizationPermissionMismatch'. Message: 'This request is not authorized to perform this operation using this permission.'. </p><p>This means the rights are not set or set correctly goto github actions:</p><p><a class="external-link" href="https://github.com/Royal-IHC-BV/IaC/actions/workflows/add-new-folder-acc.yml" rel="nofollow"><span class="inline-comment-marker" data-ref="ce709583-21a9-44da-99d2-4ff1fc72821c">https://github.com/Royal-IHC-BV/IaC/actions/workflows/add-new-folder-acc.yml</span></a></p><p>and run this action for the relevant environments. Effect is directly.</p><p><strong>DBT:</strong></p><p>Running Silver layer and Model layer in parallel can cause an overload on Databricks. </p><p>The dbt log contains: </p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/2719745/4423768.png" data-image-src="attachments/2719745/4423768.png" data-height="53" data-width="1282" data-unresolved-comment-count="0" data-linked-resource-id="4423768" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220312-083642.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="2719745" data-linked-resource-container-version="6" data-media-id="0fed0d72-857d-46c2-ba2b-d9f0a8e3ca37" data-media-type="file"></span><p>Action: is to restart DBT → dbt Silver and dbt model.</p><p>Due to the sudden crash a model table can be unusable showing the next error in the log:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/2719745/4587619.png" data-image-src="attachments/2719745/4587619.png" data-height="47" data-width="819" data-unresolved-comment-count="0" data-linked-resource-id="4587619" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220312-083926.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="2719745" data-linked-resource-container-version="6" data-media-id="6f1e1bb2-a98e-4cf1-97d9-0e524aec9757" data-media-type="file"></span><p>Action: Drop the table from the model database, clean the stored files for that particular table (dbfs:/user/hive/warehouse/model.db/&lt;table&gt; and then restart the DBT run.</p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/2719745/2818051.png">image-20220302-185507.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/2719745/4423759.png">image-20220312-083551.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/2719745/4423768.png">image-20220312-083642.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/2719745/4587619.png">image-20220312-083926.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

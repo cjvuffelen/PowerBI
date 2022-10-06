@@ -1,0 +1,25 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="OPSInventLabel"
+     targetNamespace="http://xmlns.oracle.com/IHC/OPSInventLabel"
+     xmlns:ns1="http://xmlns.oracle.com/IHC/OPSInventLabelSchema"
+     xmlns:client="http://xmlns.oracle.com/IHC/OPSInventLabel"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://xmlns.oracle.com/IHC/OPSInventLabelSchema"
+             xmlns:client="http://xmlns.oracle.com/IHC/OPSInventLabel" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+            <import namespace="http://xmlns.oracle.com/IHC/OPSInventLabelSchema" schemaLocation="xsd/OPSInventLabel.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="OPSInventLabelRequestMessage">
+        <wsdl:part name="payload" element="ns1:POReceipt"/>
+    </wsdl:message>
+    <wsdl:portType name="OPSInventLabel">
+        <wsdl:operation name="printLabel">
+            <wsdl:input message="client:OPSInventLabelRequestMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

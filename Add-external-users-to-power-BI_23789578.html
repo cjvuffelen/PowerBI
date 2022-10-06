@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Add external users to power BI</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Power-BI_8683562.html">Power BI</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="PBI-Installation-and-configuration_17858594.html">PBI Installation and configuration</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Add external users to power BI
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Martjan Pols</span> on jul. 06, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Documentation on use cases related to external users.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Draft</p></div></div><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1657623300249 {padding: 0px;}
+div.rbtoc1657623300249 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1657623300249 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1657623300249'>
+<ul class='toc-indentation'>
+<li><a href='#AddexternaluserstopowerBI-Pre-requisite'>Pre-requisite</a></li>
+<li><a href='#AddexternaluserstopowerBI-Adduser'>Add user</a>
+<ul class='toc-indentation'>
+<li><a href='#AddexternaluserstopowerBI-Onapplevel'>On app level</a></li>
+<li><a href='#AddexternaluserstopowerBI-Onworkspacelevel'>On workspace level</a></li>
+</ul>
+</li>
+</ul>
+</div><p>An external user is a user not in the active directory of IHC.</p><h1 id="AddexternaluserstopowerBI-Pre-requisite"><strong>Pre-requisite</strong></h1><p>The following admin settings should be enabled for viewing only:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/23789578/24051725.png" data-image-src="attachments/23789578/24051725.png" data-height="909" data-width="690" data-unresolved-comment-count="0" data-linked-resource-id="24051725" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220706-105513.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="23789578" data-linked-resource-container-version="1" data-media-id="2e7667d6-8504-43ea-a346-5fcd6670ad5f" data-media-type="file"></span><p>With these settings it is possible by admin group only to add external users. For more information regarding external users please read documentation <a class="external-link" href="https://docs.microsoft.com/en-us/power-bi/enterprise/service-admin-azure-ad-b2b" rel="nofollow">here</a>. The settings and why they are enabled is documented <a href="https://ihcconfluence.atlassian.net/wiki/spaces/ID/pages/8945665/Admin+settings#Export-and-sharing" rel="nofollow">here</a>.</p><p /><h1 id="AddexternaluserstopowerBI-Adduser">Add user</h1><p>Adding the user and limit access right is possible on multiple levels.</p><h2 id="AddexternaluserstopowerBI-Onapplevel">On app level</h2><p>Additional rights can be set on app level after clicking the update app button in the workspace. This can be done in the permissions tab:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/23789578/23986189.png" data-image-src="attachments/23789578/23986189.png" data-height="327" data-width="697" data-unresolved-comment-count="0" data-linked-resource-id="23986189" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220706-110040.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="23789578" data-linked-resource-container-version="1" data-media-id="e1814225-bf06-410f-bc8d-c734cf29e02a" data-media-type="file"></span><p>Add the external user like <a class="external-link" href="mailto:abcd.efg@gmail.com" rel="nofollow">abcd.efg@gmail.com</a> This will add an external azure user in the backend: abcd.efg_gmail.com#EXT#@ihcmerwede.onmicrosoft.com. This user is not in the local active directory, but only in azure, and will automatically be removed once the rights are revoked</p><p>Please reduce access rights further by checking the right box:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/23789578/23855117.png" data-image-src="attachments/23789578/23855117.png" data-height="137" data-width="646" data-unresolved-comment-count="0" data-linked-resource-id="23855117" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220706-110157.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="23789578" data-linked-resource-container-version="1" data-media-id="ded40d2e-c129-483e-b067-bb0476858f7a" data-media-type="file"></span><p>With unchecked, the external user is not able to re-share or build on the underlying dataset.</p><h2 id="AddexternaluserstopowerBI-Onworkspacelevel">On workspace level</h2><p>In cases the underlying dataset is in a separate workspace the external user needs to have viewer access to that workspace as well. This can be managed on workspace access.</p><p>Add the external user as viewer by looking up the abcd.efg which will result in the user: abcd.efg_gmail.com#EXT#@ihcmerwede.onmicrosoft.com</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/23789578/24051725.png">image-20220706-105513.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/23789578/23986189.png">image-20220706-110040.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/23789578/23855117.png">image-20220706-110157.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

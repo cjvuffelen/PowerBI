@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Workspace mangement</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Power-BI_8683562.html">Power BI</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="PBI-Installation-and-configuration_17858594.html">PBI Installation and configuration</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Workspace mangement
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Martjan Pols</span> on apr. 11, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><span class="status-macro aui-lozenge aui-lozenge-progress">DRAFT</span> </p><p>Content:</p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1657623298114 {padding: 0px;}
+div.rbtoc1657623298114 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1657623298114 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1657623298114'>
+<ul class='toc-indentation'>
+<li><a href='#Workspacemangement-Workspaceintro'>Workspace intro</a></li>
+<li><a href='#Workspacemangement-Workspaceconsiderations'>Workspace considerations</a></li>
+<li><a href='#Workspacemangement-Workspacecreation'>Workspace creation</a>
+<ul class='toc-indentation'>
+<li><a href='#Workspacemangement-AssumptionsinIHCworkspacesetup'>Assumptions in IHC workspace setup</a></li>
+<li><a href='#Workspacemangement-Namingconventions'>Naming conventions</a></li>
+<li><a href='#Workspacemangement-Workspaceexamples'>Workspace examples</a></li>
+<li><a href='#Workspacemangement-Workspacesettings'>Workspace settings</a></li>
+</ul>
+</li>
+<li><a href='#Workspacemangement-Work-spacesandaccessrights'>Work-spaces and access rights</a></li>
+<li><a href='#Workspacemangement-References'>References</a></li>
+</ul>
+</div><p>In this paragraph content will be covered to answer questions like:</p><ol><li><p>When to create a new workspace and what needs to be considered</p></li><li><p>What naming should be applied</p></li><li><p>Who will create them</p></li><li><p>How to create them</p></li></ol><h2 id="Workspacemangement-Workspaceintro">Workspace intro</h2><p>Introduction to work-spaces can be given by reading the usage scenarios chapter in the whitepaper planning a Power BI Enterprise Deployment. With several pictures Microsoft explains the concept of work-spaces for small teams till enterprise solutions. A workspace is a container for collaboration. From that perspective any initiative with collaboration on data and reporting can be grouped in a workspace.</p><p>Storing and viewing in power bi service.</p><p /><p>Storing is only possible in two type of work-spaces: my personal, or an organisational workspace. Only on an organisational workspace an app can be created. An app is a way to distribute content to a large group of viewers.</p><h2 id="Workspacemangement-Workspaceconsiderations">Workspace considerations</h2><p>Some more considerations about creating work-spaces. There is no golden rule. Creating a workspace per department is to broad, as only one app can be created on top of a workspace. To create a workspace for every collaboration (ad-hoc or permanent) will lead to chaos in workspace management.</p><p>Considerations by designing workspace structures: (<a class="external-link" href="https://www.coatesdatastrategies.com/blog/pbi-workspace-planning" rel="nofollow">some online content for further details</a>)</p><ul><li><p>Responsibility based<br/>If a different department is responsible for the reports then those who the content is delivered to, or if the data is delivered by a different department. Then it makes sense to have multiple work-spaces.</p></li><li><p>Content based<br/>What content is delivered.</p><ul><li><p>Subject<br/>for example a company wide project management tool, or a project wide cost control app. Or a departmental process analysis.</p></li><li><p>Sensitivity of data<br/>For example: Strategic data should be separated from normal company data<br/>For example: Company critical, or high availability<br/>Which data is sensitive within the company and is the company open to share data?</p></li><li><p>Split data from reports to have better management on access.<br/>In case that not all users are allowed to change a central(ised) data model.</p></li></ul></li><li><p>Audience based</p><ul><li><p>Enterprise</p><ul><li><p>Organisational structures</p></li><li><p>Functional discipline</p></li><li><p>Corporate discipline</p></li><li><p>Capacity Center</p></li><li><p>Product Market Group</p></li><li><p>Teams in one of above-mentioned groups</p></li></ul></li><li><p>User level on any collaboration</p></li></ul></li><li><p>Capacity based</p><ul><li><p>Only pro users don’t need Premium</p></li><li><p>And the other way around only readers need premium</p></li></ul></li><li><p>Environment based<br/>In case testing and accepting is needed. (test / acc / prod)</p></li></ul><p>Please keep in mind, changing a workspace is easy in Power BI, but linked content from documentation or websites will stop working.</p><h2 id="Workspacemangement-Workspacecreation">Workspace creation</h2><p>There is no clear general rule available to choose the workspace name. Based on assumptions at IHC a first set of rules is prepared in order to guide those who are allowed to create work-spaces.</p><h3 id="Workspacemangement-AssumptionsinIHCworkspacesetup">Assumptions in IHC workspace setup</h3><ol><li><p>First gateway for access is the Power BI license. All licensed persons can see the data unless it is restricted</p></li><li><p>Restricted data are</p><ol><li><p>personal sensitive data (Time registration, HR-related)</p></li><li><p>Defense data</p></li><li><p>Strategic and sensitive data. (Specific finance data)</p></li></ol></li><li><p>IHC wants to grow to a more enterprise mode setup</p></li><li><p>IHC wants to limit the work-spaces to used and needed work-spaces</p></li></ol><h3 id="Workspacemangement-Namingconventions">Naming conventions</h3><p>There is no clear tree to select your workspace name. it all depends on content, ownership, audience etc. But some naming conventions are created to keep structure in the workspace setup:</p><ul><li><p>Ownership, or responsibility or subject area</p><ul><li><p>Enterprise (IHC prefixed) <br/>-&gt; IHC time registration<br/>-&gt; IHC central data</p></li><li><p>Corporate discipline (CD prefixed)</p></li><li><p>Functional discipline (FD prefixed)</p></li><li><p>PMG (PMG prefixed)</p></li></ul></li><li><p>Use official names ? from labelling project (Ronald Schuil), Petko Petkov</p></li><li><p>Project specific (prefixed with project yyyy)<br/>-&gt; project 2021 GRIP</p></li><li><p>Environment if applicable</p><ul><li><p>Test: suffixed with “ test”</p></li><li><p>Acceptance: suffixed with “ acc”</p></li><li><p>Prod: no suffix, but original name</p></li></ul></li><li><p>Purpose (data / analytics specific)<br/>-&gt; IHC central data, a workspace only for data</p></li><li><p>Meaningful and descriptive with spaces</p></li><li><p>Abbreviations in capital</p></li><li><p>Names with capital</p></li><li><p>All the rest lower case</p></li><li><p>Split data from reports by workspace<br/>In case a data set is developed by a different person / department a separate workspace will avoid unnecessary rights on data objects. (suffixed for data)</p></li></ul><h3 id="Workspacemangement-Workspaceexamples">Workspace examples</h3><div class="table-wrap"><table data-layout="default" data-local-id="5293f308-1563-4246-b900-8ccf41aad0c7" class="confluenceTable"><colgroup><col style="width: 136.0px;"/><col style="width: 204.0px;"/><col style="width: 143.0px;"/><col style="width: 126.0px;"/><col style="width: 71.0px;"/></colgroup><tbody><tr><td class="confluenceTd"><p><strong>Example</strong></p></td><td class="confluenceTd"><p><strong>Description</strong></p></td><td class="confluenceTd"><p><strong>Workspace name</strong></p></td><td class="confluenceTd"><p><strong>App</strong></p></td><td class="confluenceTd"><p><strong>env</strong></p></td></tr><tr><td class="confluenceTd"><p>General team workspace</p></td><td class="confluenceTd"><p>A team who needs reporting and data to collaborate</p><p>Data may come from central model workspace or from own department.</p></td><td class="confluenceTd"><p>CD Finance</p><p>FD Procurement</p><p>PMG Custom vessels</p></td><td class="confluenceTd"><p>May be not needed. Team decide</p></td><td class="confluenceTd"><p>P</p></td></tr><tr><td class="confluenceTd"><p>Data model split from rest of reports</p></td><td class="confluenceTd"><p>Some developers are allowed to change the data set of a specific department. Let’s assume two developers maintain the data in the department, the rest only builds reports</p></td><td class="confluenceTd"><p>CD Finance data</p></td><td class="confluenceTd"><p>May not be needed</p></td><td class="confluenceTd"><p>(T/A/)P</p></td></tr><tr><td class="confluenceTd"><p>Specific team reporting app</p></td><td class="confluenceTd"><p>The team owns a process and needs an app to monitor and analyse the profit and loss.</p></td><td class="confluenceTd"><p>CD Finance P&amp;L</p></td><td class="confluenceTd"><p>For team use and may be some additional people</p></td><td class="confluenceTd"><p>P</p></td></tr><tr><td class="confluenceTd"><p>Team owned subject analyses</p></td><td class="confluenceTd"><p>A team owned subject specific report shared with a lot of people</p></td><td class="confluenceTd"><p>CD Finance Cost Analyses</p></td><td class="confluenceTd"><p>For wider public</p></td><td class="confluenceTd"><p>(T/A/)P</p></td></tr><tr><td class="confluenceTd"><p>Central delivered data</p></td><td class="confluenceTd"><p>Data team makes data available on enterprise level</p></td><td class="confluenceTd"><p>IHC central data</p><p>IHC central data test</p><p>IHC central data acc</p></td><td class="confluenceTd"><p>Enterprise usage</p></td><td class="confluenceTd"><p>T/A/P</p></td></tr><tr><td class="confluenceTd"><p>Central delivered subject analyses</p></td><td class="confluenceTd"><p>An app created for central view on a subject owned and maintained by central data team</p></td><td class="confluenceTd"><p>IHC integrated project performance</p></td><td class="confluenceTd"><p>Enterprise usage</p></td><td class="confluenceTd"><p>T/A/P</p></td></tr><tr><td class="confluenceTd"><p>Project specific</p></td><td class="confluenceTd"><p>For a project a specific need is to monitor a part temporarily</p></td><td class="confluenceTd"><p>Project 2022 GRIP</p></td><td class="confluenceTd"><p>May be not needed</p></td><td class="confluenceTd"><p>P</p></td></tr></tbody></table></div><p> </p><h3 id="Workspacemangement-Workspacesettings">Workspace settings</h3><p>In the workspace settings the license mode can be selected, the capacity and some other options.</p><p>In general:</p><ul><li><p>Capacity:</p><ul><li><p>Premium for work-spaces with files exceeding 3 gb</p></li><li><p>Premium for work-spaces connected to deployment pipeline</p></li><li><p>Premium for work-spaces with read only users</p></li><li><p>Pro when only pro users are collaborating</p></li></ul></li><li><p>Data storage</p><ul><li><p>Large for work-spaces where large datasets are expected like IHC central data</p></li><li><p>Normal for the rest.</p></li></ul></li><li><p>Contact list:</p><ul><li><p>Workspace admins</p></li></ul></li></ul><p>Furthermore, always assign at least two workspace admins, so those two are responsible for content etc.</p><h2 id="Workspacemangement-Work-spacesandaccessrights">Work-spaces and access rights</h2><ul><li><p>Work-spaces are only to be created by CDM or admin user</p></li><li><p>At least one admin must be assigned to a workspace</p></li><li><p>Support / request tickets? How to</p></li></ul><p> </p><p /><h2 id="Workspacemangement-References">References</h2><ul><li><p>Downloaded pdf from Melissa Coates: BestPracticesForDeliveringAndSharingContentInPowerBI_MelissaCoates</p></li><li><p>Microsoft whitepaper <a class="external-link" data-card-appearance="inline" href="https://docs.microsoft.com/en-us/power-bi/guidance/whitepapers" rel="nofollow">https://docs.microsoft.com/en-us/power-bi/guidance/whitepapers</a> </p></li><li><p>Split data and report workspaces: <a class="external-link" data-card-appearance="inline" href="https://www.coatesdatastrategies.com/blog/5-tips-for-separating-power-bi-datasets-and-reports" rel="nofollow">https://www.coatesdatastrategies.com/blog/5-tips-for-separating-power-bi-datasets-and-reports</a> </p></li><li><p>Workspace planning:<br/><a class="external-link" data-card-appearance="inline" href="https://www.coatesdatastrategies.com/blog/pbi-workspace-planning" rel="nofollow">https://www.coatesdatastrategies.com/blog/pbi-workspace-planning</a> </p></li></ul>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/8912927/8912942.png">image-20220405-164000.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/8912927/8912945.png">image-20220405-163855.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/8912927/8912948.png">image-20220405-133643.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

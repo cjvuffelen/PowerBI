@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : DBT Errors</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : DBT Errors
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Corjan van Uffelen</span>, last modified by <span class='editor'> ma.vanommering</span> on jul. 01, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>ALSO REFER TO DEPLOYMENTS - TROUBLESHOOTING<br/><br/>Running a snapshot in DBT gives the error “not a Delta Table” </p><p>This means there is a table without data.  To fix this error, drop the table via an SQL statement in databricks.</p><p /><p>DBT gives the following error:</p><p>13:29:39  Runtime Error in model mdl_fact_risk_actions (models\4_model\mdl_fact_risk_actions.sql)<br/>13:29:39    &lt;class 'pyodbc.Error'&gt; returned a result with an error set</p><p>To fix go to your target folder where you will find the compliled sql statement which you can run in databricks via copy paste. In databricks you will get the error message.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/16416799/16482319.png" data-image-src="attachments/16416799/16482319.png" data-height="133" data-width="292" data-unresolved-comment-count="0" data-linked-resource-id="16482319" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220609-133435.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16416799" data-linked-resource-container-version="8" data-media-id="96f4e8f6-d15a-4183-a781-415d515696a9" data-media-type="file"></span><p /><p>DBT gives the following error: token expired (ALSO REFER TO DEPLOYMENTS - TROUBLESHOOTING Renew credentials)</p><p>A token is valid for 2 years. After this it has to be refreshed. Ask infra to refresh the token in the DBT-T, DBT-A or DBT-P keyvault for raw-ifs. (DBT in this case stands for DataBricks Technical). raw-ifs is the secret key.</p><p>This key has to be refreshed in e.g. Ihcdatalake01test-RAW-DBT-IFS-Write-T-WE, Ihcdatalake01test-RAW-DBT-IFS-Write-A-WE or Ihcdatalake01test-RAW-DBT-IFS-Write-P-WE</p><p>After this all folders in databricks have to be unmounted and remounted. There is a script in test. Please use databricks notebook configuration\mount adls to fix it. Please remeber tot do it for raw, staged and curated.</p><p><a class="external-link" href="https://adb-6288540023839228.8.azuredatabricks.net/?o=6288540023839228#notebook/1579773055394893/command/4013656504802449" rel="nofollow"><span class="inline-comment-marker" data-ref="373906f5-5858-4dcf-b1ed-b93dc584525e">Databricks (azuredatabricks.net)</span></a></p><p /><p>DBT gives the following error: Invalid client secret provided</p><p>The folder that your write to has to be remounted because the secret is wrong or refreshed. Please use databricks notebook configuration\mount adls to fix it.</p><p><a class="external-link" href="https://adb-6288540023839228.8.azuredatabricks.net/?o=6288540023839228#notebook/1579773055394893/command/4013656504802449" rel="nofollow">Databricks (azuredatabricks.net)</a></p><p /><p>DBT gives the following error: Cannot perform Merge as multiple source rows matched and attempted to modify the same\ntarget row in the Delta table in possibly conflicting ways</p><p>This means you table_hsk is not unique which can have multiple causes.</p><p>If you see the error during development you need to as many fields to het concatenation until it’s unique. Example:</p><p><code>,MD5(f.risk_id || '^' || '{{var(&quot;dt&quot;)}}') as fact_risk_action_hsk</code></p><p>becomes</p><p><code>,MD5(f.risk_id || '^' || f.risk_action_id || '^' || '{{var(&quot;dt&quot;)}}') as fact_risk_action_hsk</code></p><p>Otherwhise you need to figure out why you have duplicatie rows.</p><p /><p /><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/16416799/16482319.png">image-20220609-133435.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

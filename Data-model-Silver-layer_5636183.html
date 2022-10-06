@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Data model Silver layer</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development-Standards-and-Guidelines_5603362.html">Development Standards and Guidelines</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Data model Silver layer
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Martjan Pols</span>, last modified by <span class='editor'> Corjan van Uffelen</span> on jun. 14, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Content</p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1657623288461 {padding: 0px;}
+div.rbtoc1657623288461 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1657623288461 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1657623288461'>
+<ul class='toc-indentation'>
+<li><a href='#DatamodelSilverlayer-Purpose'>Purpose</a></li>
+<li><a href='#DatamodelSilverlayer-Standardization'>Standardization</a></li>
+<li><a href='#DatamodelSilverlayer-Standardcolumns'>Standard columns</a></li>
+<li><a href='#DatamodelSilverlayer-Namingconvention'>Naming convention</a></li>
+</ul>
+</div><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Ready for review</p></div></div><h2 id="DatamodelSilverlayer-Purpose">Purpose</h2><p>The silver layer is a standardized replication of all changes from the source tables stored using a delta mechanism. Data is considered cleansed and standardized, and therefore ready for consumption. All additional layers should rely on the silver layer. </p><h2 id="DatamodelSilverlayer-Standardization">Standardization</h2><p>The tables in the silver layer reflect the source system. Some very few transformations are added to align the data. </p><ul><li><p><span class="inline-comment-marker" data-ref="b6c1825d-6d03-4972-8224-1bf4a247238b">In case the source system is not able to deliver in CTE, Convert to CTE time zone</span></p></li><li><p>Remove time from dates for those which are not used at all in the system</p></li><li><p>Convert to null in case the dates are defaulted from the system. (for example if an empty date in the system is defaulted to 1900-01-01.</p></li><li><p>Dates are cast to date type.</p></li><li><p>Dates + times are cast to timestamp type.</p></li><li><p>Whole numbers are cast to the integer format.</p></li><li><p>Other numbers are cast to the required number format.</p></li><li><p>Duplicate records are removed.</p></li></ul><h2 id="DatamodelSilverlayer-Standardcolumns">Standard columns</h2><p>All tables should have the default standard columns. Purpose is to increase the usability of all downstream selections on this data set:</p><div class="table-wrap"><table data-local-id="09444e67-8db0-4bd5-b969-e86d6bc86972" data-layout="wide" class="confluenceTable"><colgroup><col style="width: 226.67px;"/><col style="width: 226.67px;"/><col style="width: 226.67px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>column</strong></p></th><th class="confluenceTh"><p><strong>meaning</strong></p></th><th class="confluenceTh"><p><strong>example</strong></p></th></tr><tr><td class="confluenceTd"><p>dbt updated at</p></td><td class="confluenceTd"><p>Date and time on which the record is added to the table</p></td><td class="confluenceTd"><p>A batch starts at 01:05 taking a snapshot from source system, once a record is added to a specific table the timestamp of that insert is added.</p></td></tr><tr><td class="confluenceTd"><p>dbt valid from</p></td><td class="confluenceTd"><p>A date from which this row was active in the source system. Consistently stored over all tables from the source system and taken from the bronze dt field.</p><p /></td><td class="confluenceTd"><p>A batch start at 2022-01-30 01:05 taking a snapshot from the source system. A changed record in a silver table will be stored with a date 2022-01-29. As on that date the change has been applied in the system. the snapshot is considered to take a consistent picture at end of business day. </p></td></tr><tr><td class="confluenceTd"><p>dbt valid to</p></td><td class="confluenceTd"><p>A date marking the valid end date of the record. The last actual version will be active till 9999-12-31 (the infinity date)</p></td><td class="confluenceTd"><p>Three use cases:</p><ol><li><p>On a new record: the infinity date</p></li><li><p>Existing changed record:<br/>The old record will be closed using the dbt valid from, minus 1 day from the new record</p></li><li><p>An existing record is not delivered in the snapshot: The last record will be end dated using the batch date</p></li></ol></td></tr></tbody></table></div><h2 id="DatamodelSilverlayer-Namingconvention">Naming convention</h2><p>Same as bronze plus default columns.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

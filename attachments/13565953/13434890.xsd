@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xsd:element name="Root">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="MsgSeqNo" type="xsd:integer"/>
+        <xsd:element name="Sender" type="xsd:string"/>
+        <xsd:element name="DateTime" type="xsd:dateTime"/>
+        <xsd:element name="PurchaseOrder">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="IFS_PONumber" type="xsd:string"/>
+              <xsd:element name="SPx_PONumber" type="xsd:string"/>
+              <xsd:element name="PurchaseOrderLine" maxOccurs="unbounded">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="IFS_POLNumber" type="xsd:integer"/>
+                    <xsd:element name="SPx_POLNumber" type="xsd:integer"/>
+                    <xsd:element name="IFS_Status" type="xsd:string"/>
+                    <xsd:element name="Plate" maxOccurs="unbounded" minOccurs="0">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="ProjectNumber" type="xsd:string"/>
+                          <xsd:element name="Nestix_Section_ID" type="xsd:integer"/>
+                          <xsd:element name="Nestix_Du_ID" type="xsd:integer"/>
+                          <xsd:element name="ArticleNumber" type="xsd:integer"/>
+                          <xsd:element name="WantedDeliveryDate" type="xsd:date"/>
+                          <xsd:element name="PlateNumber" type="xsd:integer"/>
+                          <xsd:element name="Quantity" type="xsd:integer"/>
+                          <xsd:element name="Weight" type="xsd:float"/>
+                          <xsd:element name="Length" type="xsd:float"/>
+                          <xsd:element name="Width" type="xsd:float"/>
+                          <xsd:element name="IFS_Release_Nr" type="xsd:integer"/>
+                          <xsd:element name="Price" type="xsd:float"/>
+                          <xsd:element name="Currency_Code" type="xsd:float"/>
+                          <xsd:element name="Supplier" type="xsd:string"/>
+                          <xsd:element name="ExpectedDeliveryDate" type="xsd:date"/>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="Profile" maxOccurs="unbounded" minOccurs="0">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="ProjectNumber" type="xsd:string"/>
+                          <xsd:element name="Nestix_Section_ID" type="xsd:integer"/>
+                          <xsd:element name="Nestix_Du_ID" type="xsd:integer"/>
+                          <xsd:element name="ArticleNumber" type="xsd:integer"/>
+                          <xsd:element name="WantedDeliveryDate" type="xsd:date"/>
+                          <xsd:element name="PlateNumber" type="xsd:integer"/>
+                          <xsd:element name="Quantity" type="xsd:integer"/>
+                          <xsd:element name="Weight" type="xsd:float"/>
+                          <xsd:element name="Length" type="xsd:float"/>
+                          <xsd:element name="Width"/>
+                          <xsd:element name="IFS_Release_Nr" type="xsd:integer"/>
+                          <xsd:element name="Price" type="xsd:float"/>
+                          <xsd:element name="Currency_Code" type="xsd:float"/>
+                          <xsd:element name="Supplier" type="xsd:string"/>
+                          <xsd:element name="ExpectedDeliveryDate" type="xsd:date"/>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

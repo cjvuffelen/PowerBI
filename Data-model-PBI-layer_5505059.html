@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Data model PBI layer</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Development-Standards-and-Guidelines_5603362.html">Development Standards and Guidelines</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Data model PBI layer
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Martjan Pols</span>, last modified on jun. 16, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>The presentation layer for power BI is named pbi_datamodel and consists of a set of views on top of the data warehouse layer.</p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1657623288557 {padding: 0px;}
+div.rbtoc1657623288557 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1657623288557 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1657623288557'>
+<ul class='toc-indentation'>
+<li><a href='#DatamodelPBIlayer-Purpose'>Purpose</a></li>
+<li><a href='#DatamodelPBIlayer-Modelnamingconvention'>Model naming convention</a>
+<ul class='toc-indentation'>
+<li><a href='#DatamodelPBIlayer-Tables'>Tables</a></li>
+<li><a href='#DatamodelPBIlayer-Columns'>Columns</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Ready for review</p></div></div><h1 id="DatamodelPBIlayer-Purpose">Purpose </h1><p>Why this additional view on top of the data warehouse layer? It is a best practice to load power bi using views on top of tables for several reasons:</p><ol><li><p>Prepare table and column names for business usage. Naming in power bi needs more user friendly. for example: company_name becomes company name</p></li><li><p>Flexibility to change quickly a view is more easy then changing the underlying table(s). This can become very important in case management is requesting fast changes on the model.</p></li><li><p>Flexibility in column / row selection. The data warehouse tables will have all columns and, when build as type 2 tables, all history. In power bi this is not always needed. The view layer will give the freedom to select the columns and history needed for reporting.</p></li><li><p>Transposing data to minimize memory consumption in power bi. In power bi the number of rows is not so important as well as the number of columns. For example a fact in data warehouse with many columns as dates could be transposed to a fact having one date column and a date type column.</p></li></ol><h1 id="DatamodelPBIlayer-Modelnamingconvention">Model naming convention</h1><p>The PowerBI data model layer is mend to prepare the data in business language for PowerBI. This is to avoid any unnecessary transformations or renaming in PowerBI and should speed up the build of the PowerBI model. For the central model the naming convention from previous layers should all be applied, and on top the rules mentioned on this page should be applied.</p><p>Usage of the layer:</p><ol><li><p>Conversion of technical names to more business-friendly names</p></li><li><p>Remove technical columns</p></li><li><p>Reduce number of columns</p></li><li><p>Change the grain of dimensions and facts</p></li></ol><p>Basic guidelines:</p><ol><li><p>Remove underscores</p></li><li><p>Only surrogate keys, no source system id’s</p></li><li><p>As less columns as needed for reporting / analyses</p></li><li><p>All lowercase</p></li></ol><h2 id="DatamodelPBIlayer-Tables">Tables</h2><p>Default changes to table names for the data warehouse layer:</p><ul><li><p>Remove prefixed from dimension: dim_</p></li><li><p>Keep underscores in names</p></li><li><p>All lower case</p></li></ul><h2 id="DatamodelPBIlayer-Columns">Columns</h2><p>Default changes to columns for data warehouse layer to PowerBI data model layer</p><ul><li><p>Remove underscore</p></li><li><p>All lowercase</p></li><li><p>Remove technical columns if not needed</p><ul><li><p>dbt updated at</p></li><li><p>dbt valid from</p></li><li><p>dbt valid to</p></li><li><p>dbt scd id</p></li><li><p>batch date</p></li><li><p>dim_table_name_hsk fields</p></li><li><p>table ID fields (keep source system id)</p></li></ul></li><li><p>For incremental refresh</p><ul><li><p>To be defined</p></li></ul></li><li><p>For updates on incremental refresh</p><ul><li><p>To be defined</p></li></ul></li></ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

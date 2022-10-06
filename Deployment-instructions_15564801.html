@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Deployment instructions</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Deployments_13336596.html">Deployments</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Deployment instructions
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Alex Hoogvliet</span>, last modified by <span class='editor'> ma.vanommering</span> on jun. 16, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>NOTE: fill the deployment table after each relevant step</p><p><strong>TEST</strong></p><ol><li><p>Check open pull request (PR) and decide which ones to add to the deployment</p></li><li><p>Review PR (check at least files changed and the comments) and if possible approve it. Else make sure someone approves it</p></li><li><p>Check if there is a deployment file in the PR</p></li><li><p>Merge PR to master (do not delete branch yet) </p></li><li><p>Repeat these steps for all applicable PR’s for the deployment</p></li><li><p>For PR in repository dwh_model</p><ol><li><p>Run Airflow dag test_git_pull</p></li><li><p>Execute the steps in the deployment file in TEST<br/>Note - if a column is added in a dwh dim file refer to <u>New field (column) added to a dwh file</u> for instructions.</p></li></ol></li><li><p>For PR in repository databricks-technical</p><ol><li><p>run workflow (git action) deploy-to-test</p></li><li><p>ask Corjan if a job needs to be adapted</p></li><li><p>if needed inform the engineer(s)</p></li></ol></li><li><p>For PR in repository adf-technical</p><ol><li><p>go to ADF Master branch in Test and publish</p></li><li><p>if needed inform the engineer(s)</p></li></ol></li><li><p>Run Airflow dag test_load_dwh_by_table_complete</p></li><li><p>Run Airflow dag test_ingest_workday (to discuss who is going to perform this)</p></li><li><p>TEST run must be flawless. If not resolve errors</p></li><li><p>Perform post run actions, refer to deployment file</p></li><li><p>Inform data engineers in Teams channel ‘Ops and Deployments<br/></p></li></ol><p><strong>ACC</strong></p><ol><li><p>Wait for GO to ACC or ask if there are objections to go to ACC</p></li><li><p>For PR in repository dwh_model</p><ol><li><p>Run Airflow dag acc_git_pull</p></li><li><p>Execute the steps in the deployment file in ACC<br/>Note - if a column is added in a dwh dim file refer to <u>New field (column) added to a dwh file</u> for instructions.</p></li></ol></li><li><p>For PR in repository databricks-technical</p><ol><li><p>run workflow (git action) deploy-to-acc</p></li><li><p>ask Corjan and Ewoud if something needs to be adapted</p></li><li><p>if needed inform the engineer(s)</p></li></ol></li><li><p>For PR in repository adf-technical</p><ol><li><p>run workflow (git action) Deploy To Acceptance Using Azure ARM Deploy</p></li><li><p>if needed inform the engineer(s)</p></li></ol></li><li><p>Run Airflow dag acc_load_dwh_by_table_complete</p></li><li><p>Run Airflow dag acc_ingest_workday </p></li><li><p>ACC run must be flawless. If not resolve errors</p></li><li><p>In case of new added fields or renamed fields to the dwh layer or pbi model layer, inform the PBI responsible person.</p></li><li><p>Perform post run actions, refer to deployment file</p></li><li><p>Inform data engineers in Teams channel ‘Ops and Deployments</p></li></ol><p><strong>PROD</strong></p><ol><li><p>Receive confirmation that data in ACC is validated for all PR’s</p></li><li><p>For PR in repository dwh_model</p><ol><li><p>Run Airflow dag prod_git_pull</p></li><li><p>Execute the steps in the deployment file in PROD<br/>Note - if a column is added in a dwh dim file refer to <u>New field (column) added to a dwh file</u> for instructions.</p></li></ol></li><li><p>For PR in repository databricks-technical</p><ol><li><p>run workflow (git action) deploy-to-prod</p></li><li><p>ask Corjan and Ewoud if something needs to be adapted</p></li><li><p>if needed inform the engineer(s)</p></li></ol></li><li><p>For PR in repository adf-technical</p><ol><li><p>run workflow (git action) Deploy To Production</p></li><li><p>if needed inform the engineer(s)</p></li></ol></li><li><p>Run Airflow dag prod_load_dwh_by_table_complete</p></li><li><p>Run Airflow dag prod_ingest_workday</p></li><li><p>PROD run must be flawless. If not resolve errors</p></li><li><p>Perform post run actions, refer to deployment file</p></li><li><p>In case of new added fields or renamed fields to the dwh layer or pbi model layer, inform the PBI responsible person.</p></li><li><p>Inform data engineers in Teams channel ‘Ops and Deployments’</p></li><li><p>Delete applicable branches</p></li><li><p>Make sure the deployment table is properly filled.</p></li><li><p>Wait for a PROD run without errors, then continue with the next deployment. Do NOT merge to master before that.</p></li></ol><p /><p /><p><strong>Known issues/troubleshooting:</strong></p><p>When load mode= delta it can happen that there is no data on a specific day, especially in TEST environment. In that case this test can fail:</p><p>FAIL 1 dbt_expectations_source_expect_table_row_count_to_be_between_ifs_ext_ifs_project_trans_posting_tab_1__dt_var_dt_</p><p>In TEST it is ok to ignore this. in PROD you really have to check if there is no data.</p><p /><p /><h2 id="Deploymentinstructions-Relatedarticles"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4cb" data-emoji-shortname=":clipboard:" data-emoji-fallback="\uD83D\uDCCB" src="images/icons/emoticons/72/1f4cb.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blauwe ster)"/> Related articles</h2><p></p>
+
+
+
+
+
+
+
+
+
+
+
+<ul class="content-by-label">
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="5046320" data-linked-resource-type="page" data-linked-resource-version="8" href="/wiki/spaces/CDM/pages/5046320/Add+an+entry+to+the+ingestion+config+file">Add an entry to the ingestion config file</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7438386" data-linked-resource-type="page" data-linked-resource-version="2" href="/wiki/spaces/CDM/pages/7438386/Create+staged+and+silver+files+in+dbt">Create staged and silver files in dbt</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="3309569" data-linked-resource-type="page" data-linked-resource-version="5" href="/wiki/spaces/CDM/pages/3309569/Creating+model+for+Fact+table+in+DBT">Creating model for Fact table in DBT</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="2949140" data-linked-resource-type="page" data-linked-resource-version="4" href="/wiki/spaces/CDM/pages/2949140/Add+an+entry+to+a+source+file+%28yml%29+in+DBT">Add an entry to a source file (yml) in DBT</a>
+                        
+                        
+                    </div>
+    </li>
+    </ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

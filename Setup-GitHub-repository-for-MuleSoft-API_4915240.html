@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Setup GitHub repository for MuleSoft API</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tools_4128769.html">Tools</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="MuleSoft_3964983.html">MuleSoft</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Playbooks_4882457.html">Playbooks</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Setup GitHub repository for MuleSoft API
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> r.lodder1</span>, last modified on jul. 08, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>When creating a new MuleSoft API, it al starts with creating a new GitHub Repository. More information about how a GitHub Repository for a MuleSoft API should look like, check out <a href="4980770.html" data-linked-resource-id="4980770" data-linked-resource-version="10" data-linked-resource-type="page">Setup CI/CD in GitHub Repository</a> . This playbook only covers the steps for setup.</p><h2 id="SetupGitHubrepositoryforMuleSoftAPI-Instructions"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4d8" data-emoji-shortname=":blue_book:" data-emoji-fallback="\uD83D\uDCD8" src="images/icons/emoticons/72/1f4d8.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blauwe ster)"/> Instructions</h2><p></p><ol><li><p>Create with a new repository by using the 'mule-repository-template' template. This will take a few moments.<br/>After creating the repository, you should now see a main branch with:</p><ol><li><p>.gitignore</p></li><li><p>README.md</p></li><li><p>.github directory</p></li></ol></li><li><p>Next, configure the repository itself. From the repository, go to ‘Settings’. <br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/4915240/24379482.png" data-image-src="attachments/4915240/24379482.png" data-height="123" data-width="888" data-unresolved-comment-count="0" data-linked-resource-id="24379482" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220707-134041.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="4915240" data-linked-resource-container-version="3" data-media-id="86bf18b3-81de-4098-a93a-5abfcf140f51" data-media-type="file"></span></li><li><p>In the settings section multiple changes need to be applied. Start with ‘Collaborators and teams’. Add the team ‘Integration’ with ‘Write’ permission and add the user ‘royalihcanypointadministrator’ with ‘Admin’ permission. With this, everyone in the team ‘Integration’ can read and write to this repository (which is mandatory due to new pushes, PRs and merges) and the ‘royalihcanypointadministrator’ can perform automated checkouts and merges in the pipeline. For this, admin rights are required.<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/4915240/24641537.png" data-image-src="attachments/4915240/24641537.png" data-height="318" data-width="802" data-unresolved-comment-count="0" data-linked-resource-id="24641537" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220708-080818.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="4915240" data-linked-resource-container-version="3" data-media-id="6f7ddaac-a4a4-4596-8d6d-be01f0a3b845" data-media-type="file"></span></li><li><p>Set branch protection on the ‘main’ branch with three different settings. <br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/4915240/24576009.png" data-image-src="attachments/4915240/24576009.png" data-height="135" data-width="266" data-unresolved-comment-count="0" data-linked-resource-id="24576009" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220708-084316.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="4915240" data-linked-resource-container-version="3" data-media-id="af57b755-1940-44c2-b24e-9be9e34ebd39" data-media-type="file"></span><p>First, set ‘Require a pull request before merging’, which forces users to only merge with a PR. Next, at least 1 approval is needed before merging. We do this via the ‘Require Approval’ checkbox with the setting of 1. <br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/4915240/24674309.png" data-image-src="attachments/4915240/24674309.png" data-height="241" data-width="435" data-unresolved-comment-count="0" data-linked-resource-id="24674309" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220708-084348.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="4915240" data-linked-resource-container-version="3" data-media-id="54551a34-ab0c-40ca-a115-2ba84ec61a72" data-media-type="file"></span><p>At last, check the ‘Require status checks to pass before merging’ and select status check ‘main_ci_cd / build’ and 'main_ci_cd / deployToDevTest'. This means that merging can only happen to the main branch when a successful deployment to devTest is performed.<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/4915240/24739845.png" data-image-src="attachments/4915240/24739845.png" data-height="395" data-width="780" data-unresolved-comment-count="0" data-linked-resource-id="24739845" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220708-084406.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="4915240" data-linked-resource-container-version="3" data-media-id="430a3bd4-9866-4fcd-9190-e04fff078642" data-media-type="file"></span></li><li><p>Define environments and environment variables in ‘Code and automation’ → 'Environments. Three environment must be created, which are ‘DevTest’, ‘QA’ and ‘Production’. The keys are all the same, only the variables do defer. For each environment define:<br/>- AZURE_CLIENT_ID<br/>- AZURE_CLIENT_SECRET<br/>- AZURE_KEYVAULT<br/>- CLOUDHUB_WORKERS<br/>-CLOUDHUB_WORKER_TYPE</p></li><li><p>The last step is to add a protection rule to the production environment. This ensures that someone from the team needs to approve the execution to the production environment. Open the production environment variables and add a protection rule. Check ‘Required reviewers’ and add the integration team.<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/4915240/24543253.png" data-image-src="attachments/4915240/24543253.png" data-height="388" data-width="800" data-unresolved-comment-count="0" data-linked-resource-id="24543253" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220708-093537.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="4915240" data-linked-resource-container-version="3" data-media-id="905d2c57-f1df-4eaa-84ee-2011b01d6fb3" data-media-type="file"></span></li></ol><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Highlight important information in a panel like this one. To edit this panel's color or style, select one of the options in the menu.</p></div></div><h2 id="SetupGitHubrepositoryforMuleSoftAPI-Relatedarticles"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4cb" data-emoji-shortname=":clipboard:" data-emoji-fallback="\uD83D\uDCCB" src="images/icons/emoticons/72/1f4cb.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blauwe ster)"/> Related articles</h2><p></p>
+
+
+
+
+
+
+
+
+
+
+
+<ul class="content-by-label">
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="15237180" data-linked-resource-type="page" data-linked-resource-version="29" href="/wiki/spaces/ID/pages/15237180/Deployment+troubleshooting">Deployment troubleshooting</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="24117249" data-linked-resource-type="page" data-linked-resource-version="2" href="/wiki/spaces/ID/pages/24117249">Add/ remove people from Automated Code Reviewers in Github</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="4915240" data-linked-resource-type="page" data-linked-resource-version="3" href="/wiki/spaces/ID/pages/4915240/Setup+GitHub+repository+for+MuleSoft+API">Setup GitHub repository for MuleSoft API</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="5013520" data-linked-resource-type="page" data-linked-resource-version="2" href="/wiki/spaces/ID/pages/5013520/Create+a+new+MuleSoft+API+foundation">Create a new MuleSoft API foundation</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="15564801" data-linked-resource-type="page" data-linked-resource-version="6" href="/wiki/spaces/ID/pages/15564801/Deployment+instructions">Deployment instructions</a>
+                        
+                        
+                    </div>
+    </li>
+    </ul>
+<p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4915240/24379482.png">image-20220707-134041.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4915240/24641537.png">image-20220708-080818.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4915240/24576009.png">image-20220708-084316.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4915240/24674309.png">image-20220708-084348.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4915240/24739845.png">image-20220708-084406.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4915240/24543253.png">image-20220708-093537.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

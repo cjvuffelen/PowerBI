@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Risk data model</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Platform_3735660.html">Data Platform</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Power-BI-End-user-documentation_8814627.html">Power BI End user documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IHC-central-data-model_15106210.html">IHC central data model</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Risk data model
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Martjan Pols</span>, last modified by <span class='editor'> Chenxi Liang</span> on jun. 03, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>The risk power bi data model consist of several tables from IFS having different grains, with the purpose to manage the cost and delays for the project. For every project one or more risk analyses can be created. For every risk analyses one or more risks can be identified, where the risk analyses can have multiple revisions. For every risk one or more responses can be added and for every response actions can be defined.</p><p>Sub project</p><p style="margin-left: 30.0px;">1:n risk analysis</p><p style="margin-left: 60.0px;">1:n risk analyses revision</p><p style="margin-left: 90.0px;">1:n risks</p><p style="margin-left: 90.0px;">1:1 risk problem</p><p style="margin-left: 90.0px;">1:1 risk consequence</p><p style="margin-left: 120.0px;">1:n risk response</p><p style="margin-left: 150.0px;">1:n risk action</p><p>Technically also the risk, risk problem and consequences are 1:n, but this is locked in IFS.</p><h1 id="Riskdatamodel-Datamodelpicture(powerBI)">Data model picture (power BI)</h1><p>The data model in power bi has one <a href="https://ihcconfluence.atlassian.net/wiki/spaces/ID/pages/11206661/Data+model+patterns+in+Power+BI#Periodic-snapshot" rel="nofollow">periodic snapshot </a>table with the grain of month end and a history of two years.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/10256385/10289153.png" data-image-src="attachments/10256385/10289153.png" data-height="1037" data-width="1721" data-unresolved-comment-count="0" data-linked-resource-id="10289153" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220429-135444.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10256385" data-linked-resource-container-version="4" data-media-id="faccd9ab-1103-48b5-b501-52682affdb6e" data-media-type="file"></span><p>The fact is created using the lowest grain of the risk related tables: risk action. </p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/10256385/10289153.png">image-20220429-135444.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

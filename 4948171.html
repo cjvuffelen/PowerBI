@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Generic CI/CD starter Workflow</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tools_4128769.html">Tools</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="MuleSoft_3964983.html">MuleSoft</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="3735681.html">CI/CD</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Prebuild-Github-Workflows_4456461.html">Prebuild Github Workflows</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Generic CI/CD starter Workflow
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> r.lodder1</span>, last modified on jul. 07, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>For MuleSoft API deployment multiple workflows are created as defined in <a href="Prebuild-Github-Workflows_4456461.html" data-linked-resource-id="4456461" data-linked-resource-version="3" data-linked-resource-type="page">Prebuild Github Workflows</a>. The generic CI/CD Starter Workflow is a workflow that is always present in each MuleSoft API. The purpose of this workflow is to act as the initiator on specific branches and to refer to the actual workflows that perform the actions. In this way we can manage all the logic of the workflows in external files to maintain flexible and be able to change the MuleSoft API actions from one workflow.</p><h1 id="GenericCI/CDstarterWorkflow-Trigger">Trigger</h1><p>The trigger of this pipeline happens in two scenarios. The first scenario is when a pull request is created towards the main branch. This means that when a ‘feature’ (or basically any other) branch is created and that developer wants to merge it back into main, a PR is created. This PR triggers this generic workflow.</p><p>The other possibility is when a push is done towards the ‘main’ branch. In our setup this can only happen in one scenario, and that is via a PR, meaning that if a PR is approved, the merge is completed and triggers this workflow.</p><h1 id="GenericCI/CDstarterWorkflow-Jobs">Jobs</h1><p>This workflow contains two jobs that always occur when triggered, ‘delete old packages’ and executing the main CI/CD Workflow.</p><h2 id="GenericCI/CDstarterWorkflow-Deleteoldpackages">Delete old packages</h2><p>The delete old packages removes old packages from the calling repository. Two input parameters are required:</p><ul><li><p>minVersionsToKeep: Define how many versions must be maintained in GitHub Packages of this specific repository (Mule API)</p></li><li><p>packageName: Refers to package in GitHub Packages</p></li></ul><h2 id="GenericCI/CDstarterWorkflow-MainCI/CD">Main CI/CD</h2><p>The main ci/cd workflow is the main workflow that is responsible for all the CI/CD tasks to all MuleSoft environments. In order to start this workflow, both environment secrets (environment specific) and organization level secrets are mandatory. Organization level secrets are organization wide and are available for all repositories in that organization.</p><h3 id="GenericCI/CDstarterWorkflow-Environmentsecrets">Environment secrets</h3><p>As mentioned before, environment variables are specific for each environment you define. We define environment secrets for two purposes. The first is CloudHub (Anypoint Platform), the second is Azure Keyvault.</p><h4 id="GenericCI/CDstarterWorkflow-CloudHub">CloudHub</h4><p>For CloudHub it must be possible to define the amount of workers (single instance or multiple instances) and worker size (amount of memory and CPU for that API). For the DevTest environment you normally want just to test in where the minimum sizing is good enough. For Production that will often differ from the DevTest environment. The values of the secrets are the same as how you would define it in the Mule Maven Plugin. for more info, see: <a class="external-link" data-card-appearance="inline" href="https://docs.mulesoft.com/mule-runtime/4.4/deploy-to-cloudhub#cloudhub-deploy-reference" rel="nofollow">https://docs.mulesoft.com/mule-runtime/4.4/deploy-to-cloudhub#cloudhub-deploy-reference</a> </p><span class="confluence-embedded-file-wrapper image-left-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-left" width="340" loading="lazy" src="attachments/4948171/24150092.png?width=340" data-image-src="attachments/4948171/24150092.png" data-height="495" data-width="1556" data-unresolved-comment-count="0" data-linked-resource-id="24150092" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220707-082145.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="4948171" data-linked-resource-container-version="4" data-media-id="351f2c5c-8428-4f68-b8a7-5d448e7f45dd" data-media-type="file"></span><h4 id="GenericCI/CDstarterWorkflow-AzureKeyvault">Azure Keyvault</h4><p>Azure Keyvault is a solution to store secrets and certificates. For each MuleSoft API, three keyvaults are created (one for each environment). In the <a href="4653114.html" data-linked-resource-id="4653114" data-linked-resource-version="11" data-linked-resource-type="page">Main CI/CD workflow</a> the credentials will be fetched from Azure Keyvault and populated to the deployment towards CloudHub. This happens for all environments. To call the correct Keyvault three environment secrets are set:</p><ul><li><p>AZURE_CLIENT_ID: Clientid for accessing the keyvault</p></li><li><p>AZURE_CLIENT_SECRET: Clientsecret for accessing the keyvault</p></li><li><p>AZURE_KEYVAULT_NAME: Name of the keyvault to access. Use the displayname, not the vault URI. For example: Mulesoft-Schemas-A-WE.</p></li></ul><p>For access to the Azure Keyvault please contact Ops.</p><h3 id="GenericCI/CDstarterWorkflow-OrganizationSecrets">Organization Secrets</h3><p>Organization secrets are secrets defined and available for the complete organization. For the main ci/cd flow these organization secrets are mandatory in order for the main flow to run successfully. On high level secrets for deployment to CloudHub, retrieval of Mule dependencies, Github token for downloading repositories and Azure are mandatory. For a complete list and explanation of organization secrets, head to GitHub and <a data-card-appearance="inline" href="https://ihcconfluence.atlassian.net/wiki/pages/resumedraft.action?draftId=4980843" rel="nofollow">https://ihcconfluence.atlassian.net/wiki/pages/resumedraft.action?draftId=4980843</a>.</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4948171/24281150.png">image-20220707-082003.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4948171/24150092.png">image-20220707-082145.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

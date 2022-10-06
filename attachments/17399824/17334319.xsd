@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://xmlns.oracle.com/IHC/UpsertCommonMiddlewareService/" targetNamespace="http://xmlns.oracle.com/IHC/UpsertCommonMiddlewareService/" elementFormDefault="qualified">
+   <xsd:element name="UpsertCommonMiddleware">
+      <xsd:annotation>
+         <xsd:documentation>Common CRM Requester Object</xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="ID" type="xsd:string"/>
+            <xsd:element name="WebService" type="xsd:string"/>
+            <xsd:element name="Operation" type="xsd:string"/>
+            <xsd:element name="FlexField1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="FlexField2" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="FlexField3" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="FlexField4" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="FlexField5" type="xsd:string" minOccurs="0"/>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+</xsd:schema>

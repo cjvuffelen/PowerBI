@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : Setup CI/CD in GitHub Repository</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tools_4128769.html">Tools</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="MuleSoft_3964983.html">MuleSoft</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="3735681.html">CI/CD</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : Setup CI/CD in GitHub Repository
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> r.lodder1</span>, last modified on jul. 07, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2">
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h1 id="SetupCI/CDinGitHubRepository-CODEOWNERS">CODEOWNERS</h1><p>CODEOWNERS is a file located in a Git repository in where you define which team(s) or person(s) are responsible for one or more files, or for everything. Which this information GitHub can decide who to auto assign to perform a review when changes (add, modify, delete) have been applied to a Git repository. For Integrations it is decided that <strong>no</strong> difference in made who is responsible for what. Everyone in the Integration is responsible for everything in a Integration Git repository.</p><p>For that reason the CODEOWNERS file is part of the ‘Mule Repository Template’ and is used as a default for every Mule Integration. </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># This is a comment.
+# Each line is a file pattern followed by one or more owners.
+
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence,
+# @global-owner1 and @global-owner2 will be requested for
+# review when someone opens a pull request.
+*       @Royal-IHC-BV/integration</pre>
+</div></div><h1 id="SetupCI/CDinGitHubRepository-GenericGitHubActionsWorkflow">Generic GitHub Actions Workflow</h1><p>For GitHub to execute certain actions for e.g. deployment, workflows are needed to execute these steps. The GitHub Repository contains a <a href="4948171.html" data-linked-resource-id="4948171" data-linked-resource-version="4" data-linked-resource-type="page">Generic CI/CD starter Workflow</a> that acts as a standardized starter. This workflow is always included and requires certain secrets (organization, environment) to work properly as defined in <a href="Setup-GitHub-repository-for-MuleSoft-API_4915240.html" data-linked-resource-id="4915240" data-linked-resource-version="3" data-linked-resource-type="page">Setup GitHub repository for MuleSoft API</a> .</p><h1 id="SetupCI/CDinGitHubRepository-Repositorysettings">Repository settings</h1><p>Repository settings are settings that are defined on the repository itself. Its not as a file like CODEOWNERS. To make full use of CI/CD, all of the configuration is required to enable environments secrets, deployment etc. Each chapter is describing a single setting. For more information on the actual implement, head to <a href="Setup-GitHub-repository-for-MuleSoft-API_4915240.html" data-linked-resource-id="4915240" data-linked-resource-version="3" data-linked-resource-type="page">Setup GitHub repository for MuleSoft API</a>.</p><h2 id="SetupCI/CDinGitHubRepository-CollaborationandTeams">Collaboration and Teams</h2><p>Collaboration and teams is a setting to define to roles of users and teams. For the MuleSoft Integrations, this should always contains two entries:</p></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<ul><li><p>Integration: The Integration Team is added with <strong>write</strong> permissions to that everyone in this group can read/write in this Git repository, meaning everyone in this team can work on this API</p></li><li><p>royalihcanypointadministrator: A GitHub user created for Admin tasks in the CI/CD Workflow with <strong>admin</strong> permissions. Its main task is having the permission to make changes in the code (updating versions etc) when creating a release for the Mule API. Without this user added to this repository, a release cannot be build.</p></li></ul></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="680" loading="lazy" src="attachments/4980770/4915332.jpg?width=680" data-image-src="attachments/4980770/4915332.jpg" data-height="579" data-width="1112" data-unresolved-comment-count="0" data-linked-resource-id="4915332" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="collaborators-teams-repository.jpg" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="4980770" data-linked-resource-container-version="10" data-media-id="b71be4b0-736d-4fc7-91a5-141dd6dcc18a" data-media-type="file"></span><p /></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h2 id="SetupCI/CDinGitHubRepository-Branchprotectionrules">Branch protection rules</h2><p>Branch protection rules are settings to apply on a branch. In the case of Mule APIs these protection rules are applied on the sole permanent branch, with is the main branch. The rules can vary in functionality e.g. status checks before merging, required PR before merging and including an administrator when something should happen on this branch.</p><p>In the case of Mule APIs it is decided to focus on the following areas:</p><ul><li><p>Protect branch from merging without PR and review</p></li><li><p>Protect branch from merging without status checks successes</p></li></ul><h3 id="SetupCI/CDinGitHubRepository-PRandReview">PR and Review</h3><p>To make sure that nothing can merge into main without a PR and without an approval, enable the following setting below. For the Mule APIs, only one approval is mandatory on a PR before continuing.</p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" loading="lazy" src="attachments/4980770/4980827.jpg" data-image-src="attachments/4980770/4980827.jpg" data-height="246" data-width="767" data-unresolved-comment-count="0" data-linked-resource-id="4980827" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="branch-protection-rules.jpg" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="4980770" data-linked-resource-container-version="10" data-media-id="2e87065c-7564-406c-9771-5359df42a5e1" data-media-type="file"></span><h3 id="SetupCI/CDinGitHubRepository-Statuschecks">Status checks</h3><p>When a Pull Request is created all the GitHub Workflows in the Git repository are checked and, if applicable, executed. For the Mule APIs the main CI/CD flow is executed and tasks like compiling, testing and deploying will take place. You need to make sure that all of these tasks are successful before merging. Otherwise it can result in broken code in the main branch.  </p><p>To solve this it is required that certain successful status checks are required before a merge can take place. The status checks that are required before merging are the ‘build' and ‘DeployToDevTest’ steps in the main CI/CD flow.</p><p>For more information regarding the Main CI/CD GitHub Workflow see <a href="4653114.html" data-linked-resource-id="4653114" data-linked-resource-version="11" data-linked-resource-type="page">Main CI/CD workflow</a> </p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" loading="lazy" src="attachments/4980770/5046366.jpg" data-image-src="attachments/4980770/5046366.jpg" data-height="426" data-width="776" data-unresolved-comment-count="0" data-linked-resource-id="5046366" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="status-checks.jpg" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="4980770" data-linked-resource-container-version="10" data-media-id="04cd72f3-0805-4b4f-b595-db94d8a290fa" data-media-type="file"></span><h2 id="SetupCI/CDinGitHubRepository-Environments">Environments</h2><p>The environments defined in the repository match the environment as defined in MuleSoft Anypoint Platform. The environments are used in the GitHub Workflows for both fetching the appropriate environment secrets and applying the correct rules. Only environment secrets are visible here. <a href="GitHub-Organization-Secrets_4980843.html" data-linked-resource-id="4980843" data-linked-resource-version="2" data-linked-resource-type="page">GitHub Organization Secrets</a> can be accessed by all repositories and Actions and are defined on organization level.</p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" loading="lazy" src="attachments/4980770/5046613.jpg" data-image-src="attachments/4980770/5046613.jpg" data-height="282" data-width="792" data-unresolved-comment-count="0" data-linked-resource-id="5046613" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="environments.jpg" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="4980770" data-linked-resource-container-version="10" data-media-id="fe1fb949-b544-4562-b79a-67ddea0db50b" data-media-type="file"></span><h3 id="SetupCI/CDinGitHubRepository-Secrets">Secrets</h3><p>Each environment contain three properties each all related to the <a href="Azure-Keyvault-Action_4587521.html" data-linked-resource-id="4587521" data-linked-resource-version="1" data-linked-resource-type="page">Azure Keyvault Action</a> because each repository has its own unique set of clientid, clientsecret and keyvault name, different for each environment. </p><h3 id="SetupCI/CDinGitHubRepository-Nonautomaticdeliverytoproduction">Non automatic delivery to production</h3><p>To keep in control when to deploy to production a branch protection rule is defined on the production environment. One of the teammembers from the Integration Team should give a go on when to execute the actual production deployment. If the environment matures and/or the teams feels more comfortable then eventually this step can be disabled.</p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" loading="lazy" src="attachments/4980770/4980856.jpg" data-image-src="attachments/4980770/4980856.jpg" data-height="859" data-width="826" data-unresolved-comment-count="0" data-linked-resource-id="4980856" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="environment-rules-secrets.jpg" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="4980770" data-linked-resource-container-version="10" data-media-id="18dd8235-32da-400a-9384-10f2d8e094f2" data-media-type="file"></span><p /></div>
+</div>
+</div>
+</div>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4980770/4915332.jpg">collaborators-teams-repository.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4980770/4980827.jpg">branch-protection-rules.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4980770/5046372.jpg">status-checks.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4980770/5046366.jpg">status-checks.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4980770/4882886.jpg">environments.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4980770/5013703.jpg">environment-protection-rule.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4980770/5013697.jpg">environment-protection-rule.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4980770/4980856.jpg">environment-rules-secrets.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/4980770/5046613.jpg">environments.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IT Documentation : IHC Integrations API</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">IT Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="IT-Documentation-Home-Page_4718593.html">IT Documentation Home Page</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Integrations_3735653.html">Integrations</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            IT Documentation : IHC Integrations API
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Chi Chuen Ng</span>, last modified on mrt. 31, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>The IHC Integrations API is an integration layer application. It will house many different integration or adapter APIs ranging from internal facing, external facing, synchronous and asynchronous APIs.</p><p> </p><h2 id="IHCIntegrationsAPI-DMSIntegrationAPI">DMS Integration API</h2><p>This internal facing, synchronous API serves as an adapter for DMS calling Contacts API and Components API. It retrieves contacts, contact addresses, components, rooms and sections data from those APIs and transforms them into JSON message formats for DMS.</p><h4 id="IHCIntegrationsAPI-Contacts">Contacts</h4><p>The adapter retrieves contacts by making a HTTP request call to Contacts API’s get:/contacts resource. The API spec expects projectId, lastModifiedDateTime (format: “yyyy-MM-dd’T’HH:mm:ss’Z'“) and contactId queryParameters of which the first two are required. Contactid is an optional parameter to filter the collection for a specific contact.</p><p>The flow itself is simple: a http request is made and the output is transformed into an JSON response for DMS.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7405597/7471222.png" data-image-src="attachments/7405597/7471222.png" data-height="158" data-width="323" data-unresolved-comment-count="0" data-linked-resource-id="7471222" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="contacts_get_ifs_contacts.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7405597" data-linked-resource-container-version="2" data-media-id="92b58038-1564-4d94-a9d4-163f1efabff0" data-media-type="file"></span><p /><h4 id="IHCIntegrationsAPI-Addresses">Addresses</h4><p>The adapter retrieves addresses by making a HTTP request call to Contacts API’s get:/addresses resource. The API spec expects projectId, lastModifiedDateTime (format: “yyyy-MM-dd’T’HH:mm:ss’Z'“) and contactId queryParameters of which the first two are required. Contactid is an optional parameter to filter the collection for a specific contact.</p><p>The flow itself is simple: a http request is made and the output is transformed into an JSON response for DMS.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7405597/7405637.png" data-image-src="attachments/7405597/7405637.png" data-height="158" data-width="329" data-unresolved-comment-count="0" data-linked-resource-id="7405637" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="addresses_get_ifs_addresses.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7405597" data-linked-resource-container-version="2" data-media-id="cd95c518-4650-4463-8aa1-0977b8482e5c" data-media-type="file"></span><p /><h4 id="IHCIntegrationsAPI-Components">Components</h4><p>The adapter retrieves components by making a HTTP request call to Components API’s get:/components resource. The API spec expects projectId, lastModifiedDateTime (format: “yyyy-MM-dd’T’HH:mm:ss’Z'“) and objectId queryParameters of which the first two are required. ObjectId is an optional parameter to filter the collection for a specific component.</p><p>The flow itself is simple: a http request is made and the output is transformed into an JSON response for DMS.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7405597/7438419.png" data-image-src="attachments/7405597/7438419.png" data-height="158" data-width="345" data-unresolved-comment-count="0" data-linked-resource-id="7438419" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="components_get_ifs_components.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7405597" data-linked-resource-container-version="2" data-media-id="d97c8ec1-9760-4037-a133-1cf46bc1e4b9" data-media-type="file"></span><p /><h4 id="IHCIntegrationsAPI-Rooms">Rooms</h4><p>The adapter retrieves rooms by making a HTTP request call to Components API’s get:/rooms resource. The API spec expects projectId, lastModifiedDateTime (format: “yyyy-MM-dd’T’HH:mm:ss’Z'“) and objectId queryParameters of which the first two are required. ObjectId is an optional parameter to filter the collection for a specific room.</p><p>The flow itself is simple: a http request is made and the output is transformed into an JSON response for DMS.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7405597/7405647.png" data-image-src="attachments/7405597/7405647.png" data-height="158" data-width="321" data-unresolved-comment-count="0" data-linked-resource-id="7405647" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="rooms_get_ifs_rooms.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7405597" data-linked-resource-container-version="2" data-media-id="dca37567-f73c-49f4-a0fb-4a59c54caecd" data-media-type="file"></span><p /><h4 id="IHCIntegrationsAPI-Sections">Sections</h4><p>The adapter retrieves rooms by making a HTTP request call to Components API’s get:/sections resource. The API spec expects projectId, lastModifiedDateTime (format: “yyyy-MM-dd’T’HH:mm:ss’Z'“) and objectId queryParameters of which the first two are required. ObjectId is an optional parameter to filter the collection for a specific section.</p><p>The flow itself is simple: a http request is made and the output is transformed into an JSON response for DMS.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7405597/7405655.png" data-image-src="attachments/7405597/7405655.png" data-height="158" data-width="321" data-unresolved-comment-count="0" data-linked-resource-id="7405655" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="sections_get_ifs_sections.png" data-base-url="https://ihcconfluence.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7405597" data-linked-resource-container-version="2" data-media-id="6beda834-c93d-4fcf-8938-e71b8168821b" data-media-type="file"></span><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7405597/7471222.png">contacts_get_ifs_contacts.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7405597/7405637.png">addresses_get_ifs_addresses.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7405597/7438419.png">components_get_ifs_components.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7405597/7405647.png">rooms_get_ifs_rooms.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7405597/7405655.png">sections_get_ifs_sections.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on jul. 12, 2022 12:55</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
